@@ -51,7 +51,7 @@ Partial Class nuevoLibro
         DataGridView1.BorderStyle = BorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = Color.White
-        DataGridViewCellStyle1.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle1.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
         DataGridViewCellStyle1.ForeColor = Color.Red
         DataGridViewCellStyle1.Padding = New Padding(5)
         DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
@@ -61,77 +61,77 @@ Partial Class nuevoLibro
         DataGridView1.ColumnHeadersHeight = 40
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = SystemColors.Window
-        DataGridViewCellStyle2.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle2.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
         DataGridViewCellStyle2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
-        DataGridView1.Location = New Point(29, 55)
+        DataGridView1.Location = New Point(26, 52)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
-        DataGridView1.Size = New Size(553, 482)
+        DataGridView1.Size = New Size(492, 459)
         DataGridView1.TabIndex = 2
         ' 
         ' textBoxAutor
         ' 
-        textBoxAutor.Font = New Font("Montserrat", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
+        textBoxAutor.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
         textBoxAutor.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        textBoxAutor.Location = New Point(0, 44)
+        textBoxAutor.Location = New Point(0, 42)
         textBoxAutor.Name = "textBoxAutor"
-        textBoxAutor.Size = New Size(439, 38)
+        textBoxAutor.Size = New Size(391, 36)
         textBoxAutor.TabIndex = 13
         ' 
         ' TextBoxPais
         ' 
-        TextBoxPais.Font = New Font("Montserrat", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
+        TextBoxPais.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
         TextBoxPais.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        TextBoxPais.Location = New Point(0, 123)
+        TextBoxPais.Location = New Point(0, 117)
         TextBoxPais.Name = "TextBoxPais"
-        TextBoxPais.Size = New Size(439, 38)
+        TextBoxPais.Size = New Size(391, 36)
         TextBoxPais.TabIndex = 14
         ' 
         ' TextBoxTítulo
         ' 
-        TextBoxTítulo.Font = New Font("Montserrat", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
+        TextBoxTítulo.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
         TextBoxTítulo.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        TextBoxTítulo.Location = New Point(665, 385)
+        TextBoxTítulo.Location = New Point(591, 367)
         TextBoxTítulo.Name = "TextBoxTítulo"
-        TextBoxTítulo.Size = New Size(439, 38)
+        TextBoxTítulo.Size = New Size(391, 36)
         TextBoxTítulo.TabIndex = 15
         ' 
         ' LabelTítulo
         ' 
         LabelTítulo.AutoSize = True
-        LabelTítulo.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        LabelTítulo.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         LabelTítulo.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        LabelTítulo.Location = New Point(664, 355)
+        LabelTítulo.Location = New Point(590, 338)
         LabelTítulo.Name = "LabelTítulo"
-        LabelTítulo.Size = New Size(72, 27)
+        LabelTítulo.Size = New Size(66, 25)
         LabelTítulo.TabIndex = 16
         LabelTítulo.Text = "Título"
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label1.Location = New Point(-1, 14)
+        Label1.Location = New Point(-1, 13)
         Label1.Name = "Label1"
-        Label1.Size = New Size(104, 27)
+        Label1.Size = New Size(93, 25)
         Label1.TabIndex = 17
         Label1.Text = "Nombre "
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label2.Location = New Point(-1, 93)
+        Label2.Location = New Point(-1, 89)
         Label2.Name = "Label2"
-        Label2.Size = New Size(56, 27)
+        Label2.Size = New Size(54, 25)
         Label2.TabIndex = 18
         Label2.Text = "País"
         ' 
@@ -142,11 +142,11 @@ Partial Class nuevoLibro
         BtnIngresar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         BtnIngresar.FlatAppearance.BorderSize = 0
         BtnIngresar.FlatStyle = FlatStyle.Flat
-        BtnIngresar.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnIngresar.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnIngresar.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnIngresar.Location = New Point(665, 449)
+        BtnIngresar.Location = New Point(591, 428)
         BtnIngresar.Name = "BtnIngresar"
-        BtnIngresar.Size = New Size(439, 51)
+        BtnIngresar.Size = New Size(390, 49)
         BtnIngresar.TabIndex = 36
         BtnIngresar.Text = "Ingresar"
         BtnIngresar.UseVisualStyleBackColor = False
@@ -158,11 +158,11 @@ Partial Class nuevoLibro
         BtnExistente.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         BtnExistente.FlatAppearance.BorderSize = 0
         BtnExistente.FlatStyle = FlatStyle.Flat
-        BtnExistente.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnExistente.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnExistente.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnExistente.Location = New Point(15, 5)
+        BtnExistente.Location = New Point(13, 5)
         BtnExistente.Name = "BtnExistente"
-        BtnExistente.Size = New Size(193, 51)
+        BtnExistente.Size = New Size(172, 49)
         BtnExistente.TabIndex = 37
         BtnExistente.Text = "Existente"
         BtnExistente.UseVisualStyleBackColor = False
@@ -174,11 +174,11 @@ Partial Class nuevoLibro
         BtnNuevo.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         BtnNuevo.FlatAppearance.BorderSize = 0
         BtnNuevo.FlatStyle = FlatStyle.Flat
-        BtnNuevo.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnNuevo.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnNuevo.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnNuevo.Location = New Point(234, 5)
+        BtnNuevo.Location = New Point(208, 5)
         BtnNuevo.Name = "BtnNuevo"
-        BtnNuevo.Size = New Size(193, 51)
+        BtnNuevo.Size = New Size(172, 49)
         BtnNuevo.TabIndex = 38
         BtnNuevo.Text = "Nuevo"
         BtnNuevo.UseVisualStyleBackColor = False
@@ -189,53 +189,53 @@ Partial Class nuevoLibro
         PanelNuevoAutor.Controls.Add(textBoxAutor)
         PanelNuevoAutor.Controls.Add(Label1)
         PanelNuevoAutor.Controls.Add(Label2)
-        PanelNuevoAutor.Location = New Point(665, 149)
+        PanelNuevoAutor.Location = New Point(591, 142)
         PanelNuevoAutor.Name = "PanelNuevoAutor"
-        PanelNuevoAutor.Size = New Size(439, 177)
+        PanelNuevoAutor.Size = New Size(390, 169)
         PanelNuevoAutor.TabIndex = 39
         ' 
         ' PanelBtnTipoAutor
         ' 
         PanelBtnTipoAutor.Controls.Add(BtnNuevo)
         PanelBtnTipoAutor.Controls.Add(BtnExistente)
-        PanelBtnTipoAutor.Location = New Point(665, 51)
+        PanelBtnTipoAutor.Location = New Point(591, 49)
         PanelBtnTipoAutor.Name = "PanelBtnTipoAutor"
-        PanelBtnTipoAutor.Size = New Size(439, 62)
+        PanelBtnTipoAutor.Size = New Size(390, 59)
         PanelBtnTipoAutor.TabIndex = 40
         ' 
         ' LabelVe
         ' 
         LabelVe.AutoSize = True
-        LabelVe.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        LabelVe.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         LabelVe.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         LabelVe.Location = New Point(-1, 0)
         LabelVe.Name = "LabelVe"
-        LabelVe.Size = New Size(72, 27)
+        LabelVe.Size = New Size(64, 25)
         LabelVe.TabIndex = 42
         LabelVe.Text = "Autor"
         ' 
         ' ListaAutorExistente
         ' 
-        ListaAutorExistente.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        ListaAutorExistente.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         ListaAutorExistente.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         ListaAutorExistente.FormattingEnabled = True
-        ListaAutorExistente.Location = New Point(0, 42)
+        ListaAutorExistente.Location = New Point(0, 40)
         ListaAutorExistente.Name = "ListaAutorExistente"
-        ListaAutorExistente.Size = New Size(439, 35)
+        ListaAutorExistente.Size = New Size(391, 33)
         ListaAutorExistente.TabIndex = 41
         ' 
         ' PanelAutorExistente
         ' 
         PanelAutorExistente.Controls.Add(ListaAutorExistente)
         PanelAutorExistente.Controls.Add(LabelVe)
-        PanelAutorExistente.Location = New Point(665, 189)
+        PanelAutorExistente.Location = New Point(591, 180)
         PanelAutorExistente.Name = "PanelAutorExistente"
-        PanelAutorExistente.Size = New Size(439, 87)
+        PanelAutorExistente.Size = New Size(390, 83)
         PanelAutorExistente.TabIndex = 40
         ' 
         ' nuevoLibro
         ' 
-        AutoScaleDimensions = New SizeF(9F, 21F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(1192, 570)

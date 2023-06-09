@@ -122,7 +122,7 @@ Public Class Form1
     'REDIRECCIONAR---------------------------------------------
     Private Sub archivoP1_Click(sender As Object, e As EventArgs) Handles archivoP1.Click
         nuevoLibro.Visible = False
-
+        NuevoCliente.Visible = False
     End Sub
     Private Sub archivoP2_Click(sender As Object, e As EventArgs) Handles archivoP2.Click
         nuevoLibro.Visible = True
@@ -131,7 +131,8 @@ Public Class Form1
 
     'nuevo cliente; nuevo boton
     Private Sub ArchivoP4_Click(sender As Object, e As EventArgs) Handles ArchivoP4.Click
-
+        NuevoCliente.Visible = True
+        NuevoCliente.Owner = Me
     End Sub
 
     'locacion
@@ -141,9 +142,14 @@ Public Class Form1
             nuevoLibro.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form2 en relación con Form1
         End If
 
-        'NUEVOS FORMS--------------
-
-
+        'FORMS nuevos cliente--------------
+        If NuevoCliente IsNot Nothing Then ' Verificar si el Formulario 3 está abierto
+            NuevoCliente.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form3 en relación con Form1
+        End If
+        'FORMS cliente--------------
+        If Cliente IsNot Nothing Then ' Verificar si el Formulario 4 está abierto
+            Cliente.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form4 en relación con Form1
+        End If
     End Sub
 
     Private Sub Menu_MouseDown(sender As Object, e As MouseEventArgs) Handles Menu.MouseDown
