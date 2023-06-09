@@ -2,7 +2,7 @@
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 
 Public Class nuevoLibro
-    'HOLA
+    'HOLA jeisoon conectate CERDO
     Dim conexion As New SqlConnection("Data source =YERCKEN\SQLEXPRESS; Initial Catalog=taller3; integrated security = true ")
 
     Dim connectionString As String = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=taller3; integrated security = true "
