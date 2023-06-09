@@ -129,6 +129,10 @@ Public Class Form1
         nuevoLibro.Owner = Me
     End Sub
 
+    'nuevo cliente; nuevo boton
+    Private Sub ArchivoP4_Click(sender As Object, e As EventArgs) Handles ArchivoP4.Click
+
+    End Sub
 
     'locacion
     Private Sub Form1_LocationChanged(sender As Object, e As EventArgs) Handles MyBase.LocationChanged
@@ -136,6 +140,9 @@ Public Class Form1
         If nuevoLibro IsNot Nothing Then ' Verificar si el Formulario 2 está abierto
             nuevoLibro.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form2 en relación con Form1
         End If
+
+        'NUEVOS FORMS--------------
+
 
     End Sub
 
