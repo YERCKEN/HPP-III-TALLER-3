@@ -128,6 +128,9 @@ Public Class Form1
         nuevoLibro.Visible = True
         nuevoLibro.Owner = Me
     End Sub
+
+
+    'locacion
     Private Sub Form1_LocationChanged(sender As Object, e As EventArgs) Handles MyBase.LocationChanged
 
         If nuevoLibro IsNot Nothing Then ' Verificar si el Formulario 2 está abierto

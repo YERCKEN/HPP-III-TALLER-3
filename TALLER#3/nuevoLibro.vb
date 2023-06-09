@@ -8,6 +8,7 @@ Public Class nuevoLibro
     Dim connectionString As String = varGlobales.cadenaConexion
 
     Private Sub nuevoLibro_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 48) ' Establecer la nueva ubicación de Form2 en relación con Form1
 
         PanelAutorExistente.Visible = False
@@ -158,5 +159,9 @@ Public Class nuevoLibro
 
         AgregarLibroAAutorExistente(ListaAutorExistente.Text, TextBoxTítulo.Text)
         DataGridView1.DataSource = ObtenerLibrosAutores()
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
     End Sub
 End Class
