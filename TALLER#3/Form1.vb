@@ -16,7 +16,7 @@ Public Class Form1
                             JOIN Books ON Prestamos.LibroId = Books.Id;"
 
     ' Cadena de conexión a la base de datos
-    Dim conexion As New SqlConnection("Data source =YERCKEN\SQLEXPRESS; Initial Catalog=taller3; integrated security = true ")
+    Dim conexion As New SqlConnection(varGlobales.cadenaConexion)
 
 
 
