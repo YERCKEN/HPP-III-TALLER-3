@@ -7,8 +7,41 @@ Public Class NuevoCliente
 
     Private Sub NuevoCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 48) ' Establecer la nueva ubicación de Form3 en relación con Form1
-    End Sub
+        Try
 
+            conexion.Open()
+
+            DataGridView1.DataSource = ObtenerLibrosAutores()
+            'PROPIEDADES GRIDVIEW-----------------------------------------------------------------
+            DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            DataGridView1.AutoSize = False
+            DataGridView1.MaximumSize = New Size(1192, 570)
+            DataGridView1.AutoResizeColumns()
+            DataGridView1.ReadOnly = True
+
+
+            conexion.Close()
+
+
+        Catch ex As Exception
+
+            MsgBox("ERRROR CONECTAR CON BASE")
+            conexion.Close()
+
+        End Try
+    End Sub
+    Public Function ObtenerLibrosAutores() As DataTable
+
+        Dim query As String = "SELECT * FROM Cliente"
+
+        Dim dataTable As New DataTable()
+        ' Crear el adaptador y ejecutar la consulta
+        Dim adapter As New SqlDataAdapter(query, conexion)
+        adapter.Fill(dataTable)
+
+        Return dataTable
+
+    End Function
     Private Sub NewClienteBtn_Click(sender As Object, e As EventArgs) Handles NewClienteBtn.Click
         Dim nombre As String = NombreTb.Text
         Dim correo As String = CorreoTb.Text
@@ -56,5 +89,7 @@ Public Class NuevoCliente
         Else
             MessageBox.Show("Por favor, complete todos los campos.")
         End If
+
+        DataGridView1.DataSource = ObtenerLibrosAutores()
     End Sub
 End Class

@@ -22,6 +22,8 @@ Partial Class NuevoCliente
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label1 = New Label()
         NewClienteBtn = New Button()
         IngresarCliente = New Panel()
@@ -32,8 +34,10 @@ Partial Class NuevoCliente
         PanelAutorExistente = New Panel()
         ListaAutorExistente = New ComboBox()
         LabelVe = New Label()
+        DataGridView1 = New DataGridView()
         IngresarCliente.SuspendLayout()
         PanelAutorExistente.SuspendLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Label1
@@ -42,7 +46,7 @@ Partial Class NuevoCliente
         Label1.Enabled = False
         Label1.Font = New Font("Microsoft Sans Serif", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label1.Location = New Point(13, 21)
+        Label1.Location = New Point(444, 26)
         Label1.Margin = New Padding(4, 0, 4, 0)
         Label1.Name = "Label1"
         Label1.Size = New Size(178, 29)
@@ -58,7 +62,7 @@ Partial Class NuevoCliente
         NewClienteBtn.FlatStyle = FlatStyle.Flat
         NewClienteBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         NewClienteBtn.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        NewClienteBtn.Location = New Point(335, 353)
+        NewClienteBtn.Location = New Point(613, 341)
         NewClienteBtn.Name = "NewClienteBtn"
         NewClienteBtn.Size = New Size(390, 49)
         NewClienteBtn.TabIndex = 46
@@ -71,7 +75,7 @@ Partial Class NuevoCliente
         IngresarCliente.Controls.Add(NombreTb)
         IngresarCliente.Controls.Add(Label2)
         IngresarCliente.Controls.Add(Label3)
-        IngresarCliente.Location = New Point(336, 141)
+        IngresarCliente.Location = New Point(614, 129)
         IngresarCliente.Name = "IngresarCliente"
         IngresarCliente.Size = New Size(390, 169)
         IngresarCliente.TabIndex = 47
@@ -120,7 +124,7 @@ Partial Class NuevoCliente
         ' 
         PanelAutorExistente.Controls.Add(ListaAutorExistente)
         PanelAutorExistente.Controls.Add(LabelVe)
-        PanelAutorExistente.Location = New Point(336, 179)
+        PanelAutorExistente.Location = New Point(614, 167)
         PanelAutorExistente.Name = "PanelAutorExistente"
         PanelAutorExistente.Size = New Size(390, 83)
         PanelAutorExistente.TabIndex = 48
@@ -146,11 +150,42 @@ Partial Class NuevoCliente
         LabelVe.TabIndex = 42
         LabelVe.Text = "Autor"
         ' 
+        ' DataGridView1
+        ' 
+        DataGridView1.BackgroundColor = Color.White
+        DataGridView1.BorderStyle = BorderStyle.None
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = Color.White
+        DataGridViewCellStyle1.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle1.ForeColor = Color.Red
+        DataGridViewCellStyle1.Padding = New Padding(5)
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridView1.ColumnHeadersHeight = 40
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = SystemColors.Window
+        DataGridViewCellStyle2.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridView1.Location = New Point(41, 72)
+        DataGridView1.Margin = New Padding(4, 3, 4, 3)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.RowHeadersWidth = 51
+        DataGridView1.RowTemplate.Height = 31
+        DataGridView1.Size = New Size(492, 459)
+        DataGridView1.TabIndex = 49
+        ' 
         ' NuevoCliente
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1060, 543)
+        Controls.Add(DataGridView1)
         Controls.Add(NewClienteBtn)
         Controls.Add(IngresarCliente)
         Controls.Add(PanelAutorExistente)
@@ -162,6 +197,7 @@ Partial Class NuevoCliente
         IngresarCliente.PerformLayout()
         PanelAutorExistente.ResumeLayout(False)
         PanelAutorExistente.PerformLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -176,4 +212,5 @@ Partial Class NuevoCliente
     Friend WithEvents PanelAutorExistente As Panel
     Friend WithEvents ListaAutorExistente As ComboBox
     Friend WithEvents LabelVe As Label
+    Friend WithEvents DataGridView1 As DataGridView
 End Class
