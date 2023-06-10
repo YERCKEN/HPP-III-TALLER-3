@@ -18,8 +18,6 @@ Public Class Form1
     ' Cadena de conexión a la base de datos
     Dim conexion As New SqlConnection(varGlobales.cadenaConexion)
 
-
-
     'Declaración de la función SendMessage
     <DllImport("user32.dll", CharSet:=CharSet.Auto)>
     Private Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal Msg As Integer, ByVal wParam As Integer, ByVal lParam As Integer) As Integer
@@ -29,10 +27,6 @@ Public Class Form1
     <DllImport("user32.dll", CharSet:=CharSet.Auto)>
     Private Shared Function ReleaseCapture() As Boolean
     End Function
-
-
-
-
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 

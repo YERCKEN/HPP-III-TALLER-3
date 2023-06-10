@@ -31,7 +31,7 @@ Partial Class Cliente
         Label1.Enabled = False
         Label1.Font = New Font("Montserrat", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label1.Location = New Point(497, 182)
+        Label1.Location = New Point(173, 64)
         Label1.Margin = New Padding(4, 0, 4, 0)
         Label1.Name = "Label1"
         Label1.Size = New Size(116, 32)

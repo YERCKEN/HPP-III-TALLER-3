@@ -39,10 +39,12 @@ Partial Class nuevoLibro
         LabelVe = New Label()
         ListaAutorExistente = New ComboBox()
         PanelAutorExistente = New Panel()
+        Panel1 = New Panel()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         PanelNuevoAutor.SuspendLayout()
         PanelBtnTipoAutor.SuspendLayout()
         PanelAutorExistente.SuspendLayout()
+        Panel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' DataGridView1
@@ -97,7 +99,7 @@ Partial Class nuevoLibro
         ' 
         TextBoxTítulo.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
         TextBoxTítulo.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        TextBoxTítulo.Location = New Point(665, 385)
+        TextBoxTítulo.Location = New Point(1, 38)
         TextBoxTítulo.Name = "TextBoxTítulo"
         TextBoxTítulo.Size = New Size(439, 36)
         TextBoxTítulo.TabIndex = 15
@@ -107,7 +109,7 @@ Partial Class nuevoLibro
         LabelTítulo.AutoSize = True
         LabelTítulo.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         LabelTítulo.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        LabelTítulo.Location = New Point(664, 355)
+        LabelTítulo.Location = New Point(1, 0)
         LabelTítulo.Name = "LabelTítulo"
         LabelTítulo.Size = New Size(66, 25)
         LabelTítulo.TabIndex = 16
@@ -144,7 +146,7 @@ Partial Class nuevoLibro
         BtnIngresar.FlatStyle = FlatStyle.Flat
         BtnIngresar.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnIngresar.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnIngresar.Location = New Point(665, 449)
+        BtnIngresar.Location = New Point(1, 101)
         BtnIngresar.Name = "BtnIngresar"
         BtnIngresar.Size = New Size(439, 51)
         BtnIngresar.TabIndex = 36
@@ -233,19 +235,27 @@ Partial Class nuevoLibro
         PanelAutorExistente.Size = New Size(439, 87)
         PanelAutorExistente.TabIndex = 40
         ' 
+        ' Panel1
+        ' 
+        Panel1.Controls.Add(BtnIngresar)
+        Panel1.Controls.Add(LabelTítulo)
+        Panel1.Controls.Add(TextBoxTítulo)
+        Panel1.Location = New Point(664, 355)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(440, 155)
+        Panel1.TabIndex = 41
+        ' 
         ' nuevoLibro
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(1192, 570)
-        Controls.Add(BtnIngresar)
-        Controls.Add(LabelTítulo)
-        Controls.Add(TextBoxTítulo)
         Controls.Add(DataGridView1)
         Controls.Add(PanelNuevoAutor)
         Controls.Add(PanelBtnTipoAutor)
         Controls.Add(PanelAutorExistente)
+        Controls.Add(Panel1)
         FormBorderStyle = FormBorderStyle.None
         Name = "nuevoLibro"
         StartPosition = FormStartPosition.CenterScreen
@@ -256,8 +266,9 @@ Partial Class nuevoLibro
         PanelBtnTipoAutor.ResumeLayout(False)
         PanelAutorExistente.ResumeLayout(False)
         PanelAutorExistente.PerformLayout()
+        Panel1.ResumeLayout(False)
+        Panel1.PerformLayout()
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
     Friend WithEvents DataGridView1 As DataGridView
@@ -275,4 +286,5 @@ Partial Class nuevoLibro
     Friend WithEvents LabelVe As Label
     Friend WithEvents ListaAutorExistente As ComboBox
     Friend WithEvents PanelAutorExistente As Panel
+    Friend WithEvents Panel1 As Panel
 End Class
