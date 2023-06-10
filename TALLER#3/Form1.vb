@@ -123,19 +123,51 @@ Public Class Form1
     Private Sub archivoP1_Click(sender As Object, e As EventArgs) Handles archivoP1.Click
         nuevoLibro.Visible = False
         NuevoCliente.Visible = False
+        Cliente.Visible = False
+        nuevoPrestamo.Visible = False
+
     End Sub
     Private Sub archivoP2_Click(sender As Object, e As EventArgs) Handles archivoP2.Click
         nuevoLibro.Visible = True
         nuevoLibro.Owner = Me
+
+        'VISIBILDIAD
+        nuevoPrestamo.Visible = False
+        Cliente.Visible = False
+        NuevoCliente.Visible = False
     End Sub
 
     'nuevo cliente; nuevo boton
     Private Sub ArchivoP4_Click(sender As Object, e As EventArgs) Handles ArchivoP4.Click
         NuevoCliente.Visible = True
         NuevoCliente.Owner = Me
+
+        'VISIBILDIAD
+        nuevoPrestamo.Visible = False
+        nuevoLibro.Visible = False
+        Cliente.Visible = False
     End Sub
 
-    'locacion
+    Private Sub ArchivoPrestamo_Click(sender As Object, e As EventArgs) Handles ArchivoPrestamo.Click
+        nuevoPrestamo.Visible = True
+        nuevoPrestamo.Owner = Me
+
+        'VISIBILDIAD
+        Cliente.Visible = False
+        nuevoLibro.Visible = False
+        NuevoCliente.Visible = False
+    End Sub
+    Private Sub P3_Click(sender As Object, e As EventArgs) Handles P3.Click
+        Cliente.Visible = True
+        Cliente.Owner = Me
+
+        'VISIBILDIAD
+        nuevoPrestamo.Visible = False
+        nuevoLibro.Visible = False
+        NuevoCliente.Visible = False
+    End Sub
+
+    '´LOCALIDAD--------------------------------------------------------------------------------------------------
     Private Sub Form1_LocationChanged(sender As Object, e As EventArgs) Handles MyBase.LocationChanged
 
         If nuevoLibro IsNot Nothing Then ' Verificar si el Formulario 2 está abierto
@@ -146,9 +178,15 @@ Public Class Form1
         If NuevoCliente IsNot Nothing Then ' Verificar si el Formulario 3 está abierto
             NuevoCliente.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form3 en relación con Form1
         End If
+
         'FORMS cliente--------------
         If Cliente IsNot Nothing Then ' Verificar si el Formulario 4 está abierto
             Cliente.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form4 en relación con Form1
+        End If
+
+        'FORMS cliente--------------
+        If nuevoPrestamo IsNot Nothing Then ' Verificar si el Formulario 4 está abierto
+            nuevoPrestamo.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form4 en relación con Form1
         End If
     End Sub
 

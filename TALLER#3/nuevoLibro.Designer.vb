@@ -67,39 +67,39 @@ Partial Class nuevoLibro
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
-        DataGridView1.Location = New Point(26, 52)
+        DataGridView1.Location = New Point(29, 55)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
-        DataGridView1.Size = New Size(492, 459)
+        DataGridView1.Size = New Size(554, 482)
         DataGridView1.TabIndex = 2
         ' 
         ' textBoxAutor
         ' 
         textBoxAutor.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
         textBoxAutor.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        textBoxAutor.Location = New Point(0, 42)
+        textBoxAutor.Location = New Point(0, 44)
         textBoxAutor.Name = "textBoxAutor"
-        textBoxAutor.Size = New Size(391, 36)
+        textBoxAutor.Size = New Size(439, 36)
         textBoxAutor.TabIndex = 13
         ' 
         ' TextBoxPais
         ' 
         TextBoxPais.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
         TextBoxPais.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        TextBoxPais.Location = New Point(0, 117)
+        TextBoxPais.Location = New Point(0, 123)
         TextBoxPais.Name = "TextBoxPais"
-        TextBoxPais.Size = New Size(391, 36)
+        TextBoxPais.Size = New Size(439, 36)
         TextBoxPais.TabIndex = 14
         ' 
         ' TextBoxTítulo
         ' 
         TextBoxTítulo.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
         TextBoxTítulo.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        TextBoxTítulo.Location = New Point(591, 367)
+        TextBoxTítulo.Location = New Point(665, 385)
         TextBoxTítulo.Name = "TextBoxTítulo"
-        TextBoxTítulo.Size = New Size(391, 36)
+        TextBoxTítulo.Size = New Size(439, 36)
         TextBoxTítulo.TabIndex = 15
         ' 
         ' LabelTítulo
@@ -107,7 +107,7 @@ Partial Class nuevoLibro
         LabelTítulo.AutoSize = True
         LabelTítulo.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         LabelTítulo.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        LabelTítulo.Location = New Point(590, 338)
+        LabelTítulo.Location = New Point(664, 355)
         LabelTítulo.Name = "LabelTítulo"
         LabelTítulo.Size = New Size(66, 25)
         LabelTítulo.TabIndex = 16
@@ -118,7 +118,7 @@ Partial Class nuevoLibro
         Label1.AutoSize = True
         Label1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label1.Location = New Point(-1, 13)
+        Label1.Location = New Point(-1, 14)
         Label1.Name = "Label1"
         Label1.Size = New Size(93, 25)
         Label1.TabIndex = 17
@@ -129,7 +129,7 @@ Partial Class nuevoLibro
         Label2.AutoSize = True
         Label2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label2.Location = New Point(-1, 89)
+        Label2.Location = New Point(-1, 93)
         Label2.Name = "Label2"
         Label2.Size = New Size(54, 25)
         Label2.TabIndex = 18
@@ -144,9 +144,9 @@ Partial Class nuevoLibro
         BtnIngresar.FlatStyle = FlatStyle.Flat
         BtnIngresar.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnIngresar.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnIngresar.Location = New Point(591, 428)
+        BtnIngresar.Location = New Point(665, 449)
         BtnIngresar.Name = "BtnIngresar"
-        BtnIngresar.Size = New Size(390, 49)
+        BtnIngresar.Size = New Size(439, 51)
         BtnIngresar.TabIndex = 36
         BtnIngresar.Text = "Ingresar"
         BtnIngresar.UseVisualStyleBackColor = False
@@ -160,9 +160,9 @@ Partial Class nuevoLibro
         BtnExistente.FlatStyle = FlatStyle.Flat
         BtnExistente.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnExistente.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnExistente.Location = New Point(13, 5)
+        BtnExistente.Location = New Point(15, 5)
         BtnExistente.Name = "BtnExistente"
-        BtnExistente.Size = New Size(172, 49)
+        BtnExistente.Size = New Size(194, 51)
         BtnExistente.TabIndex = 37
         BtnExistente.Text = "Existente"
         BtnExistente.UseVisualStyleBackColor = False
@@ -176,9 +176,9 @@ Partial Class nuevoLibro
         BtnNuevo.FlatStyle = FlatStyle.Flat
         BtnNuevo.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnNuevo.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnNuevo.Location = New Point(208, 5)
+        BtnNuevo.Location = New Point(234, 5)
         BtnNuevo.Name = "BtnNuevo"
-        BtnNuevo.Size = New Size(172, 49)
+        BtnNuevo.Size = New Size(194, 51)
         BtnNuevo.TabIndex = 38
         BtnNuevo.Text = "Nuevo"
         BtnNuevo.UseVisualStyleBackColor = False
@@ -189,18 +189,18 @@ Partial Class nuevoLibro
         PanelNuevoAutor.Controls.Add(textBoxAutor)
         PanelNuevoAutor.Controls.Add(Label1)
         PanelNuevoAutor.Controls.Add(Label2)
-        PanelNuevoAutor.Location = New Point(591, 142)
+        PanelNuevoAutor.Location = New Point(665, 149)
         PanelNuevoAutor.Name = "PanelNuevoAutor"
-        PanelNuevoAutor.Size = New Size(390, 169)
+        PanelNuevoAutor.Size = New Size(439, 177)
         PanelNuevoAutor.TabIndex = 39
         ' 
         ' PanelBtnTipoAutor
         ' 
         PanelBtnTipoAutor.Controls.Add(BtnNuevo)
         PanelBtnTipoAutor.Controls.Add(BtnExistente)
-        PanelBtnTipoAutor.Location = New Point(591, 49)
+        PanelBtnTipoAutor.Location = New Point(665, 51)
         PanelBtnTipoAutor.Name = "PanelBtnTipoAutor"
-        PanelBtnTipoAutor.Size = New Size(390, 59)
+        PanelBtnTipoAutor.Size = New Size(439, 62)
         PanelBtnTipoAutor.TabIndex = 40
         ' 
         ' LabelVe
@@ -219,23 +219,23 @@ Partial Class nuevoLibro
         ListaAutorExistente.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         ListaAutorExistente.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         ListaAutorExistente.FormattingEnabled = True
-        ListaAutorExistente.Location = New Point(0, 40)
+        ListaAutorExistente.Location = New Point(0, 42)
         ListaAutorExistente.Name = "ListaAutorExistente"
-        ListaAutorExistente.Size = New Size(391, 33)
+        ListaAutorExistente.Size = New Size(439, 33)
         ListaAutorExistente.TabIndex = 41
         ' 
         ' PanelAutorExistente
         ' 
         PanelAutorExistente.Controls.Add(ListaAutorExistente)
         PanelAutorExistente.Controls.Add(LabelVe)
-        PanelAutorExistente.Location = New Point(591, 180)
+        PanelAutorExistente.Location = New Point(665, 189)
         PanelAutorExistente.Name = "PanelAutorExistente"
-        PanelAutorExistente.Size = New Size(390, 83)
+        PanelAutorExistente.Size = New Size(439, 87)
         PanelAutorExistente.TabIndex = 40
         ' 
         ' nuevoLibro
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(1192, 570)

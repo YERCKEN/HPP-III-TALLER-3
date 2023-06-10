@@ -22,16 +22,34 @@ Partial Class NuevoCliente
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Label1 = New Label()
         SuspendLayout()
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Enabled = False
+        Label1.Font = New Font("Montserrat", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label1.Location = New Point(538, 269)
+        Label1.Margin = New Padding(4, 0, 4, 0)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(187, 32)
+        Label1.TabIndex = 13
+        Label1.Text = "Nuevo Cliente"
         ' 
         ' NuevoCliente
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1192, 570)
+        Controls.Add(Label1)
         FormBorderStyle = FormBorderStyle.None
         Name = "NuevoCliente"
         Text = "NuevoCliente"
         ResumeLayout(False)
+        PerformLayout()
     End Sub
+
+    Friend WithEvents Label1 As Label
 End Class

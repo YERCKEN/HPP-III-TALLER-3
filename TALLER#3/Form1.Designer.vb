@@ -32,6 +32,7 @@ Partial Class Form1
         archivoP2 = New ToolStripMenuItem()
         ArchivoP4 = New ToolStripMenuItem()
         P3 = New ToolStripMenuItem()
+        ArchivoPrestamo = New ToolStripMenuItem()
         ToolStripSeparator1 = New ToolStripSeparator()
         SalirToolStripMenuItem = New ToolStripMenuItem()
         toolStripSeparator5 = New ToolStripSeparator()
@@ -100,7 +101,7 @@ Partial Class Form1
         ' 
         ' Archivo
         ' 
-        Archivo.DropDownItems.AddRange(New ToolStripItem() {archivoP1, archivoP2, ArchivoP4, P3, ToolStripSeparator1, SalirToolStripMenuItem})
+        Archivo.DropDownItems.AddRange(New ToolStripItem() {archivoP1, archivoP2, ArchivoP4, P3, ArchivoPrestamo, ToolStripSeparator1, SalirToolStripMenuItem})
         Archivo.Margin = New Padding(20, 0, 0, 0)
         Archivo.Name = "Archivo"
         Archivo.Padding = New Padding(5, 20, 5, 0)
@@ -114,7 +115,7 @@ Partial Class Form1
         archivoP1.Margin = New Padding(0, 20, 0, 0)
         archivoP1.Name = "archivoP1"
         archivoP1.Padding = New Padding(0, 5, 0, 1)
-        archivoP1.Size = New Size(224, 32)
+        archivoP1.Size = New Size(242, 32)
         archivoP1.Text = "Inicio"
         ' 
         ' archivoP2
@@ -123,14 +124,14 @@ Partial Class Form1
         archivoP2.ImageTransparentColor = Color.Magenta
         archivoP2.Name = "archivoP2"
         archivoP2.Padding = New Padding(0, 5, 0, 1)
-        archivoP2.Size = New Size(224, 32)
+        archivoP2.Size = New Size(242, 32)
         archivoP2.Text = "Nuevo Libro"
         ' 
         ' ArchivoP4
         ' 
         ArchivoP4.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         ArchivoP4.Name = "ArchivoP4"
-        ArchivoP4.Size = New Size(224, 28)
+        ArchivoP4.Size = New Size(242, 28)
         ArchivoP4.Text = "Nuevo Cliente"
         ' 
         ' P3
@@ -139,13 +140,20 @@ Partial Class Form1
         P3.ImageTransparentColor = Color.Magenta
         P3.Name = "P3"
         P3.Padding = New Padding(0, 5, 0, 1)
-        P3.Size = New Size(224, 32)
+        P3.Size = New Size(242, 32)
         P3.Text = "Cliente"
+        ' 
+        ' ArchivoPrestamo
+        ' 
+        ArchivoPrestamo.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        ArchivoPrestamo.Name = "ArchivoPrestamo"
+        ArchivoPrestamo.Size = New Size(242, 28)
+        ArchivoPrestamo.Text = "Nuevo Préstamo"
         ' 
         ' ToolStripSeparator1
         ' 
         ToolStripSeparator1.Name = "ToolStripSeparator1"
-        ToolStripSeparator1.Size = New Size(221, 6)
+        ToolStripSeparator1.Size = New Size(239, 6)
         ' 
         ' SalirToolStripMenuItem
         ' 
@@ -153,7 +161,7 @@ Partial Class Form1
         SalirToolStripMenuItem.Margin = New Padding(0, 15, 0, 0)
         SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         SalirToolStripMenuItem.Padding = New Padding(0, 10, 0, 1)
-        SalirToolStripMenuItem.Size = New Size(224, 37)
+        SalirToolStripMenuItem.Size = New Size(242, 37)
         SalirToolStripMenuItem.Text = "Salir"
         ' 
         ' toolStripSeparator5
@@ -249,7 +257,7 @@ Partial Class Form1
         ' 
         ' ListaMostrar
         ' 
-        ListaMostrar.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        ListaMostrar.Font = New Font("Montserrat", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
         ListaMostrar.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         ListaMostrar.FormattingEnabled = True
         ListaMostrar.Items.AddRange(New Object() {"Libros Prestados", "Libros Devueltos", "Todos"})
@@ -263,7 +271,7 @@ Partial Class Form1
         AutoScaleDimensions = New SizeF(11F, 24F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1192, 618)
+        ClientSize = New Size(1192, 570)
         Controls.Add(ListaMostrar)
         Controls.Add(BtnCerrar)
         Controls.Add(BtnMin)
@@ -305,4 +313,5 @@ Partial Class Form1
     Friend WithEvents BtnCerrar As PictureBox
     Friend WithEvents BtnMin As PictureBox
     Friend WithEvents ListaMostrar As ComboBox
+    Friend WithEvents ArchivoPrestamo As ToolStripMenuItem
 End Class
