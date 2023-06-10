@@ -135,7 +135,12 @@ Public Class Cliente
         BtnIngresar.Enabled = True
         ActualizarBtn.Enabled = False
         ModificarClientesPanel.Enabled = False
+        conexion.Close()
     End Sub
+
+
+    'ACTUALIZAR COSTO---------------------------------------------------------------------------------------------------
+
     Private Sub ActualizarCosto(ByVal IdCliente As Integer)
         ' Obtener el valor del cuadro de texto para el nuevo Costo
         Dim Costo As Decimal = Decimal.Parse(CostoTb.Text)
@@ -158,6 +163,9 @@ Public Class Cliente
             End Using
         End Using
     End Sub
+
+
+    'ACTUALIZAR ESTADO---------------------------------------------------------------------------------------------------
     Private Sub ActualizarEstado(ByVal IdCliente As Integer)
         ' Obtener el valor del cuadro de texto para el nuevo Costo
         Dim Estado As String = EstadoCb.SelectedItem
@@ -180,6 +188,9 @@ Public Class Cliente
             End Using
         End Using
     End Sub
+
+    'ACTUALIZAR OBSERVACION---------------------------------------------------------------------------------------------------
+
     Private Sub ActualizarObservacion(ByVal IdCliente As Integer)
         ' Obtener el valor del cuadro de texto para el nuevo Costo
         Dim Observacion As String = ObservacionTb.Text

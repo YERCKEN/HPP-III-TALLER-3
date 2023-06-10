@@ -115,50 +115,50 @@ Public Class Form1
 
     'REDIRECCIONAR---------------------------------------------
     Private Sub archivoP1_Click(sender As Object, e As EventArgs) Handles archivoP1.Click
-        nuevoLibro.Visible = False
-        NuevoCliente.Visible = False
-        Cliente.Visible = False
-        nuevoPrestamo.Visible = False
+        nuevoLibro.Close()
+        NuevoCliente.Close()
+        Cliente.Close()
+        nuevoPrestamo.Close()
 
     End Sub
     Private Sub archivoP2_Click(sender As Object, e As EventArgs) Handles archivoP2.Click
-        nuevoLibro.Visible = True
+        nuevoLibro.Show()
         nuevoLibro.Owner = Me
 
         'VISIBILDIAD
-        nuevoPrestamo.Visible = False
-        Cliente.Visible = False
-        NuevoCliente.Visible = False
+        nuevoPrestamo.Close()
+        Cliente.Close()
+        NuevoCliente.Close()
     End Sub
 
     'nuevo cliente; nuevo boton
     Private Sub ArchivoP4_Click(sender As Object, e As EventArgs) Handles ArchivoP4.Click
-        NuevoCliente.Visible = True
+        NuevoCliente.Show()
         NuevoCliente.Owner = Me
 
         'VISIBILDIAD
-        nuevoPrestamo.Visible = False
-        nuevoLibro.Visible = False
-        Cliente.Visible = False
+        nuevoPrestamo.Close()
+        nuevoLibro.Close()
+        Cliente.Close()
     End Sub
 
     Private Sub ArchivoPrestamo_Click(sender As Object, e As EventArgs) Handles ArchivoPrestamo.Click
-        nuevoPrestamo.Visible = True
+        nuevoPrestamo.Show()
         nuevoPrestamo.Owner = Me
 
         'VISIBILDIAD
-        Cliente.Visible = False
-        nuevoLibro.Visible = False
-        NuevoCliente.Visible = False
+        Cliente.Close()
+        nuevoLibro.Close()
+        NuevoCliente.Close()
     End Sub
     Private Sub P3_Click(sender As Object, e As EventArgs) Handles P3.Click
-        Cliente.Visible = True
+        Cliente.Show()
         Cliente.Owner = Me
 
         'VISIBILDIAD
-        nuevoPrestamo.Visible = False
-        nuevoLibro.Visible = False
-        NuevoCliente.Visible = False
+        nuevoPrestamo.Close()
+        nuevoLibro.Close()
+        NuevoCliente.Close()
     End Sub
 
     '´LOCALIDAD--------------------------------------------------------------------------------------------------
