@@ -119,6 +119,7 @@ Public Class Form1
         NuevoCliente.Close()
         Cliente.Close()
         nuevoPrestamo.Close()
+        eliminacion.Close()
 
     End Sub
     Private Sub archivoP2_Click(sender As Object, e As EventArgs) Handles archivoP2.Click
@@ -129,6 +130,7 @@ Public Class Form1
         nuevoPrestamo.Close()
         Cliente.Close()
         NuevoCliente.Close()
+        eliminacion.Close()
     End Sub
 
     'nuevo cliente; nuevo boton
@@ -140,6 +142,7 @@ Public Class Form1
         nuevoPrestamo.Close()
         nuevoLibro.Close()
         Cliente.Close()
+        eliminacion.Close()
     End Sub
 
     Private Sub ArchivoPrestamo_Click(sender As Object, e As EventArgs) Handles ArchivoPrestamo.Click
@@ -150,6 +153,7 @@ Public Class Form1
         Cliente.Close()
         nuevoLibro.Close()
         NuevoCliente.Close()
+        eliminacion.Close()
     End Sub
     Private Sub P3_Click(sender As Object, e As EventArgs) Handles P3.Click
         Cliente.Show()
@@ -159,6 +163,7 @@ Public Class Form1
         nuevoPrestamo.Close()
         nuevoLibro.Close()
         NuevoCliente.Close()
+        eliminacion.Close()
     End Sub
 
     '´LOCALIDAD--------------------------------------------------------------------------------------------------
