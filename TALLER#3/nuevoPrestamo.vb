@@ -1,5 +1,6 @@
 ﻿Imports System.Collections.ObjectModel
 Imports System.Data.SqlClient
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
 
 Public Class nuevoPrestamo
 
@@ -14,30 +15,11 @@ Public Class nuevoPrestamo
         'INCIO
         panelIngresoDatos2.Visible = False
 
+
         Try
 
             Using connection As New SqlConnection(connectionString)
                 connection.Open()
-                DataGridView1.DataSource = MostrarPrestamos()
-                MostrarClientes()
-                'PROPIEDADES GRIDVIEW-----------------------------------------------------------------
-                DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-                DataGridView1.AutoSize = False
-                DataGridView1.MaximumSize = New Size(1192, 250)
-                DataGridView1.AutoResizeColumns()
-                DataGridView1.ReadOnly = True
-
-
-
-                DataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-                DataGridView2.AutoSize = False
-                DataGridView2.MaximumSize = New Size(432, 103)
-                DataGridView2.AutoResizeColumns()
-                DataGridView2.ReadOnly = True
-
-                DataGridView2.Columns("Id").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-
-
 
             End Using
 
@@ -47,6 +29,27 @@ Public Class nuevoPrestamo
 
         End Try
 
+
+        DataGridView1.DataSource = MostrarPrestamos()
+        MostrarClientes()
+        'PROPIEDADES GRIDVIEW-----------------------------------------------------------------
+        DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        DataGridView1.AutoSize = False
+        DataGridView1.MaximumSize = New Size(1192, 250)
+        DataGridView1.AutoResizeColumns()
+        DataGridView1.ReadOnly = True
+
+
+
+        DataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        DataGridView2.AutoSize = False
+        DataGridView2.MaximumSize = New Size(432, 103)
+        DataGridView2.AutoResizeColumns()
+        DataGridView2.ReadOnly = True
+
+        DataGridView2.Columns("Id").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+        DataGridView2.ReadOnly = True
     End Sub
 
 

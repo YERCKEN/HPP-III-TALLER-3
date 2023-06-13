@@ -121,6 +121,7 @@ Partial Class nuevoPrestamo
         DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle4.WrapMode = DataGridViewTriState.False
         DataGridView2.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridView2.GridColor = Color.Silver
         DataGridView2.Location = New Point(507, 27)
         DataGridView2.Margin = New Padding(4, 3, 4, 3)
         DataGridView2.Name = "DataGridView2"
@@ -172,7 +173,7 @@ Partial Class nuevoPrestamo
         panelIngresoDatos2.Controls.Add(TextBox2)
         panelIngresoDatos2.Controls.Add(Label7)
         panelIngresoDatos2.Enabled = False
-        panelIngresoDatos2.Location = New Point(350, 40)
+        panelIngresoDatos2.Location = New Point(331, 103)
         panelIngresoDatos2.Name = "panelIngresoDatos2"
         panelIngresoDatos2.Size = New Size(754, 191)
         panelIngresoDatos2.TabIndex = 52
