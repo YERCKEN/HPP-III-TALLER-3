@@ -37,6 +37,8 @@ Partial Class nuevoPrestamo
         TextBoxId = New TextBox()
         BtnSeleccionar = New Button()
         panelIngresoDatos2 = New Panel()
+        DateTimePicker1 = New DateTimePicker()
+        Label3 = New Label()
         ListaMostrarLibros = New ComboBox()
         BtnVolver = New Button()
         NewClienteBtn = New Button()
@@ -86,7 +88,7 @@ Partial Class nuevoPrestamo
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
-        DataGridView1.Location = New Point(23, 356)
+        DataGridView1.Location = New Point(23, 374)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.ReadOnly = True
@@ -205,6 +207,8 @@ Partial Class nuevoPrestamo
         ' 
         ' panelIngresoDatos2
         ' 
+        panelIngresoDatos2.Controls.Add(DateTimePicker1)
+        panelIngresoDatos2.Controls.Add(Label3)
         panelIngresoDatos2.Controls.Add(ListaMostrarLibros)
         panelIngresoDatos2.Controls.Add(BtnVolver)
         panelIngresoDatos2.Controls.Add(NewClienteBtn)
@@ -213,10 +217,32 @@ Partial Class nuevoPrestamo
         panelIngresoDatos2.Controls.Add(Label6)
         panelIngresoDatos2.Controls.Add(TextBoxCosto)
         panelIngresoDatos2.Controls.Add(Label7)
-        panelIngresoDatos2.Location = New Point(173, 92)
+        panelIngresoDatos2.Location = New Point(36, 60)
         panelIngresoDatos2.Name = "panelIngresoDatos2"
-        panelIngresoDatos2.Size = New Size(859, 191)
+        panelIngresoDatos2.Size = New Size(859, 270)
         panelIngresoDatos2.TabIndex = 52
+        ' 
+        ' DateTimePicker1
+        ' 
+        DateTimePicker1.CalendarFont = New Font("Montserrat", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point)
+        DateTimePicker1.CalendarForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DateTimePicker1.CalendarTitleBackColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DateTimePicker1.CalendarTitleForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DateTimePicker1.Location = New Point(339, 36)
+        DateTimePicker1.Name = "DateTimePicker1"
+        DateTimePicker1.Size = New Size(295, 29)
+        DateTimePicker1.TabIndex = 52
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label3.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label3.Location = New Point(339, 3)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(215, 25)
+        Label3.TabIndex = 51
+        Label3.Text = "Fecha de Devolución"
         ' 
         ' ListaMostrarLibros
         ' 
@@ -224,9 +250,9 @@ Partial Class nuevoPrestamo
         ListaMostrarLibros.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         ListaMostrarLibros.FormattingEnabled = True
         ListaMostrarLibros.Items.AddRange(New Object() {"Libros Prestados", "Libros Devueltos", "Todos"})
-        ListaMostrarLibros.Location = New Point(243, 36)
+        ListaMostrarLibros.Location = New Point(5, 112)
         ListaMostrarLibros.Name = "ListaMostrarLibros"
-        ListaMostrarLibros.Size = New Size(370, 32)
+        ListaMostrarLibros.Size = New Size(608, 32)
         ListaMostrarLibros.TabIndex = 49
         ' 
         ' BtnVolver
@@ -238,7 +264,7 @@ Partial Class nuevoPrestamo
         BtnVolver.FlatStyle = FlatStyle.Flat
         BtnVolver.Font = New Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point)
         BtnVolver.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnVolver.Location = New Point(710, 115)
+        BtnVolver.Location = New Point(711, 197)
         BtnVolver.Name = "BtnVolver"
         BtnVolver.Size = New Size(87, 68)
         BtnVolver.TabIndex = 48
@@ -265,7 +291,7 @@ Partial Class nuevoPrestamo
         ' 
         TextBoxObservacion.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
         TextBoxObservacion.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        TextBoxObservacion.Location = New Point(5, 115)
+        TextBoxObservacion.Location = New Point(4, 197)
         TextBoxObservacion.Multiline = True
         TextBoxObservacion.Name = "TextBoxObservacion"
         TextBoxObservacion.Size = New Size(608, 68)
@@ -276,7 +302,7 @@ Partial Class nuevoPrestamo
         Label5.AutoSize = True
         Label5.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label5.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label5.Location = New Point(5, 87)
+        Label5.Location = New Point(4, 164)
         Label5.Name = "Label5"
         Label5.Size = New Size(134, 25)
         Label5.TabIndex = 20
@@ -287,7 +313,7 @@ Partial Class nuevoPrestamo
         Label6.AutoSize = True
         Label6.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label6.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label6.Location = New Point(243, 3)
+        Label6.Location = New Point(5, 79)
         Label6.Name = "Label6"
         Label6.Size = New Size(60, 25)
         Label6.TabIndex = 16
@@ -299,7 +325,7 @@ Partial Class nuevoPrestamo
         TextBoxCosto.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         TextBoxCosto.Location = New Point(5, 31)
         TextBoxCosto.Name = "TextBoxCosto"
-        TextBoxCosto.Size = New Size(214, 36)
+        TextBoxCosto.Size = New Size(275, 36)
         TextBoxCosto.TabIndex = 14
         ' 
         ' Label7
@@ -318,7 +344,7 @@ Partial Class nuevoPrestamo
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1192, 613)
+        ClientSize = New Size(1192, 636)
         Controls.Add(panelIngresoDatos2)
         Controls.Add(DataGridView1)
         Controls.Add(Label1)
@@ -354,4 +380,6 @@ Partial Class nuevoPrestamo
     Friend WithEvents BtnVolver As Button
     Friend WithEvents NewClienteBtn As Button
     Friend WithEvents ListaMostrarLibros As ComboBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class
