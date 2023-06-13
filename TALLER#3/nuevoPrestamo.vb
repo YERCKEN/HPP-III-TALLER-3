@@ -11,6 +11,9 @@ Public Class nuevoPrestamo
     Private Sub nuevoPrestamo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 48) ' Establecer la nueva ubicación de Form3 en relación con Form1
 
+        'INCIO
+        panelIngresoDatos2.Visible = False
+
         Try
 
             Using connection As New SqlConnection(connectionString)
@@ -28,9 +31,14 @@ Public Class nuevoPrestamo
 
                 DataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
                 DataGridView2.AutoSize = False
-                DataGridView2.MaximumSize = New Size(340, 250)
+                DataGridView2.MaximumSize = New Size(432, 103)
                 DataGridView2.AutoResizeColumns()
                 DataGridView2.ReadOnly = True
+
+                DataGridView2.Columns("Id").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+
+
             End Using
 
         Catch ex As Exception
@@ -119,5 +127,13 @@ Public Class nuevoPrestamo
 
     End Sub
 
+    'BOTON DE SELECCIONAR ID ------------------------------------------------------------------------------------------
+    Private Sub BtnSeleccionar_Click(sender As Object, e As EventArgs) Handles BtnSeleccionar.Click
+
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
+
+    End Sub
 
 End Class
