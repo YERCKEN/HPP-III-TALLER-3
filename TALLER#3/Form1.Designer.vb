@@ -22,8 +22,8 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Form1))
         DataGridView1 = New DataGridView()
         Menu = New MenuStrip()
@@ -47,6 +47,7 @@ Partial Class Form1
         BtnCerrar = New PictureBox()
         BtnMin = New PictureBox()
         ListaMostrar = New ComboBox()
+        EliminarToolStripMenuItem = New ToolStripMenuItem()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         Menu.SuspendLayout()
         CType(BtnCerrar, ComponentModel.ISupportInitialize).BeginInit()
@@ -57,24 +58,24 @@ Partial Class Form1
         ' 
         DataGridView1.BackgroundColor = Color.WhiteSmoke
         DataGridView1.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = Color.White
-        DataGridViewCellStyle1.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle1.ForeColor = Color.Red
-        DataGridViewCellStyle1.Padding = New Padding(5)
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = Color.White
+        DataGridViewCellStyle3.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle3.ForeColor = Color.Red
+        DataGridViewCellStyle3.Padding = New Padding(5)
+        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         DataGridView1.ColumnHeadersHeight = 40
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = SystemColors.Window
-        DataGridViewCellStyle2.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
-        DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = SystemColors.Window
+        DataGridViewCellStyle4.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle4.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle4
         DataGridView1.Location = New Point(26, 316)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
@@ -86,7 +87,7 @@ Partial Class Form1
         ' Menu
         ' 
         Menu.BackColor = Color.Transparent
-        Menu.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        Menu.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
         Menu.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         Menu.GripMargin = New Padding(2, 60, 60, 2)
         Menu.ImageScalingSize = New Size(20, 20)
@@ -95,17 +96,17 @@ Partial Class Form1
         Menu.Name = "Menu"
         Menu.Padding = New Padding(0)
         Menu.RenderMode = ToolStripRenderMode.Professional
-        Menu.Size = New Size(1192, 48)
+        Menu.Size = New Size(1192, 44)
         Menu.TabIndex = 10
         Menu.Text = "MenuStrip1"
         ' 
         ' Archivo
         ' 
-        Archivo.DropDownItems.AddRange(New ToolStripItem() {archivoP1, archivoP2, ArchivoP4, P3, ArchivoPrestamo, ToolStripSeparator1, SalirToolStripMenuItem})
+        Archivo.DropDownItems.AddRange(New ToolStripItem() {archivoP1, archivoP2, ArchivoP4, P3, ArchivoPrestamo, EliminarToolStripMenuItem, ToolStripSeparator1, SalirToolStripMenuItem})
         Archivo.Margin = New Padding(20, 0, 0, 0)
         Archivo.Name = "Archivo"
         Archivo.Padding = New Padding(5, 20, 5, 0)
-        Archivo.Size = New Size(92, 48)
+        Archivo.Size = New Size(86, 44)
         Archivo.Text = "Archivo"
         ' 
         ' archivoP1
@@ -115,7 +116,7 @@ Partial Class Form1
         archivoP1.Margin = New Padding(0, 20, 0, 0)
         archivoP1.Name = "archivoP1"
         archivoP1.Padding = New Padding(0, 5, 0, 1)
-        archivoP1.Size = New Size(242, 32)
+        archivoP1.Size = New Size(230, 30)
         archivoP1.Text = "Inicio"
         ' 
         ' archivoP2
@@ -124,14 +125,14 @@ Partial Class Form1
         archivoP2.ImageTransparentColor = Color.Magenta
         archivoP2.Name = "archivoP2"
         archivoP2.Padding = New Padding(0, 5, 0, 1)
-        archivoP2.Size = New Size(242, 32)
+        archivoP2.Size = New Size(230, 30)
         archivoP2.Text = "Nuevo Libro"
         ' 
         ' ArchivoP4
         ' 
         ArchivoP4.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         ArchivoP4.Name = "ArchivoP4"
-        ArchivoP4.Size = New Size(242, 28)
+        ArchivoP4.Size = New Size(230, 26)
         ArchivoP4.Text = "Nuevo Cliente"
         ' 
         ' P3
@@ -140,20 +141,20 @@ Partial Class Form1
         P3.ImageTransparentColor = Color.Magenta
         P3.Name = "P3"
         P3.Padding = New Padding(0, 5, 0, 1)
-        P3.Size = New Size(242, 32)
+        P3.Size = New Size(230, 30)
         P3.Text = "Cliente"
         ' 
         ' ArchivoPrestamo
         ' 
         ArchivoPrestamo.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         ArchivoPrestamo.Name = "ArchivoPrestamo"
-        ArchivoPrestamo.Size = New Size(242, 28)
+        ArchivoPrestamo.Size = New Size(230, 26)
         ArchivoPrestamo.Text = "Nuevo Préstamo"
         ' 
         ' ToolStripSeparator1
         ' 
         ToolStripSeparator1.Name = "ToolStripSeparator1"
-        ToolStripSeparator1.Size = New Size(239, 6)
+        ToolStripSeparator1.Size = New Size(227, 6)
         ' 
         ' SalirToolStripMenuItem
         ' 
@@ -161,21 +162,21 @@ Partial Class Form1
         SalirToolStripMenuItem.Margin = New Padding(0, 15, 0, 0)
         SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         SalirToolStripMenuItem.Padding = New Padding(0, 10, 0, 1)
-        SalirToolStripMenuItem.Size = New Size(242, 37)
+        SalirToolStripMenuItem.Size = New Size(230, 35)
         SalirToolStripMenuItem.Text = "Salir"
         ' 
         ' toolStripSeparator5
         ' 
         toolStripSeparator5.Margin = New Padding(0, 0, 0, 5)
         toolStripSeparator5.Name = "toolStripSeparator5"
-        toolStripSeparator5.Size = New Size(6, 43)
+        toolStripSeparator5.Size = New Size(6, 39)
         ' 
         ' ayuda
         ' 
         ayuda.DropDownItems.AddRange(New ToolStripItem() {TIP, ToolStripSeparator3, btnEmpresa})
         ayuda.Name = "ayuda"
         ayuda.Padding = New Padding(5, 20, 5, 0)
-        ayuda.Size = New Size(81, 48)
+        ayuda.Size = New Size(74, 44)
         ayuda.Text = "Ayuda"
         ' 
         ' TIP
@@ -183,33 +184,33 @@ Partial Class Form1
         TIP.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         TIP.Margin = New Padding(0, 20, 0, 0)
         TIP.Name = "TIP"
-        TIP.Size = New Size(172, 28)
+        TIP.Size = New Size(166, 26)
         TIP.Text = "Tip"
         ' 
         ' ToolStripSeparator3
         ' 
         ToolStripSeparator3.Name = "ToolStripSeparator3"
-        ToolStripSeparator3.Size = New Size(169, 6)
+        ToolStripSeparator3.Size = New Size(163, 6)
         ' 
         ' btnEmpresa
         ' 
         btnEmpresa.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         btnEmpresa.Name = "btnEmpresa"
-        btnEmpresa.Size = New Size(172, 28)
+        btnEmpresa.Size = New Size(166, 26)
         btnEmpresa.Text = "Empresa"
         ' 
         ' toolStripSeparator2
         ' 
         toolStripSeparator2.Margin = New Padding(0, 0, 0, 5)
         toolStripSeparator2.Name = "toolStripSeparator2"
-        toolStripSeparator2.Size = New Size(6, 43)
+        toolStripSeparator2.Size = New Size(6, 39)
         ' 
         ' version
         ' 
         version.DropDownItems.AddRange(New ToolStripItem() {BuscarToolStripMenuItem})
         version.Name = "version"
         version.Padding = New Padding(5, 20, 5, 0)
-        version.Size = New Size(91, 48)
+        version.Size = New Size(87, 44)
         version.Text = "Version"
         ' 
         ' BuscarToolStripMenuItem
@@ -217,19 +218,19 @@ Partial Class Form1
         BuscarToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         BuscarToolStripMenuItem.Margin = New Padding(0, 20, 0, 0)
         BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem"
-        BuscarToolStripMenuItem.Size = New Size(116, 28)
+        BuscarToolStripMenuItem.Size = New Size(117, 26)
         BuscarToolStripMenuItem.Text = "1.9"
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
         Label1.Enabled = False
-        Label1.Font = New Font("Montserrat", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.Font = New Font("Microsoft Sans Serif", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         Label1.Location = New Point(904, 101)
         Label1.Margin = New Padding(4, 0, 4, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(208, 32)
+        Label1.Size = New Size(213, 29)
         Label1.TabIndex = 11
         Label1.Text = "VISTA GENERAL"
         ' 
@@ -257,18 +258,24 @@ Partial Class Form1
         ' 
         ' ListaMostrar
         ' 
-        ListaMostrar.Font = New Font("Montserrat", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        ListaMostrar.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         ListaMostrar.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         ListaMostrar.FormattingEnabled = True
         ListaMostrar.Items.AddRange(New Object() {"Libros Prestados", "Libros Devueltos", "Todos"})
         ListaMostrar.Location = New Point(26, 236)
         ListaMostrar.Name = "ListaMostrar"
-        ListaMostrar.Size = New Size(359, 35)
+        ListaMostrar.Size = New Size(359, 33)
         ListaMostrar.TabIndex = 34
+        ' 
+        ' EliminarToolStripMenuItem
+        ' 
+        EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
+        EliminarToolStripMenuItem.Size = New Size(230, 26)
+        EliminarToolStripMenuItem.Text = "Eliminar"
         ' 
         ' Form1
         ' 
-        AutoScaleDimensions = New SizeF(11F, 24F)
+        AutoScaleDimensions = New SizeF(11F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(1192, 570)
@@ -278,7 +285,7 @@ Partial Class Form1
         Controls.Add(Label1)
         Controls.Add(Menu)
         Controls.Add(DataGridView1)
-        Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
         FormBorderStyle = FormBorderStyle.None
         Margin = New Padding(4, 3, 4, 3)
         Name = "Form1"
@@ -314,4 +321,5 @@ Partial Class Form1
     Friend WithEvents BtnMin As PictureBox
     Friend WithEvents ListaMostrar As ComboBox
     Friend WithEvents ArchivoPrestamo As ToolStripMenuItem
+    Friend WithEvents EliminarToolStripMenuItem As ToolStripMenuItem
 End Class

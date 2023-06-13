@@ -193,5 +193,14 @@ Public Class Form1
 
     End Sub
 
+    Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarToolStripMenuItem.Click
+        eliminacion.Show()
+        eliminacion.Owner = Me
 
+        'VISIBILDIAD
+        nuevoPrestamo.Close()
+        nuevoLibro.Close()
+        NuevoCliente.Close()
+        Cliente.Close()
+    End Sub
 End Class
