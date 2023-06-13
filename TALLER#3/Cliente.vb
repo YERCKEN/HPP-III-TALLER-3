@@ -216,4 +216,6 @@ Public Class Cliente
         ' Opcional: Mostrar un cuadro de mensaje para indicar que la actualización fue exitosa
         MessageBox.Show("Datos actualizado.")
     End Sub
+
+
 End Class
