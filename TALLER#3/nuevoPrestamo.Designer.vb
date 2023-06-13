@@ -236,11 +236,11 @@ Partial Class nuevoPrestamo
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label3.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label3.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         Label3.Location = New Point(339, 3)
         Label3.Name = "Label3"
-        Label3.Size = New Size(215, 25)
+        Label3.Size = New Size(235, 27)
         Label3.TabIndex = 51
         Label3.Text = "Fecha de Devolución"
         ' 
@@ -289,8 +289,8 @@ Partial Class nuevoPrestamo
         ' 
         ' TextBoxObservacion
         ' 
-        TextBoxObservacion.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
-        TextBoxObservacion.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        TextBoxObservacion.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        TextBoxObservacion.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         TextBoxObservacion.Location = New Point(4, 197)
         TextBoxObservacion.Multiline = True
         TextBoxObservacion.Name = "TextBoxObservacion"
@@ -300,11 +300,11 @@ Partial Class nuevoPrestamo
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label5.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label5.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         Label5.Location = New Point(4, 164)
         Label5.Name = "Label5"
-        Label5.Size = New Size(134, 25)
+        Label5.Size = New Size(145, 27)
         Label5.TabIndex = 20
         Label5.Text = "Observación"
         ' 
@@ -331,11 +331,11 @@ Partial Class nuevoPrestamo
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label7.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label7.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         Label7.Location = New Point(5, 3)
         Label7.Name = "Label7"
-        Label7.Size = New Size(69, 25)
+        Label7.Size = New Size(73, 27)
         Label7.TabIndex = 18
         Label7.Text = "Costo"
         ' 

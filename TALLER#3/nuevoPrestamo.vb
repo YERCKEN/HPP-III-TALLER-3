@@ -284,7 +284,7 @@ Public Class nuevoPrestamo
             End If
 
         Else
-                MsgBox("EL LIBRO SELECCIONADOR NO EXISTE", MsgBoxStyle.Critical, "Error")
+            MsgBox("EL LIBRO SELECCIONADOR NO EXISTE", MsgBoxStyle.Critical, "Error")
 
         End If
 

@@ -121,6 +121,8 @@ Public Class Form1
         nuevoPrestamo.Close()
         eliminacion.Close()
 
+        Me.Refresh()
+
     End Sub
     Private Sub archivoP2_Click(sender As Object, e As EventArgs) Handles archivoP2.Click
         nuevoLibro.Show()
@@ -207,5 +209,12 @@ Public Class Form1
         nuevoLibro.Close()
         NuevoCliente.Close()
         Cliente.Close()
+    End Sub
+
+    Private Sub Menu_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles Menu.ItemClicked
+
+    End Sub
+
+    Private Sub ListaMostrar_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListaMostrar.SelectedIndexChanged
     End Sub
 End Class
