@@ -44,39 +44,48 @@ Public Class Cliente
     End Function
 
     Private Sub BtnIngresar_Click(sender As Object, e As EventArgs) Handles BtnIngresar.Click
-        ActualizarBtn.Enabled = True
-        ModificarClientesPanel.Enabled = True
-        Dim IdCliente As Integer = Integer.Parse(IdClienteTb.Text)
-        Using con As New SqlConnection(connectionString)
-            ' Abrir la conexión
-            con.Open()
+        Try
+            Dim IdCliente As Integer = Integer.Parse(IdClienteTb.Text)
+            If ComprobacionId(IdCliente) = True Then
+                ActualizarBtn.Enabled = True
+                ModificarClientesPanel.Enabled = True
+                Using con As New SqlConnection(connectionString)
+                    ' Abrir la conexión
+                    con.Open()
 
-            ' Consulta SQL para obtener los datos
-            Dim query As String = "SELECT Cliente.Id, Cliente.Nombre AS Cliente, Books.Title AS Libro, Prestamos.Costo, Prestamos.Estado, Prestamos.Observacion, Prestamos.FechaPrestamo, Prestamos.FechaDevolucion
+                    ' Consulta SQL para obtener los datos
+                    Dim query As String = "SELECT Cliente.Id, Cliente.Nombre AS Cliente, Books.Title AS Libro, Prestamos.Costo, Prestamos.Estado, Prestamos.Observacion, Prestamos.FechaPrestamo, Prestamos.FechaDevolucion
             FROM Cliente
             JOIN Prestamos ON Cliente.Id = Prestamos.ClienteId
             JOIN Books ON Prestamos.LibroId = Books.Id
             WHERE Cliente.Id = " & IdCliente
 
-            ' Crear un adaptador de datos
-            Dim adapter As New SqlDataAdapter(query, con)
-            ' Crear un DataSet para almacenar los datos
-            Dim dataSet As New DataSet()
+                    ' Crear un adaptador de datos
+                    Dim adapter As New SqlDataAdapter(query, con)
+                    ' Crear un DataSet para almacenar los datos
+                    Dim dataSet As New DataSet()
 
-            ' Llenar el DataSet con los datos del adaptador
-            adapter.Fill(dataSet, "Cliente")
+                    ' Llenar el DataSet con los datos del adaptador
+                    adapter.Fill(dataSet, "Cliente")
 
-            ' Asignar el DataTable al control DataGridView
-            DataGridView1.DataSource = dataSet.Tables("Cliente")
+                    ' Asignar el DataTable al control DataGridView
+                    DataGridView1.DataSource = dataSet.Tables("Cliente")
 
-            ' Cerrar la conexión
-            con.Close()
-            MostrarCosto(IdCliente)
-            MostrarEstado(IdCliente)
-            MostrarObservacion(IdCliente)
-            IdClienteTb.Enabled = False
-            BtnIngresar.Enabled = False
-        End Using
+                    ' Cerrar la conexión
+                    con.Close()
+                    MostrarCosto(IdCliente)
+                    MostrarEstado(IdCliente)
+                    MostrarObservacion(IdCliente)
+                    IdClienteTb.Enabled = False
+                    BtnIngresar.Enabled = False
+                End Using
+            Else
+                IdClienteTb.Text = ""
+            End If
+        Catch ex As Exception
+            IdClienteTb.Text = ""
+        End Try
+
     End Sub
     Private Sub MostrarCosto(ByVal IdCliente As Integer)
 
@@ -125,48 +134,61 @@ Public Class Cliente
     End Sub
 
     Private Sub ActualizarBtn_Click(sender As Object, e As EventArgs) Handles ActualizarBtn.Click
-        Dim IdCliente As Integer = Integer.Parse(IdClienteTb.Text)
-        ActualizarCosto(IdCliente)
-        ActualizarEstado(IdCliente)
-        ActualizarObservacion(IdCliente)
-        conexion.Open()
-        DataGridView1.DataSource = MostrarClientes()
-        IdClienteTb.Enabled = True
-        BtnIngresar.Enabled = True
-        ActualizarBtn.Enabled = False
-        ModificarClientesPanel.Enabled = False
-        conexion.Close()
+        Try
+            Dim IdCliente As Integer = Integer.Parse(IdClienteTb.Text)
+            If ActualizarCosto(IdCliente) = True And ActualizarEstado(IdCliente) = True And ActualizarObservacion(IdCliente) = True Then
+                conexion.Open()
+                DataGridView1.DataSource = MostrarClientes()
+                IdClienteTb.Enabled = True
+                BtnIngresar.Enabled = True
+                ActualizarBtn.Enabled = False
+                ModificarClientesPanel.Enabled = False
+                conexion.Close()
+                ' Opcional: Mostrar un cuadro de mensaje para indicar que la actualización fue exitosa
+                MessageBox.Show("Datos actualizado.")
+            End If
+        Catch ex As Exception
+            IdClienteTb.Text = ""
+        End Try
+
     End Sub
 
 
     'ACTUALIZAR COSTO---------------------------------------------------------------------------------------------------
 
-    Private Sub ActualizarCosto(ByVal IdCliente As Integer)
-        ' Obtener el valor del cuadro de texto para el nuevo Costo
-        Dim Costo As Decimal = Decimal.Parse(CostoTb.Text)
+    Public Function ActualizarCosto(ByVal IdCliente As Integer) As Boolean
+        Dim success As Boolean = False
+        Try
+            ' Obtener el valor del cuadro de texto para el nuevo Costo
+            Dim Costo As Decimal = Decimal.Parse(CostoTb.Text)
 
-        ' Consulta SQL para actualizar la columna Costo
-        Dim sqlQuery As String = "UPDATE Prestamos SET Costo = @Costo WHERE ClienteId = " & IdCliente
+            ' Consulta SQL para actualizar la columna Costo
+            Dim sqlQuery As String = "UPDATE Prestamos SET Costo = @Costo WHERE ClienteId = " & IdCliente
 
-        ' Crear una SqlConnection y SqlCommand
-        Using connection As New SqlConnection(connectionString)
-            Using command As New SqlCommand(sqlQuery, connection)
-                ' Agregar parámetros para Costo y ClienteId
-                command.Parameters.AddWithValue("@Costo", Costo)
-                command.Parameters.AddWithValue("@ClienteId", IdCliente)
+            ' Crear una SqlConnection y SqlCommand
+            Using connection As New SqlConnection(connectionString)
+                Using command As New SqlCommand(sqlQuery, connection)
+                    ' Agregar parámetros para Costo y ClienteId
+                    command.Parameters.AddWithValue("@Costo", Costo)
+                    command.Parameters.AddWithValue("@ClienteId", IdCliente)
 
-                ' Abrir la conexión
-                connection.Open()
+                    ' Abrir la conexión
+                    connection.Open()
 
-                ' Ejecutar la consulta
-                command.ExecuteNonQuery()
+                    ' Ejecutar la consulta
+                    command.ExecuteNonQuery()
+                End Using
             End Using
-        End Using
-    End Sub
-
+            success = True
+        Catch ex As Exception
+            CostoTb.Text = ""
+        End Try
+        Return success
+    End Function
 
     'ACTUALIZAR ESTADO---------------------------------------------------------------------------------------------------
-    Private Sub ActualizarEstado(ByVal IdCliente As Integer)
+    Public Function ActualizarEstado(ByVal IdCliente As Integer) As Boolean
+        Dim success As Boolean = False
         ' Obtener el valor del cuadro de texto para el nuevo Costo
         Dim Estado As String = EstadoCb.SelectedItem
 
@@ -185,13 +207,16 @@ Public Class Cliente
 
                 ' Ejecutar la consulta
                 command.ExecuteNonQuery()
+                success = True
             End Using
         End Using
-    End Sub
+        Return success
+    End Function
 
     'ACTUALIZAR OBSERVACION---------------------------------------------------------------------------------------------------
 
-    Private Sub ActualizarObservacion(ByVal IdCliente As Integer)
+    Public Function ActualizarObservacion(ByVal IdCliente As Integer) As Boolean
+        Dim success As Boolean = False
         ' Obtener el valor del cuadro de texto para el nuevo Costo
         Dim Observacion As String = ObservacionTb.Text
 
@@ -210,12 +235,27 @@ Public Class Cliente
 
                 ' Ejecutar la consulta
                 command.ExecuteNonQuery()
+                success = True
+            End Using
+        End Using
+        Return success
+    End Function
+    'FUNCION COMPROBACION SI EXISTE EL ID
+    Public Function ComprobacionId(IdCliente As Integer) As Boolean
+        Dim query As String = "SELECT COUNT(*) FROM Cliente WHERE Id = " & IdCliente
+        Dim existeId As Boolean = False
+
+        Using connection As New SqlConnection(connectionString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@IdUsuario", IdCliente)
+                connection.Open()
+                Dim count As Integer = CInt(command.ExecuteScalar())
+                If count > 0 Then
+                    existeId = True
+                End If
             End Using
         End Using
 
-        ' Opcional: Mostrar un cuadro de mensaje para indicar que la actualización fue exitosa
-        MessageBox.Show("Datos actualizado.")
-    End Sub
-
-
+        Return existeId
+    End Function
 End Class

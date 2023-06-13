@@ -78,57 +78,99 @@ Public Class eliminacion
     End Sub
 
     Private Sub eliminarBtn_Click(sender As Object, e As EventArgs) Handles eliminarBtn.Click
-        Dim IdCliente As Integer = Integer.Parse(IdClienteTb.Text)
-        IdClienteTb.Clear()
-        If clienteBtn.Enabled = False Then
-            Using con As New SqlConnection(connectionString)
-                ' Abrir la conexión
-                con.Open()
+        Try
+            Dim IdCliente As Integer = Integer.Parse(IdClienteTb.Text)
+            IdClienteTb.Clear()
+            If clienteBtn.Enabled = False And ComprobacionIdcliente(IdCliente) = True Then
+                Using con As New SqlConnection(connectionString)
+                    ' Abrir la conexión
+                    con.Open()
 
-                ' Consulta SQL para obtener los datos
-                Dim query As String = "DELETE FROM Cliente WHERE Id = " & IdCliente
+                    ' Consulta SQL para obtener los datos
+                    Dim query As String = "DELETE FROM Cliente WHERE Id = " & IdCliente
 
-                ' Crear un adaptador de datos
-                Dim adapter As New SqlDataAdapter(query, con)
-                ' Crear un DataSet para almacenar los datos
-                Dim dataSet As New DataSet()
+                    ' Crear un adaptador de datos
+                    Dim adapter As New SqlDataAdapter(query, con)
+                    ' Crear un DataSet para almacenar los datos
+                    Dim dataSet As New DataSet()
 
-                ' Llenar el DataSet con los datos del adaptador
-                adapter.Fill(dataSet, "Cliente")
+                    ' Llenar el DataSet con los datos del adaptador
+                    adapter.Fill(dataSet, "Cliente")
 
-                ' Asignar el DataTable al control DataGridView
-                DataGridView1.DataSource = dataSet.Tables("Cliente")
+                    ' Asignar el DataTable al control DataGridView
+                    DataGridView1.DataSource = dataSet.Tables("Cliente")
 
-                ' Cerrar la conexión
-                con.Close()
-                IdClienteTb.Clear()
-                DataGridView1.DataSource = MostrarClientes()
-            End Using
-        Else
-            eliminarLibroAutor(IdCliente)
-            Using con As New SqlConnection(connectionString)
-                ' Abrir la conexión
-                con.Open()
+                    ' Cerrar la conexión
+                    con.Close()
+                    IdClienteTb.Clear()
+                    DataGridView1.DataSource = MostrarClientes()
+                End Using
+            ElseIf autorBtn.Enabled = False And ComprobacionIdAutor(IdCliente) = True Then
+                eliminarLibroAutor(IdCliente)
+                Using con As New SqlConnection(connectionString)
+                    ' Abrir la conexión
+                    con.Open()
 
-                ' Consulta SQL para obtener los datos
-                Dim query As String = "DELETE FROM Authors WHERE Id = " & IdCliente
+                    ' Consulta SQL para obtener los datos
+                    Dim query As String = "DELETE FROM Authors WHERE Id = " & IdCliente
 
-                ' Crear un adaptador de datos
-                Dim adapter As New SqlDataAdapter(query, con)
-                ' Crear un DataSet para almacenar los datos
-                Dim dataSet As New DataSet()
+                    ' Crear un adaptador de datos
+                    Dim adapter As New SqlDataAdapter(query, con)
+                    ' Crear un DataSet para almacenar los datos
+                    Dim dataSet As New DataSet()
 
-                ' Llenar el DataSet con los datos del adaptador
-                adapter.Fill(dataSet, "Cliente")
+                    ' Llenar el DataSet con los datos del adaptador
+                    adapter.Fill(dataSet, "Cliente")
 
-                ' Asignar el DataTable al control DataGridView
-                DataGridView1.DataSource = dataSet.Tables("Cliente")
+                    ' Asignar el DataTable al control DataGridView
+                    DataGridView1.DataSource = dataSet.Tables("Cliente")
 
-                ' Cerrar la conexión
-                con.Close()
-                IdClienteTb.Clear()
-                DataGridView1.DataSource = MostrarAutores()
-            End Using
-        End If
+                    ' Cerrar la conexión
+                    con.Close()
+                    IdClienteTb.Clear()
+                    DataGridView1.DataSource = MostrarAutores()
+                End Using
+            Else
+                IdClienteTb.Text = ""
+            End If
+        Catch ex As Exception
+            IdClienteTb.Text = ""
+        End Try
     End Sub
+    'FUNCION COMPROBACION SI EXISTE EL ID en cliente
+    Public Function ComprobacionIdCliente(IdCliente As Integer) As Boolean
+        Dim query As String = "SELECT COUNT(*) FROM Cliente WHERE Id = " & IdCliente
+        Dim existeId As Boolean = False
+
+        Using connection As New SqlConnection(connectionString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@IdUsuario", IdCliente)
+                connection.Open()
+                Dim count As Integer = CInt(command.ExecuteScalar())
+                If count > 0 Then
+                    existeId = True
+                End If
+            End Using
+        End Using
+
+        Return existeId
+    End Function
+    'FUNCION COMPROBACION SI EXISTE EL ID
+    Public Function ComprobacionIdAutor(IdCliente As Integer) As Boolean
+        Dim query As String = "SELECT COUNT(*) FROM Authors WHERE Id = " & IdCliente
+        Dim existeId As Boolean = False
+
+        Using connection As New SqlConnection(connectionString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@IdUsuario", IdCliente)
+                connection.Open()
+                Dim count As Integer = CInt(command.ExecuteScalar())
+                If count > 0 Then
+                    existeId = True
+                End If
+            End Using
+        End Using
+
+        Return existeId
+    End Function
 End Class
