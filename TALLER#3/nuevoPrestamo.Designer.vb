@@ -26,34 +26,29 @@ Partial Class nuevoPrestamo
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label1 = New Label()
         DataGridView1 = New DataGridView()
         DataGridView2 = New DataGridView()
         TextBoxBusquedad = New TextBox()
         Label2 = New Label()
         PanelSeleccionId = New Panel()
+        Label8 = New Label()
+        TextBoxId = New TextBox()
+        BtnSeleccionar = New Button()
         panelIngresoDatos2 = New Panel()
-        ComboBox1 = New ComboBox()
-        TextBox1 = New TextBox()
+        ListaMostrarLibros = New ComboBox()
+        BtnVolver = New Button()
+        NewClienteBtn = New Button()
+        TextBoxObservacion = New TextBox()
         Label5 = New Label()
         Label6 = New Label()
-        TextBox2 = New TextBox()
+        TextBoxCosto = New TextBox()
         Label7 = New Label()
-        Label8 = New Label()
-        TextBox3 = New TextBox()
-        BtnSeleccionar = New Button()
-        panelIngresoDatos = New Panel()
-        EstadoCb = New ComboBox()
-        ObservacionTb = New TextBox()
-        Label4 = New Label()
-        LabelTítulo = New Label()
-        CostoTb = New TextBox()
-        Label3 = New Label()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
         PanelSeleccionId.SuspendLayout()
         panelIngresoDatos2.SuspendLayout()
-        panelIngresoDatos.SuspendLayout()
         SuspendLayout()
         ' 
         ' Label1
@@ -91,9 +86,18 @@ Partial Class nuevoPrestamo
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
-        DataGridView1.Location = New Point(23, 308)
+        DataGridView1.Location = New Point(23, 356)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
+        DataGridView1.ReadOnly = True
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = SystemColors.Control
+        DataGridViewCellStyle3.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle3.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = SystemColors.ControlLight
+        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
+        DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
         DataGridView1.Size = New Size(1144, 250)
@@ -103,38 +107,38 @@ Partial Class nuevoPrestamo
         ' 
         DataGridView2.BackgroundColor = Color.WhiteSmoke
         DataGridView2.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = Color.White
-        DataGridViewCellStyle3.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle3.ForeColor = Color.Red
-        DataGridViewCellStyle3.Padding = New Padding(5)
-        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
-        DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
-        DataGridView2.ColumnHeadersHeight = 40
         DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = SystemColors.Window
+        DataGridViewCellStyle4.BackColor = Color.White
         DataGridViewCellStyle4.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle4.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle4.ForeColor = Color.Red
+        DataGridViewCellStyle4.Padding = New Padding(5)
         DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.False
-        DataGridView2.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
+        DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridView2.ColumnHeadersHeight = 40
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = SystemColors.Window
+        DataGridViewCellStyle5.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle5.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.False
+        DataGridView2.DefaultCellStyle = DataGridViewCellStyle5
         DataGridView2.GridColor = Color.Silver
-        DataGridView2.Location = New Point(507, 27)
+        DataGridView2.Location = New Point(378, 36)
         DataGridView2.Margin = New Padding(4, 3, 4, 3)
         DataGridView2.Name = "DataGridView2"
         DataGridView2.RowHeadersWidth = 51
         DataGridView2.RowTemplate.Height = 31
-        DataGridView2.Size = New Size(432, 101)
+        DataGridView2.Size = New Size(466, 120)
         DataGridView2.TabIndex = 14
         ' 
         ' TextBoxBusquedad
         ' 
         TextBoxBusquedad.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
         TextBoxBusquedad.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        TextBoxBusquedad.Location = New Point(147, 13)
+        TextBoxBusquedad.Location = New Point(3, 36)
         TextBoxBusquedad.Name = "TextBoxBusquedad"
         TextBoxBusquedad.Size = New Size(282, 36)
         TextBoxBusquedad.TabIndex = 15
@@ -144,7 +148,7 @@ Partial Class nuevoPrestamo
         Label2.AutoSize = True
         Label2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label2.Location = New Point(86, 97)
+        Label2.Location = New Point(3, 89)
         Label2.Name = "Label2"
         Label2.Size = New Size(33, 25)
         Label2.TabIndex = 49
@@ -152,113 +156,36 @@ Partial Class nuevoPrestamo
         ' 
         ' PanelSeleccionId
         ' 
-        PanelSeleccionId.Controls.Add(panelIngresoDatos2)
         PanelSeleccionId.Controls.Add(Label8)
-        PanelSeleccionId.Controls.Add(TextBox3)
+        PanelSeleccionId.Controls.Add(TextBoxId)
         PanelSeleccionId.Controls.Add(BtnSeleccionar)
         PanelSeleccionId.Controls.Add(Label2)
         PanelSeleccionId.Controls.Add(DataGridView2)
         PanelSeleccionId.Controls.Add(TextBoxBusquedad)
-        PanelSeleccionId.Location = New Point(23, 92)
+        PanelSeleccionId.Location = New Point(160, 91)
         PanelSeleccionId.Name = "PanelSeleccionId"
-        PanelSeleccionId.Size = New Size(961, 210)
+        PanelSeleccionId.Size = New Size(859, 169)
         PanelSeleccionId.TabIndex = 50
-        ' 
-        ' panelIngresoDatos2
-        ' 
-        panelIngresoDatos2.Controls.Add(ComboBox1)
-        panelIngresoDatos2.Controls.Add(TextBox1)
-        panelIngresoDatos2.Controls.Add(Label5)
-        panelIngresoDatos2.Controls.Add(Label6)
-        panelIngresoDatos2.Controls.Add(TextBox2)
-        panelIngresoDatos2.Controls.Add(Label7)
-        panelIngresoDatos2.Enabled = False
-        panelIngresoDatos2.Location = New Point(331, 103)
-        panelIngresoDatos2.Name = "panelIngresoDatos2"
-        panelIngresoDatos2.Size = New Size(754, 191)
-        panelIngresoDatos2.TabIndex = 52
-        ' 
-        ' ComboBox1
-        ' 
-        ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
-        ComboBox1.Font = New Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(561, 49)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(169, 39)
-        ComboBox1.TabIndex = 21
-        ' 
-        ' TextBox1
-        ' 
-        TextBox1.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
-        TextBox1.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        TextBox1.Location = New Point(181, 105)
-        TextBox1.Multiline = True
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(552, 68)
-        TextBox1.TabIndex = 19
-        ' 
-        ' Label5
-        ' 
-        Label5.AutoSize = True
-        Label5.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label5.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label5.Location = New Point(16, 128)
-        Label5.Name = "Label5"
-        Label5.Size = New Size(141, 25)
-        Label5.TabIndex = 20
-        Label5.Text = "Observación:"
-        ' 
-        ' Label6
-        ' 
-        Label6.AutoSize = True
-        Label6.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label6.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label6.Location = New Point(469, 54)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(86, 25)
-        Label6.TabIndex = 16
-        Label6.Text = "Estado:"
-        ' 
-        ' TextBox2
-        ' 
-        TextBox2.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
-        TextBox2.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        TextBox2.Location = New Point(182, 52)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(214, 36)
-        TextBox2.TabIndex = 14
-        ' 
-        ' Label7
-        ' 
-        Label7.AutoSize = True
-        Label7.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label7.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label7.Location = New Point(90, 60)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(76, 25)
-        Label7.TabIndex = 18
-        Label7.Text = "Costo:"
         ' 
         ' Label8
         ' 
         Label8.AutoSize = True
         Label8.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label8.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label8.Location = New Point(32, 20)
+        Label8.Location = New Point(3, 8)
         Label8.Name = "Label8"
         Label8.Size = New Size(87, 25)
         Label8.TabIndex = 54
         Label8.Text = "Nombre"
         ' 
-        ' TextBox3
+        ' TextBoxId
         ' 
-        TextBox3.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
-        TextBox3.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        TextBox3.Location = New Point(147, 90)
-        TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(136, 36)
-        TextBox3.TabIndex = 53
+        TextBoxId.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
+        TextBoxId.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        TextBoxId.Location = New Point(3, 117)
+        TextBoxId.Name = "TextBoxId"
+        TextBoxId.Size = New Size(136, 36)
+        TextBoxId.TabIndex = 53
         ' 
         ' BtnSeleccionar
         ' 
@@ -267,99 +194,133 @@ Partial Class nuevoPrestamo
         BtnSeleccionar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         BtnSeleccionar.FlatAppearance.BorderSize = 0
         BtnSeleccionar.FlatStyle = FlatStyle.Flat
-        BtnSeleccionar.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnSeleccionar.Font = New Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point)
         BtnSeleccionar.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnSeleccionar.Location = New Point(289, 84)
+        BtnSeleccionar.Location = New Point(145, 117)
         BtnSeleccionar.Name = "BtnSeleccionar"
-        BtnSeleccionar.Size = New Size(140, 51)
+        BtnSeleccionar.Size = New Size(50, 36)
         BtnSeleccionar.TabIndex = 52
-        BtnSeleccionar.Text = "Seleccionar"
+        BtnSeleccionar.Text = "✓"
         BtnSeleccionar.UseVisualStyleBackColor = False
         ' 
-        ' panelIngresoDatos
+        ' panelIngresoDatos2
         ' 
-        panelIngresoDatos.Controls.Add(EstadoCb)
-        panelIngresoDatos.Controls.Add(ObservacionTb)
-        panelIngresoDatos.Controls.Add(Label4)
-        panelIngresoDatos.Controls.Add(LabelTítulo)
-        panelIngresoDatos.Controls.Add(CostoTb)
-        panelIngresoDatos.Controls.Add(Label3)
-        panelIngresoDatos.Enabled = False
-        panelIngresoDatos.Location = New Point(357, 329)
-        panelIngresoDatos.Name = "panelIngresoDatos"
-        panelIngresoDatos.Size = New Size(754, 191)
-        panelIngresoDatos.TabIndex = 51
+        panelIngresoDatos2.Controls.Add(ListaMostrarLibros)
+        panelIngresoDatos2.Controls.Add(BtnVolver)
+        panelIngresoDatos2.Controls.Add(NewClienteBtn)
+        panelIngresoDatos2.Controls.Add(TextBoxObservacion)
+        panelIngresoDatos2.Controls.Add(Label5)
+        panelIngresoDatos2.Controls.Add(Label6)
+        panelIngresoDatos2.Controls.Add(TextBoxCosto)
+        panelIngresoDatos2.Controls.Add(Label7)
+        panelIngresoDatos2.Location = New Point(173, 92)
+        panelIngresoDatos2.Name = "panelIngresoDatos2"
+        panelIngresoDatos2.Size = New Size(859, 191)
+        panelIngresoDatos2.TabIndex = 52
         ' 
-        ' EstadoCb
+        ' ListaMostrarLibros
         ' 
-        EstadoCb.DropDownStyle = ComboBoxStyle.DropDownList
-        EstadoCb.Font = New Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
-        EstadoCb.FormattingEnabled = True
-        EstadoCb.Location = New Point(561, 49)
-        EstadoCb.Name = "EstadoCb"
-        EstadoCb.Size = New Size(169, 39)
-        EstadoCb.TabIndex = 21
+        ListaMostrarLibros.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        ListaMostrarLibros.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        ListaMostrarLibros.FormattingEnabled = True
+        ListaMostrarLibros.Items.AddRange(New Object() {"Libros Prestados", "Libros Devueltos", "Todos"})
+        ListaMostrarLibros.Location = New Point(243, 36)
+        ListaMostrarLibros.Name = "ListaMostrarLibros"
+        ListaMostrarLibros.Size = New Size(370, 32)
+        ListaMostrarLibros.TabIndex = 49
         ' 
-        ' ObservacionTb
+        ' BtnVolver
         ' 
-        ObservacionTb.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
-        ObservacionTb.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        ObservacionTb.Location = New Point(181, 105)
-        ObservacionTb.Multiline = True
-        ObservacionTb.Name = "ObservacionTb"
-        ObservacionTb.Size = New Size(552, 68)
-        ObservacionTb.TabIndex = 19
+        BtnVolver.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
+        BtnVolver.Cursor = Cursors.Hand
+        BtnVolver.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnVolver.FlatAppearance.BorderSize = 0
+        BtnVolver.FlatStyle = FlatStyle.Flat
+        BtnVolver.Font = New Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point)
+        BtnVolver.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        BtnVolver.Location = New Point(710, 115)
+        BtnVolver.Name = "BtnVolver"
+        BtnVolver.Size = New Size(87, 68)
+        BtnVolver.TabIndex = 48
+        BtnVolver.Text = "🔙"
+        BtnVolver.UseVisualStyleBackColor = False
         ' 
-        ' Label4
+        ' NewClienteBtn
         ' 
-        Label4.AutoSize = True
-        Label4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label4.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label4.Location = New Point(16, 128)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(141, 25)
-        Label4.TabIndex = 20
-        Label4.Text = "Observación:"
+        NewClienteBtn.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
+        NewClienteBtn.Cursor = Cursors.Hand
+        NewClienteBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        NewClienteBtn.FlatAppearance.BorderSize = 0
+        NewClienteBtn.FlatStyle = FlatStyle.Flat
+        NewClienteBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        NewClienteBtn.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        NewClienteBtn.Location = New Point(658, 29)
+        NewClienteBtn.Name = "NewClienteBtn"
+        NewClienteBtn.Size = New Size(185, 51)
+        NewClienteBtn.TabIndex = 47
+        NewClienteBtn.Text = "Ingresar"
+        NewClienteBtn.UseVisualStyleBackColor = False
         ' 
-        ' LabelTítulo
+        ' TextBoxObservacion
         ' 
-        LabelTítulo.AutoSize = True
-        LabelTítulo.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        LabelTítulo.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        LabelTítulo.Location = New Point(469, 54)
-        LabelTítulo.Name = "LabelTítulo"
-        LabelTítulo.Size = New Size(86, 25)
-        LabelTítulo.TabIndex = 16
-        LabelTítulo.Text = "Estado:"
+        TextBoxObservacion.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
+        TextBoxObservacion.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        TextBoxObservacion.Location = New Point(5, 115)
+        TextBoxObservacion.Multiline = True
+        TextBoxObservacion.Name = "TextBoxObservacion"
+        TextBoxObservacion.Size = New Size(608, 68)
+        TextBoxObservacion.TabIndex = 19
         ' 
-        ' CostoTb
+        ' Label5
         ' 
-        CostoTb.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
-        CostoTb.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        CostoTb.Location = New Point(182, 52)
-        CostoTb.Name = "CostoTb"
-        CostoTb.Size = New Size(214, 36)
-        CostoTb.TabIndex = 14
+        Label5.AutoSize = True
+        Label5.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label5.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label5.Location = New Point(5, 87)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(134, 25)
+        Label5.TabIndex = 20
+        Label5.Text = "Observación"
         ' 
-        ' Label3
+        ' Label6
         ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label3.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label3.Location = New Point(90, 60)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(76, 25)
-        Label3.TabIndex = 18
-        Label3.Text = "Costo:"
+        Label6.AutoSize = True
+        Label6.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label6.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label6.Location = New Point(243, 3)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(60, 25)
+        Label6.TabIndex = 16
+        Label6.Text = "Libro"
+        ' 
+        ' TextBoxCosto
+        ' 
+        TextBoxCosto.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
+        TextBoxCosto.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        TextBoxCosto.Location = New Point(5, 31)
+        TextBoxCosto.Name = "TextBoxCosto"
+        TextBoxCosto.Size = New Size(214, 36)
+        TextBoxCosto.TabIndex = 14
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label7.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label7.Location = New Point(5, 3)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(69, 25)
+        Label7.TabIndex = 18
+        Label7.Text = "Costo"
         ' 
         ' nuevoPrestamo
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1192, 570)
+        ClientSize = New Size(1192, 613)
+        Controls.Add(panelIngresoDatos2)
         Controls.Add(DataGridView1)
-        Controls.Add(panelIngresoDatos)
         Controls.Add(Label1)
         Controls.Add(PanelSeleccionId)
         FormBorderStyle = FormBorderStyle.None
@@ -371,8 +332,6 @@ Partial Class nuevoPrestamo
         PanelSeleccionId.PerformLayout()
         panelIngresoDatos2.ResumeLayout(False)
         panelIngresoDatos2.PerformLayout()
-        panelIngresoDatos.ResumeLayout(False)
-        panelIngresoDatos.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -383,21 +342,16 @@ Partial Class nuevoPrestamo
     Friend WithEvents TextBoxBusquedad As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents PanelSeleccionId As Panel
-    Friend WithEvents panelIngresoDatos As Panel
-    Friend WithEvents EstadoCb As ComboBox
-    Friend WithEvents ObservacionTb As TextBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents LabelTítulo As Label
-    Friend WithEvents CostoTb As TextBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents BtnSeleccionar As Button
     Friend WithEvents panelIngresoDatos2 As Panel
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBoxObservacion As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextBoxCosto As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TextBoxId As TextBox
+    Friend WithEvents BtnVolver As Button
+    Friend WithEvents NewClienteBtn As Button
+    Friend WithEvents ListaMostrarLibros As ComboBox
 End Class

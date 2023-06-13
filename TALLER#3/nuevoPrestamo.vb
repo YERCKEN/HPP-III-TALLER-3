@@ -1,11 +1,12 @@
 ﻿Imports System.Collections.ObjectModel
 Imports System.Data.SqlClient
+Imports System.Diagnostics.Eventing
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
 
 Public Class nuevoPrestamo
 
     Dim connectionString As String = varGlobales.cadenaConexion
-
+    Dim id As Integer
     Dim queryBusquedad As String
 
     'LOAD------------------------------------------------------------------------------------------------------
@@ -39,17 +40,19 @@ Public Class nuevoPrestamo
         DataGridView1.AutoResizeColumns()
         DataGridView1.ReadOnly = True
 
-
-
         DataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         DataGridView2.AutoSize = False
         DataGridView2.MaximumSize = New Size(432, 103)
         DataGridView2.AutoResizeColumns()
         DataGridView2.ReadOnly = True
+        'DataGridView2.Columns.Remove(DataGridView2.Columns("DataGridViewCheckBoxColumn"))
 
         DataGridView2.Columns("Id").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
         DataGridView2.ReadOnly = True
+
+
+        LoadBookNamesToDropDown()
     End Sub
 
 
@@ -132,11 +135,46 @@ Public Class nuevoPrestamo
 
     'BOTON DE SELECCIONAR ID ------------------------------------------------------------------------------------------
     Private Sub BtnSeleccionar_Click(sender As Object, e As EventArgs) Handles BtnSeleccionar.Click
+        panelIngresoDatos2.Visible = True
+        PanelSeleccionId.Visible = False
 
+        id = TextBoxId.Text
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 
+
+    'VOLVER -----------------------------------------------------------------------------------------------------
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
+        panelIngresoDatos2.Visible = False
+        PanelSeleccionId.Visible = True
     End Sub
+
+
+    Private Sub LoadBookNamesToDropDown()
+
+        ' Consulta SQL para obtener los nombres de los libros
+        Dim query As String = "SELECT Title FROM Books"
+
+        ' Usar el bloque Using para asegurar la liberación de los recursos
+        Using connection As New SqlConnection(connectionString)
+            Using command As New SqlCommand(query, connection)
+                ' Abrir la conexión
+                connection.Open()
+
+                ' Crear un lector de datos para obtener los resultados
+                Using reader As SqlDataReader = command.ExecuteReader()
+                    ' Limpiar los elementos existentes en el control de DropDown
+                    ListaMostrarLibros.Items.Clear()
+
+                    ' Agregar los nombres de los libros al control de DropDown (ComboBox)
+                    While reader.Read()
+                        Dim bookName As String = reader.GetString(0)
+                        ListaMostrarLibros.Items.Add(bookName)
+                    End While
+                End Using
+            End Using
+        End Using
+    End Sub
+
 
 End Class
