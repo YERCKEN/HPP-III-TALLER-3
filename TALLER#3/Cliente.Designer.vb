@@ -288,6 +288,7 @@ Partial Class Cliente
         FechaDevLb.Size = New Size(189, 25)
         FechaDevLb.TabIndex = 54
         FechaDevLb.Text = "Fecha devolucion:"
+        FechaDevLb.Visible = False
         ' 
         ' continuarBtn
         ' 
@@ -298,7 +299,7 @@ Partial Class Cliente
         continuarBtn.FlatStyle = FlatStyle.Flat
         continuarBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         continuarBtn.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        continuarBtn.Location = New Point(745, 34)
+        continuarBtn.Location = New Point(770, 34)
         continuarBtn.Name = "continuarBtn"
         continuarBtn.Size = New Size(115, 34)
         continuarBtn.TabIndex = 57

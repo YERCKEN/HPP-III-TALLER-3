@@ -31,7 +31,7 @@ Public Class Cliente
         End Try
     End Sub
     Public Function MostrarClientes() As DataTable
-        Dim query As String = "SELECT Cliente.Id, Cliente.Nombre AS Cliente, Books.Title AS Libro, Prestamos.Costo, Prestamos.Estado, Prestamos.Observacion, Prestamos.FechaPrestamo, Prestamos.FechaDevolucion
+        Dim query As String = "SELECT Prestamos.Id, Cliente.Nombre AS Cliente, Books.Title AS Libro, Prestamos.Costo, Prestamos.Estado, Prestamos.Observacion, Prestamos.FechaPrestamo, Prestamos.FechaDevolucion
             FROM Cliente
             JOIN Prestamos ON Cliente.Id = Prestamos.ClienteId
             JOIN Books ON Prestamos.LibroId = Books.Id"
@@ -50,11 +50,12 @@ Public Class Cliente
             Dim IdCliente As Integer = Integer.Parse(IdClienteTb.Text)
             If ComprobacionId(IdCliente) = True Then
                 If Date.Now <= ObtenerFechaDevolucion(IdCliente) Then
-                    FechaDevLb.Text = "Fecha devolucion:" & ObtenerFechaDevolucion(IdCliente)
+                    FechaDevLb.Text = "Fecha devolucion: " & ObtenerFechaDevolucion(IdCliente)
                     FechaDevLb.ForeColor = Color.White
                     actualizarDatosClientes(IdCliente)
                 Else
-                    FechaDevLb.Text = "Fecha devolucion:" & ObtenerFechaDevolucion(IdCliente)
+                    FechaDevLb.Visible = True
+                    FechaDevLb.Text = "Fecha devolucion: " & ObtenerFechaDevolucion(IdCliente)
                     FechaDevLb.ForeColor = Color.Red
                     continuarBtn.Visible = True
                 End If
@@ -68,7 +69,6 @@ Public Class Cliente
 
     End Sub
     Function actualizarDatosClientes(ByVal IdCliente As Integer)
-        FechaDevLb.Text = "Fecha devolucion:" & ObtenerFechaDevolucion(IdCliente)
         libroLb.Text = "Libro: " & obtenerLibroCliente(IdCliente)
         ActualizarBtn.Enabled = True
         ModificarClientesPanel.Enabled = True
@@ -77,11 +77,11 @@ Public Class Cliente
             con.Open()
 
             ' Consulta SQL para obtener los datos
-            Dim query As String = "SELECT Cliente.Id, Cliente.Nombre AS Cliente, Books.Title AS Libro, Prestamos.Costo, Prestamos.Estado, Prestamos.Observacion, Prestamos.FechaPrestamo, Prestamos.FechaDevolucion
-            FROM Cliente
-            JOIN Prestamos ON Cliente.Id = Prestamos.ClienteId
-            JOIN Books ON Prestamos.LibroId = Books.Id
-            WHERE Cliente.Id = " & IdCliente
+            Dim query As String = "SELECT Prestamos.Id, Cliente.Nombre AS Cliente, Books.Title AS Libro, Prestamos.Costo, Prestamos.Estado, Prestamos.Observacion, Prestamos.FechaPrestamo, Prestamos.FechaDevolucion
+FROM Cliente
+JOIN Prestamos ON Cliente.Id = Prestamos.ClienteId
+JOIN Books ON Prestamos.LibroId = Books.Id
+WHERE Prestamos.Id =" & IdCliente
 
             ' Crear un adaptador de datos
             Dim adapter As New SqlDataAdapter(query, con)
@@ -108,7 +108,7 @@ Public Class Cliente
 
         Using con As New SqlConnection(connectionString)
             con.Open()
-            Dim query As String = "SELECT Costo FROM Prestamos WHERE ClienteId = " & IdCliente
+            Dim query As String = "SELECT Costo FROM Prestamos WHERE Id = " & IdCliente
             Dim command As New SqlCommand(query, con)
             Dim dato As Object = command.ExecuteScalar()
 
@@ -123,7 +123,7 @@ Public Class Cliente
 
         Using con As New SqlConnection(connectionString)
             con.Open()
-            Dim query As String = "SELECT Estado FROM Prestamos WHERE ClienteId = " & IdCliente
+            Dim query As String = "SELECT Estado FROM Prestamos WHERE Id = " & IdCliente
             Dim command As New SqlCommand(query, con)
             Dim dato As Object = command.ExecuteScalar()
 
@@ -138,7 +138,7 @@ Public Class Cliente
 
         Using con As New SqlConnection(connectionString)
             con.Open()
-            Dim query As String = "SELECT Observacion FROM Prestamos WHERE ClienteId = " & IdCliente
+            Dim query As String = "SELECT Observacion FROM Prestamos WHERE Id = " & IdCliente
             Dim command As New SqlCommand(query, con)
             Dim dato As Object = command.ExecuteScalar()
 
@@ -155,9 +155,8 @@ Public Class Cliente
             connection.Open()
 
             ' Consulta SQL para obtener los préstamos
-            Dim sqlQuery As String = "SELECT FechaDevolucion FROM Prestamos where ClienteId=" & IdCliente
+            Dim sqlQuery As String = "SELECT FechaDevolucion FROM Prestamos where Id=" & IdCliente
             Using command As New SqlCommand(sqlQuery, connection)
-                command.Parameters.AddWithValue("@UsuarioId", IdCliente)
                 ' Ejecutar la consulta y obtener los resultados
                 Using reader As SqlDataReader = command.ExecuteReader()
                     ' Iterar sobre los registros de préstamos
@@ -179,7 +178,7 @@ Public Class Cliente
             connection.Open()
 
             ' Consulta SQL para obtener los títulos de los libros del Usuario 1
-            Dim sqlQuery As String = "SELECT Books.Title FROM Cliente INNER JOIN Prestamos ON Cliente.Id = Prestamos.ClienteId INNER JOIN Books ON Prestamos.LibroId = Books.Id WHERE Cliente.Id = @UsuarioId"
+            Dim sqlQuery As String = "SELECT Books.Title FROM Cliente INNER JOIN Prestamos ON Cliente.Id = Prestamos.ClienteId INNER JOIN Books ON Prestamos.LibroId = Books.Id WHERE Prestamos.Id = @UsuarioId"
             Using command As New SqlCommand(sqlQuery, connection)
                 command.Parameters.AddWithValue("@UsuarioId", IdCliente)
 
@@ -215,6 +214,13 @@ Public Class Cliente
                 conexion.Close()
                 ' Opcional: Mostrar un cuadro de mensaje para indicar que la actualización fue exitosa
                 MessageBox.Show("Datos actualizado.")
+                FechaDevLb.Visible = False
+                FechaDevLb.ForeColor = Color.White
+                continuarBtn.Visible = False
+                CostoTb.Clear()
+                EstadoCb.SelectedIndex = -1
+                ObservacionTb.Clear()
+                libroLb.Text = ""
             End If
         Catch ex As Exception
             IdClienteTb.Text = ""
@@ -232,14 +238,13 @@ Public Class Cliente
             Dim Costo As Decimal = Decimal.Parse(CostoTb.Text)
 
             ' Consulta SQL para actualizar la columna Costo
-            Dim sqlQuery As String = "UPDATE Prestamos SET Costo = @Costo WHERE ClienteId = " & IdCliente
+            Dim sqlQuery As String = "UPDATE Prestamos SET Costo = @Costo WHERE Id = " & IdCliente
 
             ' Crear una SqlConnection y SqlCommand
             Using connection As New SqlConnection(connectionString)
                 Using command As New SqlCommand(sqlQuery, connection)
                     ' Agregar parámetros para Costo y ClienteId
                     command.Parameters.AddWithValue("@Costo", Costo)
-                    command.Parameters.AddWithValue("@ClienteId", IdCliente)
 
                     ' Abrir la conexión
                     connection.Open()
@@ -262,14 +267,13 @@ Public Class Cliente
         Dim Estado As String = EstadoCb.SelectedItem
 
         ' Consulta SQL para actualizar la columna Costo
-        Dim sqlQuery As String = "UPDATE Prestamos SET Estado = @Estado WHERE ClienteId = " & IdCliente
+        Dim sqlQuery As String = "UPDATE Prestamos SET Estado = @Estado WHERE Id = " & IdCliente
 
         ' Crear una SqlConnection y SqlCommand
         Using connection As New SqlConnection(connectionString)
             Using command As New SqlCommand(sqlQuery, connection)
                 ' Agregar parámetros para Costo y ClienteId
                 command.Parameters.AddWithValue("@Estado", Estado)
-                command.Parameters.AddWithValue("@ClienteId", IdCliente)
 
                 ' Abrir la conexión
                 connection.Open()
@@ -290,14 +294,13 @@ Public Class Cliente
         Dim Observacion As String = ObservacionTb.Text
 
         ' Consulta SQL para actualizar la columna Costo
-        Dim sqlQuery As String = "UPDATE Prestamos SET Observacion = @Observacion WHERE ClienteId = " & IdCliente
+        Dim sqlQuery As String = "UPDATE Prestamos SET Observacion = @Observacion WHERE Id = " & IdCliente
 
         ' Crear una SqlConnection y SqlCommand
         Using connection As New SqlConnection(connectionString)
             Using command As New SqlCommand(sqlQuery, connection)
                 ' Agregar parámetros para Costo y ClienteId
                 command.Parameters.AddWithValue("@Observacion", Observacion)
-                command.Parameters.AddWithValue("@ClienteId", IdCliente)
 
                 ' Abrir la conexión
                 connection.Open()
