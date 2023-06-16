@@ -42,9 +42,9 @@ Partial Class eliminacion
         autorBtn.FlatStyle = FlatStyle.Flat
         autorBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         autorBtn.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        autorBtn.Location = New Point(860, 71)
+        autorBtn.Location = New Point(885, 132)
         autorBtn.Name = "autorBtn"
-        autorBtn.Size = New Size(144, 49)
+        autorBtn.Size = New Size(162, 51)
         autorBtn.TabIndex = 54
         autorBtn.Text = "Autor"
         autorBtn.UseVisualStyleBackColor = False
@@ -59,9 +59,9 @@ Partial Class eliminacion
         clienteBtn.FlatStyle = FlatStyle.Flat
         clienteBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         clienteBtn.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        clienteBtn.Location = New Point(685, 71)
+        clienteBtn.Location = New Point(688, 132)
         clienteBtn.Name = "clienteBtn"
-        clienteBtn.Size = New Size(144, 49)
+        clienteBtn.Size = New Size(162, 51)
         clienteBtn.TabIndex = 53
         clienteBtn.Text = "Cliente"
         clienteBtn.UseVisualStyleBackColor = False
@@ -70,6 +70,8 @@ Partial Class eliminacion
         ' 
         DataGridView1.BackgroundColor = Color.White
         DataGridView1.BorderStyle = BorderStyle.None
+        DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None
+        DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = Color.White
         DataGridViewCellStyle1.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
@@ -88,21 +90,23 @@ Partial Class eliminacion
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
-        DataGridView1.Location = New Point(13, 34)
+        DataGridView1.GridColor = SystemColors.Control
+        DataGridView1.Location = New Point(13, 41)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
+        DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
-        DataGridView1.Size = New Size(492, 459)
+        DataGridView1.Size = New Size(554, 482)
         DataGridView1.TabIndex = 55
         ' 
         ' IdClienteTb
         ' 
         IdClienteTb.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
         IdClienteTb.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        IdClienteTb.Location = New Point(860, 178)
+        IdClienteTb.Location = New Point(885, 244)
         IdClienteTb.Name = "IdClienteTb"
-        IdClienteTb.Size = New Size(144, 36)
+        IdClienteTb.Size = New Size(162, 36)
         IdClienteTb.TabIndex = 56
         ' 
         ' IdLb
@@ -110,7 +114,7 @@ Partial Class eliminacion
         IdLb.AutoSize = True
         IdLb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         IdLb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        IdLb.Location = New Point(685, 185)
+        IdLb.Location = New Point(688, 251)
         IdLb.Name = "IdLb"
         IdLb.Size = New Size(144, 25)
         IdLb.TabIndex = 57
@@ -125,18 +129,19 @@ Partial Class eliminacion
         eliminarBtn.FlatStyle = FlatStyle.Flat
         eliminarBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         eliminarBtn.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        eliminarBtn.Location = New Point(786, 284)
+        eliminarBtn.Location = New Point(801, 355)
         eliminarBtn.Name = "eliminarBtn"
-        eliminarBtn.Size = New Size(144, 49)
+        eliminarBtn.Size = New Size(162, 51)
         eliminarBtn.TabIndex = 58
         eliminarBtn.Text = "Eliminar"
         eliminarBtn.UseVisualStyleBackColor = False
         ' 
         ' eliminacion
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1174, 523)
+        BackColor = Color.White
+        ClientSize = New Size(1306, 549)
         Controls.Add(eliminarBtn)
         Controls.Add(IdClienteTb)
         Controls.Add(IdLb)

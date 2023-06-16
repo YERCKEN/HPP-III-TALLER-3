@@ -19,6 +19,8 @@ Public Class NuevoCliente
             DataGridView1.AutoResizeColumns()
             DataGridView1.ReadOnly = True
 
+            DataGridView1.Columns("Id").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            DataGridView1.Columns("Correo").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
             conexion.Close()
 

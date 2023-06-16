@@ -22,8 +22,9 @@ Partial Class Cliente
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label1 = New Label()
         DataGridView1 = New DataGridView()
         ActualizarBtn = New Button()
@@ -49,43 +50,57 @@ Partial Class Cliente
         ' 
         Label1.AutoSize = True
         Label1.Enabled = False
-        Label1.Font = New Font("Microsoft Sans Serif", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.Font = New Font("Montserrat", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label1.Location = New Point(1050, 43)
+        Label1.Location = New Point(1156, 41)
         Label1.Margin = New Padding(4, 0, 4, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(122, 29)
+        Label1.Size = New Size(116, 32)
         Label1.TabIndex = 12
         Label1.Text = "CLIENTE"
         ' 
         ' DataGridView1
         ' 
-        DataGridView1.BackgroundColor = Color.WhiteSmoke
+        DataGridView1.BackgroundColor = Color.White
         DataGridView1.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = Color.White
-        DataGridViewCellStyle1.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle1.ForeColor = Color.Red
-        DataGridViewCellStyle1.Padding = New Padding(5)
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        DataGridView1.ColumnHeadersHeight = 40
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = SystemColors.Window
-        DataGridViewCellStyle2.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
-        DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
-        DataGridView1.Location = New Point(12, 296)
+        DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None
+        DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = Color.White
+        DataGridViewCellStyle4.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle4.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DataGridViewCellStyle4.Padding = New Padding(5)
+        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Control
+        DataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridView1.ColumnHeadersHeight = 50
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = SystemColors.Window
+        DataGridViewCellStyle5.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle5.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Control
+        DataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridView1.EnableHeadersVisualStyles = False
+        DataGridView1.GridColor = Color.White
+        DataGridView1.Location = New Point(34, 353)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
+        DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = SystemColors.Control
+        DataGridViewCellStyle6.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle6.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.True
+        DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
-        DataGridView1.Size = New Size(1163, 262)
+        DataGridView1.Size = New Size(1238, 262)
         DataGridView1.TabIndex = 53
         ' 
         ' ActualizarBtn
@@ -96,9 +111,9 @@ Partial Class Cliente
         ActualizarBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         ActualizarBtn.FlatAppearance.BorderSize = 0
         ActualizarBtn.FlatStyle = FlatStyle.Flat
-        ActualizarBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        ActualizarBtn.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         ActualizarBtn.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        ActualizarBtn.Location = New Point(229, 220)
+        ActualizarBtn.Location = New Point(275, 220)
         ActualizarBtn.Name = "ActualizarBtn"
         ActualizarBtn.Size = New Size(162, 51)
         ActualizarBtn.TabIndex = 52
@@ -112,9 +127,9 @@ Partial Class Cliente
         BtnIngresar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         BtnIngresar.FlatAppearance.BorderSize = 0
         BtnIngresar.FlatStyle = FlatStyle.Flat
-        BtnIngresar.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnIngresar.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnIngresar.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnIngresar.Location = New Point(15, 220)
+        BtnIngresar.Location = New Point(61, 220)
         BtnIngresar.Name = "BtnIngresar"
         BtnIngresar.Size = New Size(162, 51)
         BtnIngresar.TabIndex = 49
@@ -130,7 +145,7 @@ Partial Class Cliente
         ModificarClientesPanel.Controls.Add(CostoTb)
         ModificarClientesPanel.Controls.Add(Label3)
         ModificarClientesPanel.Enabled = False
-        ModificarClientesPanel.Location = New Point(418, 99)
+        ModificarClientesPanel.Location = New Point(518, 102)
         ModificarClientesPanel.Name = "ModificarClientesPanel"
         ModificarClientesPanel.Size = New Size(754, 191)
         ModificarClientesPanel.TabIndex = 50
@@ -158,24 +173,24 @@ Partial Class Cliente
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label4.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label4.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         Label4.Location = New Point(16, 128)
         Label4.Name = "Label4"
-        Label4.Size = New Size(141, 25)
+        Label4.Size = New Size(145, 27)
         Label4.TabIndex = 20
-        Label4.Text = "Observación:"
+        Label4.Text = "Observación"
         ' 
         ' LabelTítulo
         ' 
         LabelTítulo.AutoSize = True
-        LabelTítulo.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        LabelTítulo.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         LabelTítulo.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         LabelTítulo.Location = New Point(469, 54)
         LabelTítulo.Name = "LabelTítulo"
-        LabelTítulo.Size = New Size(86, 25)
+        LabelTítulo.Size = New Size(84, 27)
         LabelTítulo.TabIndex = 16
-        LabelTítulo.Text = "Estado:"
+        LabelTítulo.Text = "Estado"
         ' 
         ' CostoTb
         ' 
@@ -189,19 +204,19 @@ Partial Class Cliente
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label3.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label3.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         Label3.Location = New Point(90, 60)
         Label3.Name = "Label3"
-        Label3.Size = New Size(76, 25)
+        Label3.Size = New Size(73, 27)
         Label3.TabIndex = 18
-        Label3.Text = "Costo:"
+        Label3.Text = "Costo"
         ' 
         ' IdClienteTb
         ' 
         IdClienteTb.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
         IdClienteTb.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        IdClienteTb.Location = New Point(229, 102)
+        IdClienteTb.Location = New Point(275, 102)
         IdClienteTb.Name = "IdClienteTb"
         IdClienteTb.Size = New Size(162, 36)
         IdClienteTb.TabIndex = 47
@@ -239,20 +254,20 @@ Partial Class Cliente
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label2.Location = New Point(33, 109)
+        Label2.Location = New Point(79, 109)
         Label2.Name = "Label2"
-        Label2.Size = New Size(144, 25)
+        Label2.Size = New Size(154, 27)
         Label2.TabIndex = 48
-        Label2.Text = "ID del cliente:"
+        Label2.Text = "ID del cliente"
         ' 
         ' Cliente
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1192, 570)
+        ClientSize = New Size(1306, 655)
         Controls.Add(DataGridView1)
         Controls.Add(ActualizarBtn)
         Controls.Add(BtnIngresar)

@@ -27,6 +27,7 @@ Partial Class nuevoPrestamo
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label1 = New Label()
         DataGridView1 = New DataGridView()
         DataGridView2 = New DataGridView()
@@ -59,7 +60,7 @@ Partial Class nuevoPrestamo
         Label1.Enabled = False
         Label1.Font = New Font("Montserrat", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label1.Location = New Point(1017, 22)
+        Label1.Location = New Point(1130, 36)
         Label1.Margin = New Padding(4, 0, 4, 0)
         Label1.Name = "Label1"
         Label1.Size = New Size(150, 32)
@@ -68,8 +69,10 @@ Partial Class nuevoPrestamo
         ' 
         ' DataGridView1
         ' 
-        DataGridView1.BackgroundColor = Color.WhiteSmoke
+        DataGridView1.BackgroundColor = Color.White
         DataGridView1.BorderStyle = BorderStyle.None
+        DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None
+        DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = Color.White
         DataGridViewCellStyle1.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
@@ -79,36 +82,40 @@ Partial Class nuevoPrestamo
         DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
         DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        DataGridView1.ColumnHeadersHeight = 40
+        DataGridView1.ColumnHeadersHeight = 50
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = SystemColors.Window
-        DataGridViewCellStyle2.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle2.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
-        DataGridView1.Location = New Point(23, 374)
+        DataGridView1.GridColor = SystemColors.ControlLight
+        DataGridView1.Location = New Point(23, 413)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.ReadOnly = True
+        DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = SystemColors.Control
-        DataGridViewCellStyle3.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle3.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
         DataGridViewCellStyle3.ForeColor = SystemColors.WindowText
         DataGridViewCellStyle3.SelectionBackColor = SystemColors.ControlLight
         DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
         DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
-        DataGridView1.Size = New Size(1144, 250)
+        DataGridView1.Size = New Size(1257, 250)
         DataGridView1.TabIndex = 13
         ' 
         ' DataGridView2
         ' 
-        DataGridView2.BackgroundColor = Color.WhiteSmoke
+        DataGridView2.BackgroundColor = Color.White
         DataGridView2.BorderStyle = BorderStyle.None
+        DataGridView2.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle4.BackColor = Color.White
         DataGridViewCellStyle4.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
@@ -123,14 +130,24 @@ Partial Class nuevoPrestamo
         DataGridViewCellStyle5.BackColor = SystemColors.Window
         DataGridViewCellStyle5.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
         DataGridViewCellStyle5.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Control
+        DataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         DataGridViewCellStyle5.WrapMode = DataGridViewTriState.False
         DataGridView2.DefaultCellStyle = DataGridViewCellStyle5
-        DataGridView2.GridColor = Color.Silver
+        DataGridView2.GridColor = Color.WhiteSmoke
         DataGridView2.Location = New Point(378, 36)
         DataGridView2.Margin = New Padding(4, 3, 4, 3)
         DataGridView2.Name = "DataGridView2"
+        DataGridView2.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = SystemColors.Control
+        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9.6F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle6.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = SystemColors.Control
+        DataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.True
+        DataGridView2.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridView2.RowHeadersVisible = False
         DataGridView2.RowHeadersWidth = 51
         DataGridView2.RowTemplate.Height = 31
         DataGridView2.Size = New Size(466, 120)
@@ -164,7 +181,7 @@ Partial Class nuevoPrestamo
         PanelSeleccionId.Controls.Add(Label2)
         PanelSeleccionId.Controls.Add(DataGridView2)
         PanelSeleccionId.Controls.Add(TextBoxBusquedad)
-        PanelSeleccionId.Location = New Point(160, 91)
+        PanelSeleccionId.Location = New Point(127, 113)
         PanelSeleccionId.Name = "PanelSeleccionId"
         PanelSeleccionId.Size = New Size(859, 169)
         PanelSeleccionId.TabIndex = 50
@@ -217,7 +234,7 @@ Partial Class nuevoPrestamo
         panelIngresoDatos2.Controls.Add(Label6)
         panelIngresoDatos2.Controls.Add(TextBoxCosto)
         panelIngresoDatos2.Controls.Add(Label7)
-        panelIngresoDatos2.Location = New Point(36, 60)
+        panelIngresoDatos2.Location = New Point(23, 79)
         panelIngresoDatos2.Name = "panelIngresoDatos2"
         panelIngresoDatos2.Size = New Size(859, 270)
         panelIngresoDatos2.TabIndex = 52
@@ -264,7 +281,7 @@ Partial Class nuevoPrestamo
         BtnVolver.FlatStyle = FlatStyle.Flat
         BtnVolver.Font = New Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point)
         BtnVolver.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnVolver.Location = New Point(711, 197)
+        BtnVolver.Location = New Point(711, 195)
         BtnVolver.Name = "BtnVolver"
         BtnVolver.Size = New Size(87, 68)
         BtnVolver.TabIndex = 48
@@ -278,7 +295,7 @@ Partial Class nuevoPrestamo
         NewClienteBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         NewClienteBtn.FlatAppearance.BorderSize = 0
         NewClienteBtn.FlatStyle = FlatStyle.Flat
-        NewClienteBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        NewClienteBtn.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         NewClienteBtn.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         NewClienteBtn.Location = New Point(658, 29)
         NewClienteBtn.Name = "NewClienteBtn"
@@ -311,11 +328,11 @@ Partial Class nuevoPrestamo
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label6.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label6.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         Label6.Location = New Point(5, 79)
         Label6.Name = "Label6"
-        Label6.Size = New Size(60, 25)
+        Label6.Size = New Size(66, 27)
         Label6.TabIndex = 16
         Label6.Text = "Libro"
         ' 
@@ -344,7 +361,7 @@ Partial Class nuevoPrestamo
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1192, 636)
+        ClientSize = New Size(1306, 681)
         Controls.Add(panelIngresoDatos2)
         Controls.Add(DataGridView1)
         Controls.Add(Label1)

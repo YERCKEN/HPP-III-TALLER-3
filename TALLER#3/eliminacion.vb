@@ -12,7 +12,7 @@ Public Class eliminacion
             'PROPIEDADES GRIDVIEW-----------------------------------------------------------------
             DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
             DataGridView1.AutoSize = False
-            DataGridView1.MaximumSize = New Size(1192, 250)
+            DataGridView1.MaximumSize = New Size(1192, 500)
             DataGridView1.AutoResizeColumns()
             DataGridView1.ReadOnly = True
             conexion.Close()
@@ -46,6 +46,20 @@ Public Class eliminacion
         Return dataTable
 
     End Function
+    Public Function eliminarPrestamoCLIENTE(ByVal IdCliente As Integer)
+        Dim query As String = "DELETE FROM Prestamos WHERE ClienteId =" & IdCliente
+        Dim rowCount As Integer = 0
+        ' Crear una SqlConnection y SqlCommand
+        Using connection As New SqlConnection(connectionString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@ClienteId", IdCliente)
+                connection.Open()
+                rowCount = command.ExecuteNonQuery()
+            End Using
+        End Using
+
+        Return MsgBox("PRESTAMO ELIMINADO")
+    End Function
     Public Function eliminarLibroAutor(ByVal IdCliente As Integer)
         Dim query As String = "DELETE FROM BooksAuthors WHERE AuthorId =" & IdCliente
         Dim rowCount As Integer = 0
@@ -57,6 +71,8 @@ Public Class eliminacion
                 rowCount = command.ExecuteNonQuery()
             End Using
         End Using
+
+        Return MsgBox("LIBRO ELIMINADO")
     End Function
 
     Private Sub clienteBtn_Click(sender As Object, e As EventArgs) Handles clienteBtn.Click
@@ -81,8 +97,12 @@ Public Class eliminacion
         Try
             Dim IdCliente As Integer = Integer.Parse(IdClienteTb.Text)
             IdClienteTb.Clear()
+
             If clienteBtn.Enabled = False And ComprobacionIdcliente(IdCliente) = True Then
+                eliminarPrestamoCLIENTE(IdCliente)
                 Using con As New SqlConnection(connectionString)
+
+                    MsgBox("entrando a eliminacion de clientes")
                     ' Abrir la conexión
                     con.Open()
 
@@ -102,11 +122,16 @@ Public Class eliminacion
 
                     ' Cerrar la conexión
                     con.Close()
-                    IdClienteTb.Clear()
+                    'IdClienteTb.Clear()
                     DataGridView1.DataSource = MostrarClientes()
+                    MsgBox("saliendo de elimación de cliente")
+
                 End Using
             ElseIf autorBtn.Enabled = False And ComprobacionIdAutor(IdCliente) = True Then
                 eliminarLibroAutor(IdCliente)
+
+                MsgBox("ENTRANDO A ELIMMINAR AUTOR")
+
                 Using con As New SqlConnection(connectionString)
                     ' Abrir la conexión
                     con.Open()
@@ -120,10 +145,10 @@ Public Class eliminacion
                     Dim dataSet As New DataSet()
 
                     ' Llenar el DataSet con los datos del adaptador
-                    adapter.Fill(dataSet, "Cliente")
+                    adapter.Fill(dataSet, "Authors")
 
                     ' Asignar el DataTable al control DataGridView
-                    DataGridView1.DataSource = dataSet.Tables("Cliente")
+                    DataGridView1.DataSource = dataSet.Tables("Authors")
 
                     ' Cerrar la conexión
                     con.Close()
@@ -149,6 +174,7 @@ Public Class eliminacion
                 Dim count As Integer = CInt(command.ExecuteScalar())
                 If count > 0 Then
                     existeId = True
+                    MsgBox("EL CLIENTE EXISTE")
                 End If
             End Using
         End Using
@@ -167,6 +193,8 @@ Public Class eliminacion
                 Dim count As Integer = CInt(command.ExecuteScalar())
                 If count > 0 Then
                     existeId = True
+                    MsgBox("EXISTE EL AUTOR")
+
                 End If
             End Using
         End Using

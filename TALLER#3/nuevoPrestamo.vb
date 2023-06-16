@@ -42,7 +42,7 @@ Public Class nuevoPrestamo
         'PROPIEDADES GRIDVIEW-----------------------------------------------------------------
         DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         DataGridView1.AutoSize = False
-        DataGridView1.MaximumSize = New Size(1192, 250)
+        DataGridView1.MaximumSize = New Size(1257, 250)
         DataGridView1.AutoResizeColumns()
         DataGridView1.ReadOnly = True
 
@@ -54,8 +54,6 @@ Public Class nuevoPrestamo
         'DataGridView2.Columns.Remove(DataGridView2.Columns("DataGridViewCheckBoxColumn"))
 
         DataGridView2.Columns("Id").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-
-        DataGridView2.ReadOnly = True
 
 
         LoadBookNamesToDropDown()
@@ -379,5 +377,7 @@ Public Class nuevoPrestamo
         End Using
     End Sub
 
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
+    End Sub
 End Class

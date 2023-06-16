@@ -7,6 +7,7 @@ Imports System.Runtime.InteropServices
 Public Class Form1
 
     ' Consulta SQL
+
     Public Const WM_NCLBUTTONDOWN As Integer = &HA1
     Public Const HT_CAPTION As Integer = 2
     Dim query As String
@@ -39,10 +40,12 @@ Public Class Form1
             'PROPIEDADES GRIDVIEW-----------------------------------------------------------------
             DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
             DataGridView1.AutoSize = False
-            DataGridView1.MaximumSize = New Size(1192, 250)
+            DataGridView1.MaximumSize = New Size(1242, 250)
             DataGridView1.AutoResizeColumns()
             DataGridView1.ReadOnly = True
 
+            DataGridView1.Columns("FechaPrestamo").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            DataGridView1.Columns("FechaDevolucion").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
             conexion.Close()
 
@@ -189,6 +192,13 @@ Public Class Form1
         If nuevoPrestamo IsNot Nothing Then ' Verificar si el Formulario 4 está abierto
             nuevoPrestamo.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form4 en relación con Form1
         End If
+
+        'FORMS ELIMINACION ---------------------------------------------------------------------------
+        If eliminacion IsNot Nothing Then ' Verificar si el Formulario 4 está abierto
+            eliminacion.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form4 en relación con Form1
+        End If
+
+
     End Sub
 
     Private Sub Menu_MouseDown(sender As Object, e As MouseEventArgs) Handles Menu.MouseDown
