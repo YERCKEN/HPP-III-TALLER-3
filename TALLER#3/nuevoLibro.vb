@@ -96,7 +96,7 @@ Public Class nuevoLibro
 
         Using conexion As New SqlConnection(connectionString)
 
-            ListaAutorExistente.Items.Clear()
+
 
             conexion.Open()
 

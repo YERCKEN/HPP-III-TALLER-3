@@ -7,6 +7,8 @@ Public Class Cliente
 
     Dim connectionString As String = varGlobales.cadenaConexion
     Private Sub Cliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        ActualizarBtn.Visible = False
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 48) ' Establecer la nueva ubicación de Form4 en relación con Form1
         Try
 
@@ -50,13 +52,15 @@ Public Class Cliente
             Dim IdCliente As Integer = Integer.Parse(IdClienteTb.Text)
             If ComprobacionId(IdCliente) = True Then
                 If Date.Now <= ObtenerFechaDevolucion(IdCliente) Then
-                    FechaDevLb.Text = "Fecha devolucion: " & ObtenerFechaDevolucion(IdCliente)
+                    'FechaDevLb.Text = "Fecha devolucion: " & ObtenerFechaDevolucion(IdCliente)
                     FechaDevLb.ForeColor = Color.White
                     actualizarDatosClientes(IdCliente)
                 Else
                     FechaDevLb.Visible = True
-                    FechaDevLb.Text = "Fecha devolucion: " & ObtenerFechaDevolucion(IdCliente)
-                    FechaDevLb.ForeColor = Color.Red
+                    FechaDevLb.Text = "Ha sobrepasado la fecha de entrega " & ObtenerFechaDevolucion(IdCliente) & ", Se agregará un impuesto"
+                    FechaDevLb.ForeColor = Color.White
+                    FechaDevLb.BackColor = Color.FromArgb(255, 115, 115)
+
                     continuarBtn.Visible = True
                 End If
 
@@ -363,5 +367,10 @@ WHERE Prestamos.Id =" & IdCliente
     Private Sub continuarBtn_Click(sender As Object, e As EventArgs) Handles continuarBtn.Click
         Dim IdCliente As Integer = Integer.Parse(IdClienteTb.Text)
         actualizarDatosClientes(IdCliente)
+        ActualizarBtn.Visible = True
+    End Sub
+
+    Private Sub FechaDevLb_Click(sender As Object, e As EventArgs) Handles FechaDevLb.Click
+
     End Sub
 End Class

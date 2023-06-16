@@ -97,20 +97,20 @@ Partial Class nuevoLibro
         ' 
         ' textBoxAutor
         ' 
-        textBoxAutor.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
+        textBoxAutor.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         textBoxAutor.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         textBoxAutor.Location = New Point(0, 44)
         textBoxAutor.Name = "textBoxAutor"
-        textBoxAutor.Size = New Size(439, 36)
+        textBoxAutor.Size = New Size(439, 30)
         textBoxAutor.TabIndex = 13
         ' 
         ' TextBoxPais
         ' 
-        TextBoxPais.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
+        TextBoxPais.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         TextBoxPais.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         TextBoxPais.Location = New Point(0, 123)
         TextBoxPais.Name = "TextBoxPais"
-        TextBoxPais.Size = New Size(439, 36)
+        TextBoxPais.Size = New Size(439, 30)
         TextBoxPais.TabIndex = 14
         ' 
         ' Label1
@@ -189,11 +189,11 @@ Partial Class nuevoLibro
         ' 
         ' TextBoxTítulo
         ' 
-        TextBoxTítulo.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
+        TextBoxTítulo.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         TextBoxTítulo.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         TextBoxTítulo.Location = New Point(1, 38)
         TextBoxTítulo.Name = "TextBoxTítulo"
-        TextBoxTítulo.Size = New Size(439, 36)
+        TextBoxTítulo.Size = New Size(439, 30)
         TextBoxTítulo.TabIndex = 15
         ' 
         ' BtnIngresar

@@ -16,7 +16,7 @@ Public Class eliminacion
             DataGridView1.AutoResizeColumns()
             DataGridView1.ReadOnly = True
             conexion.Close()
-
+            DataGridView1.Columns("Id").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         Catch ex As Exception
 
             MsgBox("ERRROR CONECTAR CON BASE")
@@ -76,7 +76,7 @@ Public Class eliminacion
     End Function
 
     Private Sub clienteBtn_Click(sender As Object, e As EventArgs) Handles clienteBtn.Click
-        IdLb.Text = "Id de cliente:"
+        IdLb.Text = "Id Cliente"
         clienteBtn.Enabled = False
         autorBtn.Enabled = True
         conexion.Open()
@@ -85,7 +85,7 @@ Public Class eliminacion
     End Sub
 
     Private Sub autorBtn_Click(sender As Object, e As EventArgs) Handles autorBtn.Click
-        IdLb.Text = "Id de autor:"
+        IdLb.Text = "Id Autor"
         autorBtn.Enabled = False
         clienteBtn.Enabled = True
         conexion.Open()

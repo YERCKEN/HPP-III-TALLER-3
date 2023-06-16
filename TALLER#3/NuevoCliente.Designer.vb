@@ -79,20 +79,20 @@ Partial Class NuevoCliente
         ' 
         ' CorreoTb
         ' 
-        CorreoTb.Font = New Font("Montserrat", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
+        CorreoTb.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         CorreoTb.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         CorreoTb.Location = New Point(0, 123)
         CorreoTb.Name = "CorreoTb"
-        CorreoTb.Size = New Size(439, 38)
+        CorreoTb.Size = New Size(439, 32)
         CorreoTb.TabIndex = 14
         ' 
         ' NombreTb
         ' 
-        NombreTb.Font = New Font("Montserrat", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
+        NombreTb.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         NombreTb.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         NombreTb.Location = New Point(0, 33)
         NombreTb.Name = "NombreTb"
-        NombreTb.Size = New Size(439, 38)
+        NombreTb.Size = New Size(439, 32)
         NombreTb.TabIndex = 13
         ' 
         ' Label2

@@ -133,7 +133,7 @@ Public Class Form1
     Private Sub archivoP2_Click(sender As Object, e As EventArgs) Handles archivoP2.Click
         nuevoLibro.Show()
         nuevoLibro.Owner = Me
-        'Me.Location = New Point(Me.Location.X, Me.Location.Y - 150)
+        Me.Location = New Point(Me.Location.X, 30)
         'VISIBILDIAD
         nuevoPrestamo.Close()
         Cliente.Close()
@@ -172,6 +172,7 @@ Public Class Form1
     Private Sub P3_Click(sender As Object, e As EventArgs) Handles P3.Click
         Cliente.Show()
         Cliente.Owner = Me
+        Me.Location = New Point(Me.Location.X, 30)
 
         'VISIBILDIAD
         nuevoPrestamo.Close()
@@ -260,6 +261,11 @@ Public Class Form1
     End Sub
 
     Private Sub Archivo_Click(sender As Object, e As EventArgs) Handles Archivo.Click
+
+    End Sub
+
+    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        Me.Close()
 
     End Sub
 End Class
