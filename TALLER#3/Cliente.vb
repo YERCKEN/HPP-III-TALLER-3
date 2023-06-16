@@ -171,6 +171,18 @@ WHERE Prestamos.Id =" & IdCliente
             End Using
         End Using
     End Function
+    Function CalcularDiasPasados(ByVal IdCliente As Integer) As Integer
+        Dim fechaDevolucion As Date = ObtenerFechaDevolucion(IdCliente)
+        Dim diasPasados As Integer = 0
+
+        ' Verificar si se obtuvo la fecha de devolución
+        If fechaDevolucion <> Nothing Then
+            ' Calcular los días pasados desde la fecha de devolución hasta la fecha actual
+            diasPasados = DateDiff(DateInterval.Day, fechaDevolucion, Date.Now)
+        End If
+
+        Return diasPasados
+    End Function
 
     Function obtenerLibroCliente(ByVal IdCliente As Integer) As String
         ' Establecer la conexión con la base de datos
@@ -221,6 +233,7 @@ WHERE Prestamos.Id =" & IdCliente
                 EstadoCb.SelectedIndex = -1
                 ObservacionTb.Clear()
                 libroLb.Text = ""
+                IdClienteTb.Text = ""
             End If
         Catch ex As Exception
             IdClienteTb.Text = ""
@@ -236,7 +249,21 @@ WHERE Prestamos.Id =" & IdCliente
         Try
             ' Obtener el valor del cuadro de texto para el nuevo Costo
             Dim Costo As Decimal = Decimal.Parse(CostoTb.Text)
-
+            If CalcularDiasPasados(IdCliente) = 0 Then
+                Costo = Costo
+            ElseIf CalcularDiasPasados(IdCliente) >= 1 And CalcularDiasPasados(IdCliente) <= 5 Then
+                Costo = Costo + Costo * 0.03
+            ElseIf CalcularDiasPasados(IdCliente) >= 6 And CalcularDiasPasados(IdCliente) <= 10 Then
+                Costo = Costo + Costo * 0.06
+            ElseIf CalcularDiasPasados(IdCliente) >= 11 And CalcularDiasPasados(IdCliente) <= 15 Then
+                Costo = Costo + Costo * 0.09
+            ElseIf CalcularDiasPasados(IdCliente) >= 16 And CalcularDiasPasados(IdCliente) <= 20 Then
+                Costo = Costo + Costo * 0.12
+            ElseIf CalcularDiasPasados(IdCliente) >= 21 And CalcularDiasPasados(IdCliente) <= 25 Then
+                Costo = Costo + Costo * 0.15
+            ElseIf CalcularDiasPasados(IdCliente) > 26 Then
+                Costo = Costo + Costo * 0.2
+            End If
             ' Consulta SQL para actualizar la columna Costo
             Dim sqlQuery As String = "UPDATE Prestamos SET Costo = @Costo WHERE Id = " & IdCliente
 
