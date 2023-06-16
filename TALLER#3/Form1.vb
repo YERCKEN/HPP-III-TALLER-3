@@ -245,6 +245,7 @@ Public Class Form1
     Private Sub ListaMostrar_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListaMostrar.SelectedIndexChanged
     End Sub
 
+    'EMPRESA
     Private Sub btnEmpresa_Click(sender As Object, e As EventArgs) Handles btnEmpresa.Click
 
         Empresa.Show()
@@ -258,6 +259,7 @@ Public Class Form1
 
     End Sub
 
+    Private Sub Archivo_Click(sender As Object, e As EventArgs) Handles Archivo.Click
 
-
+    End Sub
 End Class

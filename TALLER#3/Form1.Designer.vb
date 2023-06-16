@@ -200,7 +200,7 @@ Partial Class Form1
         ' 
         btnEmpresa.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         btnEmpresa.Name = "btnEmpresa"
-        btnEmpresa.Size = New Size(224, 30)
+        btnEmpresa.Size = New Size(181, 30)
         btnEmpresa.Text = "Empresa"
         ' 
         ' toolStripSeparator2
@@ -222,7 +222,7 @@ Partial Class Form1
         BuscarToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         BuscarToolStripMenuItem.Margin = New Padding(0, 20, 0, 0)
         BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem"
-        BuscarToolStripMenuItem.Size = New Size(224, 30)
+        BuscarToolStripMenuItem.Size = New Size(121, 30)
         BuscarToolStripMenuItem.Text = "1.9"
         ' 
         ' Label1
