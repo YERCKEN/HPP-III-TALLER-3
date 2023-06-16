@@ -68,7 +68,7 @@ Public Class Cliente
         End Try
 
     End Sub
-    Function actualizarDatosClientes(ByVal IdCliente As Integer)
+    sub actualizarDatosClientes(ByVal IdCliente As Integer)
         libroLb.Text = "Libro: " & obtenerLibroCliente(IdCliente)
         ActualizarBtn.Enabled = True
         ModificarClientesPanel.Enabled = True
@@ -103,7 +103,8 @@ WHERE Prestamos.Id =" & IdCliente
             BtnIngresar.Enabled = False
 
         End Using
-    End Function
+
+    End sub
     Private Sub MostrarCosto(ByVal IdCliente As Integer)
 
         Using con As New SqlConnection(connectionString)
@@ -170,6 +171,7 @@ WHERE Prestamos.Id =" & IdCliente
                 End Using
             End Using
         End Using
+
     End Function
     Function CalcularDiasPasados(ByVal IdCliente As Integer) As Integer
         Dim fechaDevolucion As Date = ObtenerFechaDevolucion(IdCliente)
