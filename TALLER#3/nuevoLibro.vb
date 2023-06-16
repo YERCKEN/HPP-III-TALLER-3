@@ -13,9 +13,11 @@ Public Class nuevoLibro
 
         PanelAutorExistente.Visible = False
         PanelNuevoAutor.Visible = False
-
-        PanelPanelIngresar.Visible = False
-
+        PanelIngresoDeAutores.Visible = False
+        btnIngresarAutor.Visible = False
+        ListaAutorExistente.DropDownStyle = ComboBoxStyle.DropDownList
+        listaLibros.DropDownStyle = ComboBoxStyle.DropDownList
+        btnMostrarPanelNuevoLibro.Visible = False
         Try
 
             conexion.Open()
@@ -24,15 +26,24 @@ Public Class nuevoLibro
             'PROPIEDADES GRIDVIEW-----------------------------------------------------------------
             DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
             DataGridView1.AutoSize = False
-            DataGridView1.MaximumSize = New Size(1192, 570)
+            DataGridView1.MaximumSize = New Size(1192, 336)
             DataGridView1.AutoResizeColumns()
             DataGridView1.ReadOnly = True
 
 
+            DataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            DataGridView2.AutoSize = False
+            DataGridView2.MaximumSize = New Size(1192, 199)
+            DataGridView2.AutoResizeColumns()
+            DataGridView2.ReadOnly = True
+            ' Cambiar el encabezado de la columna "Title"
 
             conexion.Close()
 
             CargarDatosEnDropList()
+            LoadBookNamesToDropDown()
+            cargarBook()
+            DataGridView2.Columns("Title").HeaderText = "Libros Sin Autores Definidos"
 
         Catch ex As Exception
 
@@ -60,23 +71,22 @@ Public Class nuevoLibro
 
     Private Sub BtnExistente_Click(sender As Object, e As EventArgs) Handles BtnExistente.Click
 
-        PanelPanelIngresar.Visible = True
         PanelAutorExistente.Visible = True
         PanelNuevoAutor.Visible = False
 
         BtnExistente.Visible = False
         BtnNuevo.Visible = True
+        btnIngresarAutor.Visible = True
     End Sub
 
     Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
 
         PanelAutorExistente.Visible = False
         PanelNuevoAutor.Visible = True
-        PanelPanelIngresar.Visible = True
 
         BtnNuevo.Visible = False
         BtnExistente.Visible = True
-
+        btnIngresarAutor.Visible = True
     End Sub
 
 
@@ -166,7 +176,7 @@ Public Class nuevoLibro
             End Using
 
             ' Insertar un nuevo libro
-            bookId = InsertBook(tituloLibro)
+            bookId = EncontrarIdLibroPorNombre(listaLibros.Text)
 
             ' Relacionar el libro con el autor existente
             AssociateAuthorWithBook(authorId, bookId)
@@ -178,111 +188,71 @@ Public Class nuevoLibro
 
 
     Private Sub BtnIngresar_Click(sender As Object, e As EventArgs) Handles BtnIngresar.Click
+        If TextBoxTítulo.Text <> "" Then
 
-        'NUEVO------------------------------------------------------------------
+            'INGRESAR LIBRO------------------------------------------------------------------
+            InsertBook(TextBoxTítulo.Text)
 
-        If BtnExistente.Visible Then
+        Else
 
-            'ESTAN LLENAS LOS DATOS
-
-            If textBoxAutor.Text = "" Then
-                textBoxAutor.BackColor = Color.FromArgb(255, 222, 222)
-
-            ElseIf TextBoxPais.Text = "" Then
-
-                textBoxAutor.BackColor = Color.White
-                TextBoxPais.BackColor = Color.FromArgb(255, 222, 222)
-
-            ElseIf TextBoxTítulo.Text = "" Then
-                textBoxAutor.BackColor = Color.White
-                TextBoxTítulo.BackColor = Color.FromArgb(255, 222, 222)
-                TextBoxPais.BackColor = Color.White
-
-            Else
-                textBoxAutor.BackColor = Color.White
-                TextBoxTítulo.BackColor = Color.White
-                TextBoxPais.BackColor = Color.White
-
-                'CODIGO
-
-                ' El botón es visible
-                If ExisteAutor(textBoxAutor.Text) Then
-
-                    textBoxAutor.BackColor = Color.FromArgb(255, 222, 222)
-
-                    MessageBox.Show("ERROR: EL AUTOR YA EXISTE", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-
-                ElseIf ExisteLibro(TextBoxTítulo.Text) Then
-
-                    textBoxAutor.BackColor = Color.White
-                    TextBoxTítulo.BackColor = Color.FromArgb(255, 222, 222)
-                    MessageBox.Show("ERROR: EL LIBRO YA EXISTE", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-
-                Else
-                    textBoxAutor.BackColor = Color.White
-                    TextBoxTítulo.BackColor = Color.White
-
-                    ' Insertar el autor
-                    Dim authorId As Integer = InsertAuthor(textBoxAutor.Text, TextBoxPais.Text)
-                    ' Insertar el libro
-                    Dim bookId As Integer = InsertBook(TextBoxTítulo.Text)
-                    ' Asociar el autor con el libro
-
-                    AssociateAuthorWithBook(authorId, bookId)
-                    MessageBox.Show("LIBRO Y AUTOR INSERTADOS CORRECTAMENTE", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    textBoxAutor.Text = ""
-                    TextBoxTítulo.Text = ""
-                    TextBoxPais.Text = ""
-
-                End If
-
-            End If
-
-
-
-            'EXISTENTE-------------------------------------------------------------------
-        ElseIf BtnNuevo.Visible Then
-
-            If ListaAutorExistente.Text = "" Then
-
-                ListaAutorExistente.BackColor = Color.FromArgb(255, 222, 222)
-
-            ElseIf TextBoxTítulo.Text = "" Then
-
-                ListaAutorExistente.BackColor = Color.White
-                TextBoxTítulo.BackColor = Color.FromArgb(255, 222, 222)
-
-            Else
-
-                ListaAutorExistente.BackColor = Color.White
-
-                If ExisteLibro(TextBoxTítulo.Text) Then
-
-                    TextBoxTítulo.BackColor = Color.FromArgb(255, 222, 222)
-                    MessageBox.Show("ERROR: EL LIBRO YA EXISTE", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-
-
-                Else
-
-                    TextBoxTítulo.BackColor = Color.White
-                    AgregarLibroAAutorExistente(ListaAutorExistente.Text, TextBoxTítulo.Text)
-                    MessageBox.Show("LIBRO AGREGADO AL AUTOR EXISTENTE CON EXITO", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    ListaAutorExistente.Text = ""
-                    TextBoxTítulo.Text = ""
-                    TextBoxTítulo.BackColor = Color.White
-
-                End If
-
-            End If
+            TextBoxTítulo.BackColor = Color.FromArgb(255, 222, 222)
 
         End If
 
-        'ACTUALIZACIÓN
-        DataGridView1.DataSource = ObtenerLibrosAutores()
-
-        CargarDatosEnDropList()
 
     End Sub
+
+
+
+
+    'SELECT PARA LISTA DE LIBROS EXISTENTE---------------------------------------
+    Private Sub LoadBookNamesToDropDown()
+
+        ' Consulta SQL para obtener los nombres de los libros
+        Dim query As String = "SELECT Title FROM Books"
+
+        ' Usar el bloque Using para asegurar la liberación de los recursos
+        Using connection As New SqlConnection(connectionString)
+            Using command As New SqlCommand(query, connection)
+                ' Abrir la conexión
+                connection.Open()
+
+                ' Crear un lector de datos para obtener los resultados
+                Using reader As SqlDataReader = command.ExecuteReader()
+                    ' Limpiar los elementos existentes en el control de DropDown
+                    listaLibros.Items.Clear()
+
+                    ' Agregar los nombres de los libros al control de DropDown (ComboBox)
+                    While reader.Read()
+                        Dim bookName As String = reader.GetString(0)
+                        listaLibros.Items.Add(bookName)
+                    End While
+                End Using
+            End Using
+        End Using
+    End Sub
+
+
+    'ENCONTRAR ID DEL LIBRO POR NOMBRE DE LA LISTA NOMBRE-      ---------------------------------------------------------------------------
+    Private Function EncontrarIdLibroPorNombre(nombreLibro As String) As Integer
+        Dim libroId As Integer = 0
+
+        Using connection As New SqlConnection(connectionString)
+            Dim query As String = "SELECT Id FROM Books WHERE Title = @Nombre"
+            Dim command As New SqlCommand(query, connection)
+            command.Parameters.AddWithValue("@Nombre", nombreLibro)
+
+            connection.Open()
+            Dim result As Object = command.ExecuteScalar()
+
+            If result IsNot Nothing AndAlso Not DBNull.Value.Equals(result) Then
+                libroId = Convert.ToInt32(result)
+            End If
+        End Using
+
+        Return libroId
+    End Function
+
 
 
     'NUEVO AUTOR Y NUEVO LIBRO--------------------------------------------------------------------------------------------------------
@@ -310,23 +280,33 @@ Public Class nuevoLibro
 
     'FUNCION INSERTAR LIBRO
 
-    Private Function InsertBook(title As String) As Integer
-        Dim bookId As Integer = 0
+    Private Sub InsertBook(title As String)
 
-        Using connection As New SqlConnection(connectionString)
-            connection.Open()
+        If ExisteLibro(TextBoxTítulo.Text) Then
 
-            Dim query As String = "INSERT INTO Books (Title) VALUES (@Title); SELECT SCOPE_IDENTITY();"
+            TextBoxTítulo.BackColor = Color.FromArgb(255, 222, 222)
+            MessageBox.Show("ERROR: EL LIBRO YA EXISTE", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
 
-            Using command As New SqlCommand(query, connection)
-                command.Parameters.AddWithValue("@Title", title)
+        Else
+            Using connection As New SqlConnection(connectionString)
+                connection.Open()
 
-                bookId = Convert.ToInt32(command.ExecuteScalar())
+                Dim query As String = "INSERT INTO Books (Title) VALUES (@Title);"
+
+                Using command As New SqlCommand(query, connection)
+                    command.Parameters.AddWithValue("@Title", title)
+                    command.ExecuteNonQuery()
+
+                    TextBoxTítulo.BackColor = Color.FromArgb(207, 255, 235)
+
+                    MessageBox.Show("LIBRO INSERTADO CORRECTAMENTE", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    TextBoxTítulo.BackColor = Color.White
+                    TextBoxTítulo.Text = ""
+                    cargarBook()
+                End Using
             End Using
-        End Using
-
-        Return bookId
-    End Function
+        End If
+    End Sub
 
     'INSERTAR ID PARA RELACIÓN ENTRE LIBROS Y AUTORES
     Private Sub AssociateAuthorWithBook(authorId As Integer, bookId As Integer)
@@ -344,6 +324,148 @@ Public Class nuevoLibro
         End Using
     End Sub
 
+    Private Sub btnMostrarPanelAutores_Click(sender As Object, e As EventArgs) Handles btnMostrarPanelAutores.Click
+        PanelIngresoDeAutores.Visible = True
+        btnMostrarPanelAutores.Visible = False
+
+        btnMostrarPanelNuevoLibro.Visible = True
 
 
+        PanelPanelIngresar.Visible = False
+    End Sub
+
+    Private Sub btnIngresarAutor_Click(sender As Object, e As EventArgs) Handles btnIngresarAutor.Click
+
+
+        'NUEVO------------------------------------------------------------------
+
+        If BtnExistente.Visible Then
+
+            'ESTAN LLENAS LOS DATOS
+
+            If textBoxAutor.Text = "" Then
+                textBoxAutor.BackColor = Color.FromArgb(255, 222, 222)
+
+            ElseIf TextBoxPais.Text = "" Then
+
+                textBoxAutor.BackColor = Color.White
+                TextBoxPais.BackColor = Color.FromArgb(255, 222, 222)
+
+            Else
+                textBoxAutor.BackColor = Color.White
+                TextBoxTítulo.BackColor = Color.White
+                TextBoxPais.BackColor = Color.White
+
+                'CODIGO
+
+                ' El botón es visible
+                If ExisteAutor(textBoxAutor.Text) Then
+
+                    textBoxAutor.BackColor = Color.FromArgb(255, 222, 222)
+
+                    MessageBox.Show("ERROR: EL AUTOR YA EXISTE", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+
+                    textBoxAutor.BackColor = Color.White
+
+                Else
+                    textBoxAutor.BackColor = Color.White
+
+                    ' Insertar el autor
+                    Dim authorId As Integer = InsertAuthor(textBoxAutor.Text, TextBoxPais.Text)
+                    ' Insertar el libro
+                    Dim bookId As Integer = EncontrarIdLibroPorNombre(listaLibros.Text)
+                    ' Asociar el autor con el libro
+
+                    AssociateAuthorWithBook(authorId, bookId)
+                    MessageBox.Show("AUTOR RELACIONADO CORRECTAMENTE", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    textBoxAutor.Text = ""
+                    TextBoxTítulo.Text = ""
+                    TextBoxPais.Text = ""
+                    listaLibros.Text = ""
+
+
+
+                End If
+
+            End If
+
+
+
+            'EXISTENTE-------------------------------------------------------------------
+        ElseIf BtnNuevo.Visible Then
+
+            If ListaAutorExistente.Text = "" Then
+
+                ListaAutorExistente.BackColor = Color.FromArgb(255, 222, 222)
+
+            ElseIf listaLibros.Text = "" Then
+
+                ListaAutorExistente.BackColor = Color.White
+                TextBoxTítulo.BackColor = Color.FromArgb(255, 222, 222)
+
+            Else
+
+                ListaAutorExistente.BackColor = Color.White
+
+
+                TextBoxTítulo.BackColor = Color.White
+                AgregarLibroAAutorExistente(ListaAutorExistente.Text, listaLibros.Text)
+                MessageBox.Show("LIBRO AGREGADO AL AUTOR EXISTENTE CON EXITO", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                ListaAutorExistente.Text = ""
+                TextBoxTítulo.Text = ""
+                listaLibros.Text = ""
+                TextBoxTítulo.BackColor = Color.White
+
+
+
+            End If
+
+        End If
+
+        'ACTUALIZACIÓN
+        DataGridView1.DataSource = ObtenerLibrosAutores()
+
+        CargarDatosEnDropList()
+        cargarBook()
+    End Sub
+
+
+
+
+
+    Private Sub cargarBook()
+
+        ' Consulta SQL para seleccionar los libros sin autores
+        Dim query As String = "SELECT B.Title FROM Books B LEFT JOIN BooksAuthors BA ON B.Id = BA.BookId WHERE BA.BookId IS NULL"
+
+        ' Crear una nueva conexión a la base de datos
+        Using connection As New SqlConnection(connectionString)
+            ' Crear un nuevo comando SQL
+            Using command As New SqlCommand(query, connection)
+                ' Abrir la conexión
+                connection.Open()
+
+                ' Crear un adaptador de datos
+                Using adapter As New SqlDataAdapter(command)
+                    ' Crear un nuevo DataTable para almacenar los resultados de la consulta
+                    Dim dataTable As New DataTable()
+
+                    ' Llenar el DataTable con los datos del adaptador
+                    adapter.Fill(dataTable)
+
+                    ' Asignar el DataTable al control DataGridView
+                    DataGridView2.DataSource = dataTable
+                End Using
+            End Using
+        End Using
+    End Sub
+
+
+
+    Private Sub btnMostrarPanelNuevoLibro_Click(sender As Object, e As EventArgs) Handles btnMostrarPanelNuevoLibro.Click
+        btnMostrarPanelNuevoLibro.Visible = False
+        PanelIngresoDeAutores.Visible = False
+        PanelPanelIngresar.Visible = True
+        btnMostrarPanelAutores.Visible = True
+    End Sub
 End Class

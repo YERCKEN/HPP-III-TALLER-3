@@ -22,17 +22,19 @@ Partial Class nuevoLibro
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As DataGridViewCellStyle = New DataGridViewCellStyle()
         DataGridView1 = New DataGridView()
         textBoxAutor = New TextBox()
         TextBoxPais = New TextBox()
         Label1 = New Label()
         Label2 = New Label()
         PanelNuevoAutor = New Panel()
-        LabelVe = New Label()
-        ListaAutorExistente = New ComboBox()
         PanelAutorExistente = New Panel()
+        ListaAutorExistente = New ComboBox()
+        LabelVe = New Label()
         Label3 = New Label()
         TextBoxTítulo = New TextBox()
         BtnIngresar = New Button()
@@ -41,11 +43,22 @@ Partial Class nuevoLibro
         BtnExistente = New Button()
         BtnNuevo = New Button()
         PanelBtnTipoAutor = New Panel()
+        btnMostrarPanelAutores = New Button()
+        PanelIngresoDeAutores = New Panel()
+        Panel1 = New Panel()
+        listaLibros = New ComboBox()
+        Label4 = New Label()
+        btnIngresarAutor = New Button()
+        DataGridView2 = New DataGridView()
+        btnMostrarPanelNuevoLibro = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         PanelNuevoAutor.SuspendLayout()
         PanelAutorExistente.SuspendLayout()
         PanelPanelIngresar.SuspendLayout()
         PanelBtnTipoAutor.SuspendLayout()
+        PanelIngresoDeAutores.SuspendLayout()
+        Panel1.SuspendLayout()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' DataGridView1
@@ -54,32 +67,32 @@ Partial Class nuevoLibro
         DataGridView1.BorderStyle = BorderStyle.None
         DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None
         DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = Color.White
-        DataGridViewCellStyle1.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle1.ForeColor = Color.Red
-        DataGridViewCellStyle1.Padding = New Padding(5)
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = Color.White
+        DataGridViewCellStyle5.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle5.ForeColor = Color.Red
+        DataGridViewCellStyle5.Padding = New Padding(5)
+        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         DataGridView1.ColumnHeadersHeight = 50
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = SystemColors.Window
-        DataGridViewCellStyle2.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Control
-        DataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
-        DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
-        DataGridView1.Location = New Point(103, 50)
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = SystemColors.Window
+        DataGridViewCellStyle6.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle6.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle6.SelectionBackColor = SystemColors.Control
+        DataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridView1.Location = New Point(104, 78)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
-        DataGridView1.Size = New Size(554, 486)
+        DataGridView1.Size = New Size(554, 336)
         DataGridView1.TabIndex = 2
         ' 
         ' textBoxAutor
@@ -128,10 +141,29 @@ Partial Class nuevoLibro
         PanelNuevoAutor.Controls.Add(textBoxAutor)
         PanelNuevoAutor.Controls.Add(Label1)
         PanelNuevoAutor.Controls.Add(Label2)
-        PanelNuevoAutor.Location = New Point(739, 170)
+        PanelNuevoAutor.Location = New Point(12, 240)
         PanelNuevoAutor.Name = "PanelNuevoAutor"
         PanelNuevoAutor.Size = New Size(439, 177)
         PanelNuevoAutor.TabIndex = 39
+        ' 
+        ' PanelAutorExistente
+        ' 
+        PanelAutorExistente.Controls.Add(ListaAutorExistente)
+        PanelAutorExistente.Controls.Add(LabelVe)
+        PanelAutorExistente.Location = New Point(13, 291)
+        PanelAutorExistente.Name = "PanelAutorExistente"
+        PanelAutorExistente.Size = New Size(439, 87)
+        PanelAutorExistente.TabIndex = 40
+        ' 
+        ' ListaAutorExistente
+        ' 
+        ListaAutorExistente.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        ListaAutorExistente.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        ListaAutorExistente.FormattingEnabled = True
+        ListaAutorExistente.Location = New Point(0, 42)
+        ListaAutorExistente.Name = "ListaAutorExistente"
+        ListaAutorExistente.Size = New Size(439, 33)
+        ListaAutorExistente.TabIndex = 41
         ' 
         ' LabelVe
         ' 
@@ -144,35 +176,16 @@ Partial Class nuevoLibro
         LabelVe.TabIndex = 42
         LabelVe.Text = "Autor"
         ' 
-        ' ListaAutorExistente
-        ' 
-        ListaAutorExistente.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        ListaAutorExistente.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        ListaAutorExistente.FormattingEnabled = True
-        ListaAutorExistente.Location = New Point(0, 42)
-        ListaAutorExistente.Name = "ListaAutorExistente"
-        ListaAutorExistente.Size = New Size(439, 33)
-        ListaAutorExistente.TabIndex = 41
-        ' 
-        ' PanelAutorExistente
-        ' 
-        PanelAutorExistente.Controls.Add(ListaAutorExistente)
-        PanelAutorExistente.Controls.Add(LabelVe)
-        PanelAutorExistente.Location = New Point(739, 189)
-        PanelAutorExistente.Name = "PanelAutorExistente"
-        PanelAutorExistente.Size = New Size(439, 87)
-        PanelAutorExistente.TabIndex = 40
-        ' 
         ' Label3
         ' 
         Label3.AutoSize = True
         Label3.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label3.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label3.Location = New Point(925, 26)
+        Label3.Location = New Point(0, 0)
         Label3.Name = "Label3"
-        Label3.Size = New Size(87, 27)
+        Label3.Size = New Size(191, 27)
         Label3.TabIndex = 42
-        Label3.Text = "AUTOR"
+        Label3.Text = "Ingresar Autores"
         ' 
         ' TextBoxTítulo
         ' 
@@ -192,7 +205,7 @@ Partial Class nuevoLibro
         BtnIngresar.FlatStyle = FlatStyle.Flat
         BtnIngresar.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnIngresar.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnIngresar.Location = New Point(1, 101)
+        BtnIngresar.Location = New Point(1, 117)
         BtnIngresar.Name = "BtnIngresar"
         BtnIngresar.Size = New Size(439, 51)
         BtnIngresar.TabIndex = 36
@@ -204,9 +217,9 @@ Partial Class nuevoLibro
         PanelPanelIngresar.Controls.Add(BtnIngresar)
         PanelPanelIngresar.Controls.Add(LabelTítulo)
         PanelPanelIngresar.Controls.Add(TextBoxTítulo)
-        PanelPanelIngresar.Location = New Point(738, 356)
+        PanelPanelIngresar.Location = New Point(743, 59)
         PanelPanelIngresar.Name = "PanelPanelIngresar"
-        PanelPanelIngresar.Size = New Size(440, 155)
+        PanelPanelIngresar.Size = New Size(440, 190)
         PanelPanelIngresar.TabIndex = 41
         ' 
         ' LabelTítulo
@@ -216,9 +229,9 @@ Partial Class nuevoLibro
         LabelTítulo.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         LabelTítulo.Location = New Point(0, 0)
         LabelTítulo.Name = "LabelTítulo"
-        LabelTítulo.Size = New Size(72, 27)
+        LabelTítulo.Size = New Size(245, 27)
         LabelTítulo.TabIndex = 16
-        LabelTítulo.Text = "Título"
+        LabelTítulo.Text = "Título del Nuevo Libro"
         ' 
         ' BtnExistente
         ' 
@@ -229,9 +242,9 @@ Partial Class nuevoLibro
         BtnExistente.FlatStyle = FlatStyle.Flat
         BtnExistente.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnExistente.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnExistente.Location = New Point(15, 5)
+        BtnExistente.Location = New Point(2, 49)
         BtnExistente.Name = "BtnExistente"
-        BtnExistente.Size = New Size(194, 51)
+        BtnExistente.Size = New Size(215, 51)
         BtnExistente.TabIndex = 37
         BtnExistente.Text = "Existente"
         BtnExistente.UseVisualStyleBackColor = False
@@ -245,9 +258,9 @@ Partial Class nuevoLibro
         BtnNuevo.FlatStyle = FlatStyle.Flat
         BtnNuevo.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnNuevo.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnNuevo.Location = New Point(234, 5)
+        BtnNuevo.Location = New Point(223, 49)
         BtnNuevo.Name = "BtnNuevo"
-        BtnNuevo.Size = New Size(194, 51)
+        BtnNuevo.Size = New Size(216, 51)
         BtnNuevo.TabIndex = 38
         BtnNuevo.Text = "Nuevo"
         BtnNuevo.UseVisualStyleBackColor = False
@@ -255,23 +268,148 @@ Partial Class nuevoLibro
         ' PanelBtnTipoAutor
         ' 
         PanelBtnTipoAutor.Controls.Add(BtnNuevo)
+        PanelBtnTipoAutor.Controls.Add(Label3)
         PanelBtnTipoAutor.Controls.Add(BtnExistente)
-        PanelBtnTipoAutor.Location = New Point(739, 77)
+        PanelBtnTipoAutor.Location = New Point(14, 9)
         PanelBtnTipoAutor.Name = "PanelBtnTipoAutor"
-        PanelBtnTipoAutor.Size = New Size(439, 62)
+        PanelBtnTipoAutor.Size = New Size(439, 106)
         PanelBtnTipoAutor.TabIndex = 40
+        ' 
+        ' btnMostrarPanelAutores
+        ' 
+        btnMostrarPanelAutores.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
+        btnMostrarPanelAutores.Cursor = Cursors.Hand
+        btnMostrarPanelAutores.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        btnMostrarPanelAutores.FlatAppearance.BorderSize = 0
+        btnMostrarPanelAutores.FlatStyle = FlatStyle.Flat
+        btnMostrarPanelAutores.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btnMostrarPanelAutores.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        btnMostrarPanelAutores.Location = New Point(744, 269)
+        btnMostrarPanelAutores.Name = "btnMostrarPanelAutores"
+        btnMostrarPanelAutores.Size = New Size(439, 51)
+        btnMostrarPanelAutores.TabIndex = 43
+        btnMostrarPanelAutores.Text = "Ingresar Autores"
+        btnMostrarPanelAutores.UseVisualStyleBackColor = False
+        ' 
+        ' PanelIngresoDeAutores
+        ' 
+        PanelIngresoDeAutores.Controls.Add(PanelNuevoAutor)
+        PanelIngresoDeAutores.Controls.Add(Panel1)
+        PanelIngresoDeAutores.Controls.Add(btnIngresarAutor)
+        PanelIngresoDeAutores.Controls.Add(PanelBtnTipoAutor)
+        PanelIngresoDeAutores.Controls.Add(PanelAutorExistente)
+        PanelIngresoDeAutores.Location = New Point(730, 314)
+        PanelIngresoDeAutores.Name = "PanelIngresoDeAutores"
+        PanelIngresoDeAutores.Size = New Size(471, 501)
+        PanelIngresoDeAutores.TabIndex = 44
+        ' 
+        ' Panel1
+        ' 
+        Panel1.Controls.Add(listaLibros)
+        Panel1.Controls.Add(Label4)
+        Panel1.Location = New Point(12, 135)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(439, 87)
+        Panel1.TabIndex = 45
+        ' 
+        ' listaLibros
+        ' 
+        listaLibros.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        listaLibros.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        listaLibros.FormattingEnabled = True
+        listaLibros.Location = New Point(0, 42)
+        listaLibros.Name = "listaLibros"
+        listaLibros.Size = New Size(439, 33)
+        listaLibros.TabIndex = 41
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label4.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label4.Location = New Point(-1, 0)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(60, 25)
+        Label4.TabIndex = 42
+        Label4.Text = "Libro"
+        ' 
+        ' btnIngresarAutor
+        ' 
+        btnIngresarAutor.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
+        btnIngresarAutor.Cursor = Cursors.Hand
+        btnIngresarAutor.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        btnIngresarAutor.FlatAppearance.BorderSize = 0
+        btnIngresarAutor.FlatStyle = FlatStyle.Flat
+        btnIngresarAutor.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btnIngresarAutor.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        btnIngresarAutor.Location = New Point(14, 431)
+        btnIngresarAutor.Name = "btnIngresarAutor"
+        btnIngresarAutor.Size = New Size(439, 51)
+        btnIngresarAutor.TabIndex = 44
+        btnIngresarAutor.Text = "Ingresar"
+        btnIngresarAutor.UseVisualStyleBackColor = False
+        ' 
+        ' DataGridView2
+        ' 
+        DataGridView2.BackgroundColor = Color.White
+        DataGridView2.BorderStyle = BorderStyle.None
+        DataGridView2.CellBorderStyle = DataGridViewCellBorderStyle.None
+        DataGridView2.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.BackColor = Color.White
+        DataGridViewCellStyle7.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle7.ForeColor = Color.Red
+        DataGridViewCellStyle7.Padding = New Padding(5)
+        DataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = DataGridViewTriState.True
+        DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridView2.ColumnHeadersHeight = 50
+        DataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = SystemColors.Window
+        DataGridViewCellStyle8.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle8.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle8.SelectionBackColor = SystemColors.Control
+        DataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle8.WrapMode = DataGridViewTriState.False
+        DataGridView2.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridView2.Location = New Point(104, 442)
+        DataGridView2.Margin = New Padding(4, 3, 4, 3)
+        DataGridView2.Name = "DataGridView2"
+        DataGridView2.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        DataGridView2.RowHeadersVisible = False
+        DataGridView2.RowHeadersWidth = 51
+        DataGridView2.RowTemplate.Height = 31
+        DataGridView2.Size = New Size(554, 199)
+        DataGridView2.TabIndex = 45
+        ' 
+        ' btnMostrarPanelNuevoLibro
+        ' 
+        btnMostrarPanelNuevoLibro.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
+        btnMostrarPanelNuevoLibro.Cursor = Cursors.Hand
+        btnMostrarPanelNuevoLibro.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        btnMostrarPanelNuevoLibro.FlatAppearance.BorderSize = 0
+        btnMostrarPanelNuevoLibro.FlatStyle = FlatStyle.Flat
+        btnMostrarPanelNuevoLibro.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btnMostrarPanelNuevoLibro.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        btnMostrarPanelNuevoLibro.Location = New Point(744, 128)
+        btnMostrarPanelNuevoLibro.Name = "btnMostrarPanelNuevoLibro"
+        btnMostrarPanelNuevoLibro.Size = New Size(439, 51)
+        btnMostrarPanelNuevoLibro.TabIndex = 46
+        btnMostrarPanelNuevoLibro.Text = "Ingresar Nuevo Libro"
+        btnMostrarPanelNuevoLibro.UseVisualStyleBackColor = False
         ' 
         ' nuevoLibro
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1306, 570)
-        Controls.Add(Label3)
+        ClientSize = New Size(1306, 874)
+        Controls.Add(btnMostrarPanelNuevoLibro)
+        Controls.Add(PanelIngresoDeAutores)
+        Controls.Add(DataGridView2)
+        Controls.Add(btnMostrarPanelAutores)
         Controls.Add(DataGridView1)
-        Controls.Add(PanelNuevoAutor)
-        Controls.Add(PanelBtnTipoAutor)
-        Controls.Add(PanelAutorExistente)
         Controls.Add(PanelPanelIngresar)
         FormBorderStyle = FormBorderStyle.None
         Name = "nuevoLibro"
@@ -285,8 +423,12 @@ Partial Class nuevoLibro
         PanelPanelIngresar.ResumeLayout(False)
         PanelPanelIngresar.PerformLayout()
         PanelBtnTipoAutor.ResumeLayout(False)
+        PanelBtnTipoAutor.PerformLayout()
+        PanelIngresoDeAutores.ResumeLayout(False)
+        Panel1.ResumeLayout(False)
+        Panel1.PerformLayout()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
     Friend WithEvents DataGridView1 As DataGridView
@@ -306,4 +448,12 @@ Partial Class nuevoLibro
     Friend WithEvents BtnExistente As Button
     Friend WithEvents BtnNuevo As Button
     Friend WithEvents PanelBtnTipoAutor As Panel
+    Friend WithEvents btnMostrarPanelAutores As Button
+    Friend WithEvents PanelIngresoDeAutores As Panel
+    Friend WithEvents btnIngresarAutor As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents listaLibros As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents btnMostrarPanelNuevoLibro As Button
 End Class

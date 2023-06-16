@@ -130,7 +130,7 @@ Public Class Form1
     Private Sub archivoP2_Click(sender As Object, e As EventArgs) Handles archivoP2.Click
         nuevoLibro.Show()
         nuevoLibro.Owner = Me
-
+        Me.Location = New Point(Me.Location.X, Me.Location.Y - 150)
         'VISIBILDIAD
         nuevoPrestamo.Close()
         Cliente.Close()
