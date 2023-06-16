@@ -124,6 +124,8 @@ Public Class Form1
         Cliente.Close()
         nuevoPrestamo.Close()
         eliminacion.Close()
+        Empresa.Close()
+
 
         Me.Refresh()
 
@@ -137,6 +139,8 @@ Public Class Form1
         Cliente.Close()
         NuevoCliente.Close()
         eliminacion.Close()
+        Empresa.Close()
+
     End Sub
 
     'nuevo cliente; nuevo boton
@@ -149,6 +153,8 @@ Public Class Form1
         nuevoLibro.Close()
         Cliente.Close()
         eliminacion.Close()
+        Empresa.Close()
+
     End Sub
 
     Private Sub ArchivoPrestamo_Click(sender As Object, e As EventArgs) Handles ArchivoPrestamo.Click
@@ -160,6 +166,8 @@ Public Class Form1
         nuevoLibro.Close()
         NuevoCliente.Close()
         eliminacion.Close()
+        Empresa.Close()
+
     End Sub
     Private Sub P3_Click(sender As Object, e As EventArgs) Handles P3.Click
         Cliente.Show()
@@ -170,6 +178,8 @@ Public Class Form1
         nuevoLibro.Close()
         NuevoCliente.Close()
         eliminacion.Close()
+        Empresa.Close()
+
     End Sub
 
     '´LOCALIDAD--------------------------------------------------------------------------------------------------
@@ -199,6 +209,11 @@ Public Class Form1
             eliminacion.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form4 en relación con Form1
         End If
 
+        'FORMS EMPRESA---------------------------------------------------------------------------
+        If Empresa IsNot Nothing Then ' Verificar si el Formulario 4 está abierto
+            Empresa.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form4 en relación con Form1
+        End If
+
 
     End Sub
 
@@ -219,6 +234,7 @@ Public Class Form1
         nuevoPrestamo.Close()
         nuevoLibro.Close()
         NuevoCliente.Close()
+        Empresa.Close()
         Cliente.Close()
     End Sub
 
@@ -228,4 +244,20 @@ Public Class Form1
 
     Private Sub ListaMostrar_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListaMostrar.SelectedIndexChanged
     End Sub
+
+    Private Sub btnEmpresa_Click(sender As Object, e As EventArgs) Handles btnEmpresa.Click
+
+        Empresa.Show()
+        Empresa.Owner = Me
+        'VISIBILDIAD
+        nuevoPrestamo.Close()
+        nuevoLibro.Close()
+        NuevoCliente.Close()
+        Cliente.Close()
+        eliminacion.Close()
+
+    End Sub
+
+
+
 End Class
