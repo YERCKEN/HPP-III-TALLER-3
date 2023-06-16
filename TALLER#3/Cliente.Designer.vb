@@ -30,6 +30,7 @@ Partial Class Cliente
         ActualizarBtn = New Button()
         BtnIngresar = New Button()
         ModificarClientesPanel = New Panel()
+        libroLb = New Label()
         EstadoCb = New ComboBox()
         ObservacionTb = New TextBox()
         Label4 = New Label()
@@ -42,7 +43,7 @@ Partial Class Cliente
         LabelVe = New Label()
         Label2 = New Label()
         FechaDevLb = New Label()
-        libroLb = New Label()
+        continuarBtn = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         ModificarClientesPanel.SuspendLayout()
         PanelAutorExistente.SuspendLayout()
@@ -152,6 +153,18 @@ Partial Class Cliente
         ModificarClientesPanel.Name = "ModificarClientesPanel"
         ModificarClientesPanel.Size = New Size(670, 182)
         ModificarClientesPanel.TabIndex = 50
+        ' 
+        ' libroLb
+        ' 
+        libroLb.AutoSize = True
+        libroLb.Enabled = False
+        libroLb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        libroLb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        libroLb.Location = New Point(11, 7)
+        libroLb.Name = "libroLb"
+        libroLb.Size = New Size(73, 25)
+        libroLb.TabIndex = 49
+        libroLb.Text = "Libro: "
         ' 
         ' EstadoCb
         ' 
@@ -270,23 +283,28 @@ Partial Class Cliente
         FechaDevLb.AutoSize = True
         FechaDevLb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         FechaDevLb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        FechaDevLb.Location = New Point(438, 39)
+        FechaDevLb.Location = New Point(443, 39)
         FechaDevLb.Name = "FechaDevLb"
         FechaDevLb.Size = New Size(189, 25)
         FechaDevLb.TabIndex = 54
         FechaDevLb.Text = "Fecha devolucion:"
         ' 
-        ' libroLb
+        ' continuarBtn
         ' 
-        libroLb.AutoSize = True
-        libroLb.Enabled = False
-        libroLb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        libroLb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        libroLb.Location = New Point(11, 7)
-        libroLb.Name = "libroLb"
-        libroLb.Size = New Size(73, 25)
-        libroLb.TabIndex = 49
-        libroLb.Text = "Libro: "
+        continuarBtn.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
+        continuarBtn.Cursor = Cursors.Hand
+        continuarBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        continuarBtn.FlatAppearance.BorderSize = 0
+        continuarBtn.FlatStyle = FlatStyle.Flat
+        continuarBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        continuarBtn.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        continuarBtn.Location = New Point(745, 34)
+        continuarBtn.Name = "continuarBtn"
+        continuarBtn.Size = New Size(115, 34)
+        continuarBtn.TabIndex = 57
+        continuarBtn.Text = "Continuar"
+        continuarBtn.UseVisualStyleBackColor = False
+        continuarBtn.Visible = False
         ' 
         ' Cliente
         ' 
@@ -294,6 +312,7 @@ Partial Class Cliente
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(1161, 624)
+        Controls.Add(continuarBtn)
         Controls.Add(FechaDevLb)
         Controls.Add(DataGridView1)
         Controls.Add(ActualizarBtn)
@@ -333,4 +352,5 @@ Partial Class Cliente
     Friend WithEvents Label2 As Label
     Friend WithEvents FechaDevLb As Label
     Friend WithEvents libroLb As Label
+    Friend WithEvents continuarBtn As Button
 End Class

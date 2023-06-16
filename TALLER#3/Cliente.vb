@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Reflection.Emit
 Imports System.Runtime.CompilerServices
 
 Public Class Cliente
@@ -48,41 +49,16 @@ Public Class Cliente
         Try
             Dim IdCliente As Integer = Integer.Parse(IdClienteTb.Text)
             If ComprobacionId(IdCliente) = True Then
-                FechaDevLb.Text = "Fecha devolucion:" & ObtenerFechaDevolucion(IdCliente)
-                libroLb.Text = "Libro: " & obtenerLibroCliente(IdCliente)
-                ActualizarBtn.Enabled = True
-                ModificarClientesPanel.Enabled = True
-                Using con As New SqlConnection(connectionString)
-                    ' Abrir la conexión
-                    con.Open()
+                If Date.Now <= ObtenerFechaDevolucion(IdCliente) Then
+                    FechaDevLb.Text = "Fecha devolucion:" & ObtenerFechaDevolucion(IdCliente)
+                    FechaDevLb.ForeColor = Color.White
+                    actualizarDatosClientes(IdCliente)
+                Else
+                    FechaDevLb.Text = "Fecha devolucion:" & ObtenerFechaDevolucion(IdCliente)
+                    FechaDevLb.ForeColor = Color.Red
+                    continuarBtn.Visible = True
+                End If
 
-                    ' Consulta SQL para obtener los datos
-                    Dim query As String = "SELECT Cliente.Id, Cliente.Nombre AS Cliente, Books.Title AS Libro, Prestamos.Costo, Prestamos.Estado, Prestamos.Observacion, Prestamos.FechaPrestamo, Prestamos.FechaDevolucion
-            FROM Cliente
-            JOIN Prestamos ON Cliente.Id = Prestamos.ClienteId
-            JOIN Books ON Prestamos.LibroId = Books.Id
-            WHERE Cliente.Id = " & IdCliente
-
-                    ' Crear un adaptador de datos
-                    Dim adapter As New SqlDataAdapter(query, con)
-                    ' Crear un DataSet para almacenar los datos
-                    Dim dataSet As New DataSet()
-
-                    ' Llenar el DataSet con los datos del adaptador
-                    adapter.Fill(dataSet, "Cliente")
-
-                    ' Asignar el DataTable al control DataGridView
-                    DataGridView1.DataSource = dataSet.Tables("Cliente")
-
-                    ' Cerrar la conexión
-                    con.Close()
-                    MostrarCosto(IdCliente)
-                    MostrarEstado(IdCliente)
-                    MostrarObservacion(IdCliente)
-                    IdClienteTb.Enabled = False
-                    BtnIngresar.Enabled = False
-
-                End Using
             Else
                 IdClienteTb.Text = ""
             End If
@@ -91,6 +67,43 @@ Public Class Cliente
         End Try
 
     End Sub
+    Function actualizarDatosClientes(ByVal IdCliente As Integer)
+        FechaDevLb.Text = "Fecha devolucion:" & ObtenerFechaDevolucion(IdCliente)
+        libroLb.Text = "Libro: " & obtenerLibroCliente(IdCliente)
+        ActualizarBtn.Enabled = True
+        ModificarClientesPanel.Enabled = True
+        Using con As New SqlConnection(connectionString)
+            ' Abrir la conexión
+            con.Open()
+
+            ' Consulta SQL para obtener los datos
+            Dim query As String = "SELECT Cliente.Id, Cliente.Nombre AS Cliente, Books.Title AS Libro, Prestamos.Costo, Prestamos.Estado, Prestamos.Observacion, Prestamos.FechaPrestamo, Prestamos.FechaDevolucion
+            FROM Cliente
+            JOIN Prestamos ON Cliente.Id = Prestamos.ClienteId
+            JOIN Books ON Prestamos.LibroId = Books.Id
+            WHERE Cliente.Id = " & IdCliente
+
+            ' Crear un adaptador de datos
+            Dim adapter As New SqlDataAdapter(query, con)
+            ' Crear un DataSet para almacenar los datos
+            Dim dataSet As New DataSet()
+
+            ' Llenar el DataSet con los datos del adaptador
+            adapter.Fill(dataSet, "Cliente")
+
+            ' Asignar el DataTable al control DataGridView
+            DataGridView1.DataSource = dataSet.Tables("Cliente")
+
+            ' Cerrar la conexión
+            con.Close()
+            MostrarCosto(IdCliente)
+            MostrarEstado(IdCliente)
+            MostrarObservacion(IdCliente)
+            IdClienteTb.Enabled = False
+            BtnIngresar.Enabled = False
+
+        End Using
+    End Function
     Private Sub MostrarCosto(ByVal IdCliente As Integer)
 
         Using con As New SqlConnection(connectionString)
@@ -314,4 +327,9 @@ Public Class Cliente
 
         Return existeId
     End Function
+
+    Private Sub continuarBtn_Click(sender As Object, e As EventArgs) Handles continuarBtn.Click
+        Dim IdCliente As Integer = Integer.Parse(IdClienteTb.Text)
+        actualizarDatosClientes(IdCliente)
+    End Sub
 End Class
