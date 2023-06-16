@@ -41,6 +41,8 @@ Partial Class Cliente
         ListaAutorExistente = New ComboBox()
         LabelVe = New Label()
         Label2 = New Label()
+        FechaDevLb = New Label()
+        libroLb = New Label()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         ModificarClientesPanel.SuspendLayout()
         PanelAutorExistente.SuspendLayout()
@@ -50,12 +52,12 @@ Partial Class Cliente
         ' 
         Label1.AutoSize = True
         Label1.Enabled = False
-        Label1.Font = New Font("Montserrat", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.Font = New Font("Microsoft Sans Serif", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label1.Location = New Point(1156, 41)
+        Label1.Location = New Point(1028, 39)
         Label1.Margin = New Padding(4, 0, 4, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(116, 32)
+        Label1.Size = New Size(122, 29)
         Label1.TabIndex = 12
         Label1.Text = "CLIENTE"
         ' 
@@ -67,7 +69,7 @@ Partial Class Cliente
         DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = Color.White
-        DataGridViewCellStyle1.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle1.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
         DataGridViewCellStyle1.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         DataGridViewCellStyle1.Padding = New Padding(5)
         DataGridViewCellStyle1.SelectionBackColor = SystemColors.Control
@@ -85,13 +87,13 @@ Partial Class Cliente
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.GridColor = Color.White
-        DataGridView1.Location = New Point(34, 353)
+        DataGridView1.Location = New Point(30, 336)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = SystemColors.Control
-        DataGridViewCellStyle3.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle3.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
         DataGridViewCellStyle3.ForeColor = SystemColors.WindowText
         DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
@@ -100,7 +102,7 @@ Partial Class Cliente
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
-        DataGridView1.Size = New Size(1238, 262)
+        DataGridView1.Size = New Size(1100, 250)
         DataGridView1.TabIndex = 53
         ' 
         ' ActualizarBtn
@@ -111,11 +113,11 @@ Partial Class Cliente
         ActualizarBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         ActualizarBtn.FlatAppearance.BorderSize = 0
         ActualizarBtn.FlatStyle = FlatStyle.Flat
-        ActualizarBtn.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        ActualizarBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         ActualizarBtn.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        ActualizarBtn.Location = New Point(275, 220)
+        ActualizarBtn.Location = New Point(244, 210)
         ActualizarBtn.Name = "ActualizarBtn"
-        ActualizarBtn.Size = New Size(162, 51)
+        ActualizarBtn.Size = New Size(144, 49)
         ActualizarBtn.TabIndex = 52
         ActualizarBtn.Text = "Actualizar"
         ActualizarBtn.UseVisualStyleBackColor = False
@@ -127,17 +129,18 @@ Partial Class Cliente
         BtnIngresar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         BtnIngresar.FlatAppearance.BorderSize = 0
         BtnIngresar.FlatStyle = FlatStyle.Flat
-        BtnIngresar.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnIngresar.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnIngresar.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnIngresar.Location = New Point(61, 220)
+        BtnIngresar.Location = New Point(54, 210)
         BtnIngresar.Name = "BtnIngresar"
-        BtnIngresar.Size = New Size(162, 51)
+        BtnIngresar.Size = New Size(144, 49)
         BtnIngresar.TabIndex = 49
-        BtnIngresar.Text = "Ingresar"
+        BtnIngresar.Text = "Seleccionar"
         BtnIngresar.UseVisualStyleBackColor = False
         ' 
         ' ModificarClientesPanel
         ' 
+        ModificarClientesPanel.Controls.Add(libroLb)
         ModificarClientesPanel.Controls.Add(EstadoCb)
         ModificarClientesPanel.Controls.Add(ObservacionTb)
         ModificarClientesPanel.Controls.Add(Label4)
@@ -145,9 +148,9 @@ Partial Class Cliente
         ModificarClientesPanel.Controls.Add(CostoTb)
         ModificarClientesPanel.Controls.Add(Label3)
         ModificarClientesPanel.Enabled = False
-        ModificarClientesPanel.Location = New Point(518, 102)
+        ModificarClientesPanel.Location = New Point(460, 97)
         ModificarClientesPanel.Name = "ModificarClientesPanel"
-        ModificarClientesPanel.Size = New Size(754, 191)
+        ModificarClientesPanel.Size = New Size(670, 182)
         ModificarClientesPanel.TabIndex = 50
         ' 
         ' EstadoCb
@@ -155,40 +158,40 @@ Partial Class Cliente
         EstadoCb.DropDownStyle = ComboBoxStyle.DropDownList
         EstadoCb.Font = New Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
         EstadoCb.FormattingEnabled = True
-        EstadoCb.Location = New Point(561, 49)
+        EstadoCb.Location = New Point(499, 47)
         EstadoCb.Name = "EstadoCb"
-        EstadoCb.Size = New Size(169, 39)
+        EstadoCb.Size = New Size(151, 39)
         EstadoCb.TabIndex = 21
         ' 
         ' ObservacionTb
         ' 
         ObservacionTb.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
         ObservacionTb.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        ObservacionTb.Location = New Point(181, 105)
+        ObservacionTb.Location = New Point(161, 100)
         ObservacionTb.Multiline = True
         ObservacionTb.Name = "ObservacionTb"
-        ObservacionTb.Size = New Size(552, 68)
+        ObservacionTb.Size = New Size(491, 65)
         ObservacionTb.TabIndex = 19
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label4.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label4.Location = New Point(16, 128)
+        Label4.Location = New Point(14, 122)
         Label4.Name = "Label4"
-        Label4.Size = New Size(145, 27)
+        Label4.Size = New Size(134, 25)
         Label4.TabIndex = 20
         Label4.Text = "Observación"
         ' 
         ' LabelTítulo
         ' 
         LabelTítulo.AutoSize = True
-        LabelTítulo.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        LabelTítulo.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         LabelTítulo.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        LabelTítulo.Location = New Point(469, 54)
+        LabelTítulo.Location = New Point(417, 51)
         LabelTítulo.Name = "LabelTítulo"
-        LabelTítulo.Size = New Size(84, 27)
+        LabelTítulo.Size = New Size(79, 25)
         LabelTítulo.TabIndex = 16
         LabelTítulo.Text = "Estado"
         ' 
@@ -196,19 +199,19 @@ Partial Class Cliente
         ' 
         CostoTb.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
         CostoTb.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        CostoTb.Location = New Point(182, 52)
+        CostoTb.Location = New Point(162, 50)
         CostoTb.Name = "CostoTb"
-        CostoTb.Size = New Size(214, 36)
+        CostoTb.Size = New Size(191, 36)
         CostoTb.TabIndex = 14
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label3.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label3.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label3.Location = New Point(90, 60)
+        Label3.Location = New Point(80, 57)
         Label3.Name = "Label3"
-        Label3.Size = New Size(73, 27)
+        Label3.Size = New Size(69, 25)
         Label3.TabIndex = 18
         Label3.Text = "Costo"
         ' 
@@ -216,18 +219,18 @@ Partial Class Cliente
         ' 
         IdClienteTb.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
         IdClienteTb.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        IdClienteTb.Location = New Point(275, 102)
+        IdClienteTb.Location = New Point(244, 97)
         IdClienteTb.Name = "IdClienteTb"
-        IdClienteTb.Size = New Size(162, 36)
+        IdClienteTb.Size = New Size(144, 36)
         IdClienteTb.TabIndex = 47
         ' 
         ' PanelAutorExistente
         ' 
         PanelAutorExistente.Controls.Add(ListaAutorExistente)
         PanelAutorExistente.Controls.Add(LabelVe)
-        PanelAutorExistente.Location = New Point(640, 102)
+        PanelAutorExistente.Location = New Point(569, 97)
         PanelAutorExistente.Name = "PanelAutorExistente"
-        PanelAutorExistente.Size = New Size(439, 87)
+        PanelAutorExistente.Size = New Size(390, 83)
         PanelAutorExistente.TabIndex = 51
         ' 
         ' ListaAutorExistente
@@ -235,9 +238,9 @@ Partial Class Cliente
         ListaAutorExistente.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         ListaAutorExistente.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         ListaAutorExistente.FormattingEnabled = True
-        ListaAutorExistente.Location = New Point(0, 42)
+        ListaAutorExistente.Location = New Point(0, 40)
         ListaAutorExistente.Name = "ListaAutorExistente"
-        ListaAutorExistente.Size = New Size(439, 33)
+        ListaAutorExistente.Size = New Size(391, 33)
         ListaAutorExistente.TabIndex = 41
         ' 
         ' LabelVe
@@ -254,20 +257,44 @@ Partial Class Cliente
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label2.Location = New Point(79, 109)
+        Label2.Location = New Point(70, 104)
         Label2.Name = "Label2"
-        Label2.Size = New Size(154, 27)
+        Label2.Size = New Size(137, 25)
         Label2.TabIndex = 48
         Label2.Text = "ID del cliente"
         ' 
+        ' FechaDevLb
+        ' 
+        FechaDevLb.AutoSize = True
+        FechaDevLb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        FechaDevLb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        FechaDevLb.Location = New Point(438, 39)
+        FechaDevLb.Name = "FechaDevLb"
+        FechaDevLb.Size = New Size(189, 25)
+        FechaDevLb.TabIndex = 54
+        FechaDevLb.Text = "Fecha devolucion:"
+        ' 
+        ' libroLb
+        ' 
+        libroLb.AutoSize = True
+        libroLb.Enabled = False
+        libroLb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        libroLb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        libroLb.Location = New Point(11, 7)
+        libroLb.Name = "libroLb"
+        libroLb.Size = New Size(73, 25)
+        libroLb.TabIndex = 49
+        libroLb.Text = "Libro: "
+        ' 
         ' Cliente
         ' 
-        AutoScaleDimensions = New SizeF(9F, 21F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1306, 655)
+        ClientSize = New Size(1161, 624)
+        Controls.Add(FechaDevLb)
         Controls.Add(DataGridView1)
         Controls.Add(ActualizarBtn)
         Controls.Add(BtnIngresar)
@@ -304,4 +331,6 @@ Partial Class Cliente
     Friend WithEvents ListaAutorExistente As ComboBox
     Friend WithEvents LabelVe As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents FechaDevLb As Label
+    Friend WithEvents libroLb As Label
 End Class

@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Runtime.CompilerServices
 
 Public Class Cliente
     Dim conexion As New SqlConnection(varGlobales.cadenaConexion)
@@ -47,6 +48,8 @@ Public Class Cliente
         Try
             Dim IdCliente As Integer = Integer.Parse(IdClienteTb.Text)
             If ComprobacionId(IdCliente) = True Then
+                FechaDevLb.Text = "Fecha devolucion:" & ObtenerFechaDevolucion(IdCliente)
+                libroLb.Text = "Libro: " & obtenerLibroCliente(IdCliente)
                 ActualizarBtn.Enabled = True
                 ModificarClientesPanel.Enabled = True
                 Using con As New SqlConnection(connectionString)
@@ -78,6 +81,7 @@ Public Class Cliente
                     MostrarObservacion(IdCliente)
                     IdClienteTb.Enabled = False
                     BtnIngresar.Enabled = False
+
                 End Using
             Else
                 IdClienteTb.Text = ""
@@ -132,7 +136,59 @@ Public Class Cliente
             End If
         End Using
     End Sub
+    Function ObtenerFechaDevolucion(ByVal IdCliente As Integer) As Date
+        ' Establecer la conexión con la base de datos
+        Using connection As New SqlConnection(connectionString)
+            connection.Open()
 
+            ' Consulta SQL para obtener los préstamos
+            Dim sqlQuery As String = "SELECT FechaDevolucion FROM Prestamos where ClienteId=" & IdCliente
+            Using command As New SqlCommand(sqlQuery, connection)
+                command.Parameters.AddWithValue("@UsuarioId", IdCliente)
+                ' Ejecutar la consulta y obtener los resultados
+                Using reader As SqlDataReader = command.ExecuteReader()
+                    ' Iterar sobre los registros de préstamos
+                    While reader.Read()
+                        ' Obtener el valor de la columna "FechaDevolucion" y convertirlo a tipo Date
+                        Dim fechaDevolucion As Date = CDate(reader("FechaDevolucion"))
+
+                        'devolver
+                        Return fechaDevolucion
+                    End While
+                End Using
+            End Using
+        End Using
+    End Function
+
+    Function obtenerLibroCliente(ByVal IdCliente As Integer) As String
+        ' Establecer la conexión con la base de datos
+        Using connection As New SqlConnection(connectionString)
+            connection.Open()
+
+            ' Consulta SQL para obtener los títulos de los libros del Usuario 1
+            Dim sqlQuery As String = "SELECT Books.Title FROM Cliente INNER JOIN Prestamos ON Cliente.Id = Prestamos.ClienteId INNER JOIN Books ON Prestamos.LibroId = Books.Id WHERE Cliente.Id = @UsuarioId"
+            Using command As New SqlCommand(sqlQuery, connection)
+                command.Parameters.AddWithValue("@UsuarioId", IdCliente)
+
+                ' Ejecutar la consulta y obtener los resultados
+                Using reader As SqlDataReader = command.ExecuteReader()
+                    ' Verificar si se encontraron resultados
+                    If reader.HasRows Then
+                        ' Mostrar el título de los libros para cada registro
+                        While reader.Read()
+                            ' Obtener el valor de la columna "Title"
+                            Dim titulo As String = reader("Title").ToString()
+
+                            ' Mostrar el título en la consola
+                            Return titulo
+                        End While
+                    Else
+                        Console.WriteLine("No se encontraron libros para el Usuario 1.")
+                    End If
+                End Using
+            End Using
+        End Using
+    End Function
     Private Sub ActualizarBtn_Click(sender As Object, e As EventArgs) Handles ActualizarBtn.Click
         Try
             Dim IdCliente As Integer = Integer.Parse(IdClienteTb.Text)
