@@ -167,11 +167,18 @@ Public Class nuevoPrestamo
 
             If ComprobacionId(TextBoxId.Text) Then
 
-                panelIngresoDatos2.Visible = True
-                PanelSeleccionId.Visible = False
+                'verificamos si el ussuario tiene un préstamo en curso
+                If VerificarPrestamo(TextBoxId.Text) Then
 
-                TextBoxObservacion.Text = "Entregado el: " & DateTime.Now.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)
-                id = TextBoxId.Text
+                    MsgBox("El usuario tiene un préstamo en estado 'Prestado'", MsgBoxStyle.Critical, "Error")
+                Else
+                    panelIngresoDatos2.Visible = True
+                    PanelSeleccionId.Visible = False
+
+                    TextBoxObservacion.Text = "Entregado el: " & DateTime.Now.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)
+                    id = TextBoxId.Text
+                End If
+
             Else
 
                 MsgBox("ERROR: EL ID SELECCIONADO NO EXISTE", MsgBoxStyle.Critical, "Error")
@@ -377,7 +384,17 @@ Public Class nuevoPrestamo
         End Using
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    Public Function VerificarPrestamo(ByVal usuarioId As Integer) As Boolean
+        Dim query As String = "SELECT COUNT(*) FROM Prestamos WHERE ClienteId = @UsuarioId AND Estado = 'Prestado'"
 
-    End Sub
+        Using connection As New SqlConnection(connectionString)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@UsuarioId", usuarioId)
+                connection.Open()
+                Dim count As Integer = CInt(command.ExecuteScalar())
+                Return count > 0
+            End Using
+        End Using
+    End Function
+
 End Class

@@ -118,6 +118,7 @@ Public Class Form1
 
     'REDIRECCIONAR---------------------------------------------
     Private Sub archivoP1_Click(sender As Object, e As EventArgs) Handles archivoP1.Click
+
         nuevoLibro.Close()
         NuevoCliente.Close()
         Cliente.Close()
@@ -130,7 +131,7 @@ Public Class Form1
     Private Sub archivoP2_Click(sender As Object, e As EventArgs) Handles archivoP2.Click
         nuevoLibro.Show()
         nuevoLibro.Owner = Me
-        Me.Location = New Point(Me.Location.X, Me.Location.Y - 150)
+        'Me.Location = New Point(Me.Location.X, Me.Location.Y - 150)
         'VISIBILDIAD
         nuevoPrestamo.Close()
         Cliente.Close()

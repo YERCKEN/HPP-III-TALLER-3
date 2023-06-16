@@ -242,7 +242,7 @@ Partial Class nuevoPrestamo
         ' DateTimePicker1
         ' 
         DateTimePicker1.CalendarFont = New Font("Montserrat", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point)
-        DateTimePicker1.CalendarForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DateTimePicker1.CalendarForeColor = Color.Gray
         DateTimePicker1.CalendarTitleBackColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         DateTimePicker1.CalendarTitleForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         DateTimePicker1.Location = New Point(339, 36)
@@ -362,10 +362,10 @@ Partial Class nuevoPrestamo
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(1306, 681)
+        Controls.Add(PanelSeleccionId)
         Controls.Add(panelIngresoDatos2)
         Controls.Add(DataGridView1)
         Controls.Add(Label1)
-        Controls.Add(PanelSeleccionId)
         FormBorderStyle = FormBorderStyle.None
         Name = "nuevoPrestamo"
         Text = "nuevoPrestamo"
