@@ -55,7 +55,13 @@ Public Class nuevoPrestamo
 
         DataGridView2.Columns("Id").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
+        DataGridView1.Columns("FechaDevolucion").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        DataGridView1.Columns("FechaPrestamo").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
+
+        DataGridView1.Columns("FechaPrestamo").HeaderText = "F.Préstamo"
+        DataGridView1.Columns("FechaDevolucion").HeaderText = "F.Devolución"
+        DataGridView1.Columns("Cliente").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         LoadBookNamesToDropDown()
     End Sub
 

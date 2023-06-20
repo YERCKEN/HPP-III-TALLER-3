@@ -18,6 +18,11 @@ Public Class nuevoLibro
         ListaAutorExistente.DropDownStyle = ComboBoxStyle.DropDownList
         listaLibros.DropDownStyle = ComboBoxStyle.DropDownList
         btnMostrarPanelNuevoLibro.Visible = False
+
+
+        'BtnIngresar.BackgroundImage = varGlobales.degradado(BtnIngresar.Width, BtnIngresar.Height, Color.FromArgb(130, 255, 182), Color.FromArgb(0, 222, 92))
+        'BtnIngresar.BackgroundImageLayout = ImageLayout.Stretch
+
         Try
 
             conexion.Open()
@@ -104,6 +109,7 @@ Public Class nuevoLibro
             Dim command As New SqlCommand(query, conexion)
 
             Dim reader As SqlDataReader = command.ExecuteReader()
+            ListaAutorExistente.Items.Clear()
 
             While reader.Read()
                 Dim name As String = reader.GetString(0)
@@ -192,7 +198,7 @@ Public Class nuevoLibro
 
             'INGRESAR LIBRO------------------------------------------------------------------
             InsertBook(TextBoxTítulo.Text)
-
+            LoadBookNamesToDropDown()
         Else
 
             TextBoxTítulo.BackColor = Color.FromArgb(255, 222, 222)

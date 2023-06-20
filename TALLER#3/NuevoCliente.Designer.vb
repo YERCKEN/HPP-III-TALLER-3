@@ -52,13 +52,13 @@ Partial Class NuevoCliente
         ' 
         ' NewClienteBtn
         ' 
-        NewClienteBtn.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
+        NewClienteBtn.BackColor = Color.FromArgb(CByte(82), CByte(235), CByte(163))
         NewClienteBtn.Cursor = Cursors.Hand
         NewClienteBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         NewClienteBtn.FlatAppearance.BorderSize = 0
         NewClienteBtn.FlatStyle = FlatStyle.Flat
         NewClienteBtn.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        NewClienteBtn.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        NewClienteBtn.ForeColor = Color.White
         NewClienteBtn.Location = New Point(737, 401)
         NewClienteBtn.Name = "NewClienteBtn"
         NewClienteBtn.Size = New Size(439, 51)
@@ -164,7 +164,7 @@ Partial Class NuevoCliente
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1306, 570)
+        ClientSize = New Size(1306, 667)
         Controls.Add(DataGridView1)
         Controls.Add(NewClienteBtn)
         Controls.Add(IngresarCliente)

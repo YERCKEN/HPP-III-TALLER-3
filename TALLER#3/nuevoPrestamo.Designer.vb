@@ -181,7 +181,7 @@ Partial Class nuevoPrestamo
         PanelSeleccionId.Controls.Add(Label2)
         PanelSeleccionId.Controls.Add(DataGridView2)
         PanelSeleccionId.Controls.Add(TextBoxBusquedad)
-        PanelSeleccionId.Location = New Point(127, 113)
+        PanelSeleccionId.Location = New Point(175, 136)
         PanelSeleccionId.Name = "PanelSeleccionId"
         PanelSeleccionId.Size = New Size(859, 169)
         PanelSeleccionId.TabIndex = 50
@@ -290,13 +290,13 @@ Partial Class nuevoPrestamo
         ' 
         ' NewClienteBtn
         ' 
-        NewClienteBtn.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
+        NewClienteBtn.BackColor = Color.FromArgb(CByte(82), CByte(235), CByte(163))
         NewClienteBtn.Cursor = Cursors.Hand
         NewClienteBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         NewClienteBtn.FlatAppearance.BorderSize = 0
         NewClienteBtn.FlatStyle = FlatStyle.Flat
         NewClienteBtn.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        NewClienteBtn.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        NewClienteBtn.ForeColor = Color.White
         NewClienteBtn.Location = New Point(658, 29)
         NewClienteBtn.Name = "NewClienteBtn"
         NewClienteBtn.Size = New Size(185, 51)

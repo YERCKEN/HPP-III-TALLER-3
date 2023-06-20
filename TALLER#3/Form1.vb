@@ -40,7 +40,8 @@ Public Class Form1
             'PROPIEDADES GRIDVIEW-----------------------------------------------------------------
             DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
             DataGridView1.AutoSize = False
-            DataGridView1.MaximumSize = New Size(1242, 250)
+
+            DataGridView1.MaximumSize = New Size(1211, 306)
             DataGridView1.AutoResizeColumns()
             DataGridView1.ReadOnly = True
 
@@ -56,6 +57,20 @@ Public Class Form1
 
         End Try
 
+        DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+
+        DataGridView1.Columns("FechaDevolucion").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        DataGridView1.Columns("FechaPrestamo").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        DataGridView1.Columns("FechaPrestamo").HeaderText = "F.Préstamo"
+        DataGridView1.Columns("FechaDevolucion").HeaderText = "F.Devolución"
+        DataGridView1.Columns("Cliente").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+
+        ' Configura la columna de observación como de varias líneas
+        Dim cellStyle As DataGridViewCellStyle = New DataGridViewCellStyle()
+        cellStyle.WrapMode = DataGridViewTriState.True
+        DataGridView1.Columns("ObservacioN").DefaultCellStyle = cellStyle
+        DataGridView1.Columns("Libro").DefaultCellStyle = cellStyle
     End Sub
 
     'boton cerrar BARRA 
@@ -186,33 +201,33 @@ Public Class Form1
     '´LOCALIDAD--------------------------------------------------------------------------------------------------
     Private Sub Form1_LocationChanged(sender As Object, e As EventArgs) Handles MyBase.LocationChanged
 
-        If nuevoLibro IsNot Nothing Then ' Verificar si el Formulario 2 está abierto
-            nuevoLibro.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form2 en relación con Form1
+        If nuevoLibro IsNot Nothing Then
+            nuevoLibro.Location = New Point(Me.Location.X, Me.Location.Y + 48)
         End If
 
         'FORMS nuevos cliente--------------
-        If NuevoCliente IsNot Nothing Then ' Verificar si el Formulario 3 está abierto
-            NuevoCliente.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form3 en relación con Form1
+        If NuevoCliente IsNot Nothing Then
+            NuevoCliente.Location = New Point(Me.Location.X, Me.Location.Y + 48)
         End If
 
         'FORMS cliente--------------
-        If Cliente IsNot Nothing Then ' Verificar si el Formulario 4 está abierto
-            Cliente.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form4 en relación con Form1
+        If Cliente IsNot Nothing Then
+            Cliente.Location = New Point(Me.Location.X, Me.Location.Y + 48)
         End If
 
         'FORMS cliente--------------
-        If nuevoPrestamo IsNot Nothing Then ' Verificar si el Formulario 4 está abierto
-            nuevoPrestamo.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form4 en relación con Form1
+        If nuevoPrestamo IsNot Nothing Then
+            nuevoPrestamo.Location = New Point(Me.Location.X, Me.Location.Y + 48)
         End If
 
         'FORMS ELIMINACION ---------------------------------------------------------------------------
-        If eliminacion IsNot Nothing Then ' Verificar si el Formulario 4 está abierto
-            eliminacion.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form4 en relación con Form1
+        If eliminacion IsNot Nothing Then
+            eliminacion.Location = New Point(Me.Location.X, Me.Location.Y + 48)
         End If
 
         'FORMS EMPRESA---------------------------------------------------------------------------
-        If Empresa IsNot Nothing Then ' Verificar si el Formulario 4 está abierto
-            Empresa.Location = New Point(Me.Location.X, Me.Location.Y + 48) ' Establecer la nueva ubicación de Form4 en relación con Form1
+        If Empresa IsNot Nothing Then
+            Empresa.Location = New Point(Me.Location.X, Me.Location.Y + 48)
         End If
 
 
@@ -268,4 +283,54 @@ Public Class Form1
         Me.Close()
 
     End Sub
+
+
+
+
+    'HOOVER-------------------------------------------
+    Private originalImage As Image
+
+    Private Sub BtnCerrar_MouseEnter(sender As Object, e As EventArgs) Handles BtnCerrar.MouseEnter
+        originalImage = BtnCerrar.Image
+        BtnCerrar.BackColor = Color.FromArgb(255, 117, 117)
+        BtnCerrar.Image = Image.FromFile("C:\Users\edkac\OneDrive\Documentos\MEGAsync\U 2023\HPP\4. TALLERES\TALLER #3 V2\TALLER#3\IMG\cancel 3.png")
+    End Sub
+
+    Private Sub BtnCerrar_MouseLeave(sender As Object, e As EventArgs) Handles BtnCerrar.MouseLeave
+        BtnCerrar.Image = originalImage
+
+        BtnCerrar.BackColor = Color.White
+    End Sub
+
+    Private Sub BtnMin_MouseEnter(sender As Object, e As EventArgs) Handles BtnMin.MouseEnter
+        BtnMin.BackColor = Color.FromArgb(229, 229, 229)
+
+    End Sub
+
+    Private Sub BtnMin_MouseLeave(sender As Object, e As EventArgs) Handles BtnMin.MouseLeave
+        BtnMin.BackColor = Color.White
+
+    End Sub
+
+    'Private Sub DataGridView1_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles DataGridView1.CellPainting
+    '    If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+
+    '        Dim borderColor As Color = Color.FromArgb(232, 232, 232)
+    '        Dim borderWidth As Integer = 1
+
+    '        ' Dibujar el contenido de la celda
+    '        e.Paint(e.CellBounds, DataGridViewPaintParts.All)
+
+    '        ' Dibujar el borde de la celda
+    '        Using pen As New Pen(borderColor, borderWidth)
+    '            Dim rect As Rectangle = e.CellBounds
+    '            rect.Width -= 1
+    '            rect.Height -= 1
+    '            e.Graphics.DrawRectangle(pen, rect)
+    '        End Using
+
+    '        e.Handled = True
+    '    End If
+    'End Sub
+
 End Class

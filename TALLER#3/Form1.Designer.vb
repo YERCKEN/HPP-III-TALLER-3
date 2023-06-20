@@ -73,11 +73,12 @@ Partial Class Form1
         DataGridViewCellStyle2.BackColor = SystemColors.Window
         DataGridViewCellStyle2.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle2.Padding = New Padding(0, 10, 0, 10)
         DataGridViewCellStyle2.SelectionBackColor = SystemColors.Control
         DataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
-        DataGridView1.Location = New Point(31, 316)
+        DataGridView1.Location = New Point(42, 318)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
@@ -91,7 +92,7 @@ Partial Class Form1
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
-        DataGridView1.Size = New Size(1242, 250)
+        DataGridView1.Size = New Size(1211, 306)
         DataGridView1.TabIndex = 1
         ' 
         ' Menu
@@ -200,7 +201,7 @@ Partial Class Form1
         ' 
         btnEmpresa.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         btnEmpresa.Name = "btnEmpresa"
-        btnEmpresa.Size = New Size(224, 30)
+        btnEmpresa.Size = New Size(181, 30)
         btnEmpresa.Text = "Empresa"
         ' 
         ' toolStripSeparator2
@@ -222,7 +223,7 @@ Partial Class Form1
         BuscarToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         BuscarToolStripMenuItem.Margin = New Padding(0, 20, 0, 0)
         BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem"
-        BuscarToolStripMenuItem.Size = New Size(224, 30)
+        BuscarToolStripMenuItem.Size = New Size(125, 30)
         BuscarToolStripMenuItem.Text = "5.5"
         ' 
         ' Label1
@@ -242,10 +243,10 @@ Partial Class Form1
         ' 
         BtnCerrar.BackgroundImage = CType(resources.GetObject("BtnCerrar.BackgroundImage"), Image)
         BtnCerrar.Cursor = Cursors.Hand
-        BtnCerrar.Location = New Point(1243, 10)
+        BtnCerrar.Location = New Point(1246, 10)
         BtnCerrar.Margin = New Padding(4, 3, 4, 3)
         BtnCerrar.Name = "BtnCerrar"
-        BtnCerrar.Size = New Size(40, 38)
+        BtnCerrar.Size = New Size(32, 32)
         BtnCerrar.TabIndex = 12
         BtnCerrar.TabStop = False
         ' 
@@ -253,10 +254,10 @@ Partial Class Form1
         ' 
         BtnMin.Cursor = Cursors.Hand
         BtnMin.Image = CType(resources.GetObject("BtnMin.Image"), Image)
-        BtnMin.Location = New Point(1191, 10)
+        BtnMin.Location = New Point(1210, 10)
         BtnMin.Margin = New Padding(4, 3, 4, 3)
         BtnMin.Name = "BtnMin"
-        BtnMin.Size = New Size(40, 38)
+        BtnMin.Size = New Size(32, 32)
         BtnMin.TabIndex = 13
         BtnMin.TabStop = False
         ' 
@@ -276,7 +277,7 @@ Partial Class Form1
         AutoScaleDimensions = New SizeF(11F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1306, 617)
+        ClientSize = New Size(1306, 667)
         Controls.Add(ListaMostrar)
         Controls.Add(BtnCerrar)
         Controls.Add(BtnMin)

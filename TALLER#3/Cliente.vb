@@ -6,6 +6,7 @@ Public Class Cliente
     Dim conexion As New SqlConnection(varGlobales.cadenaConexion)
 
     Dim connectionString As String = varGlobales.cadenaConexion
+    Dim estadoActual As String
     Private Sub Cliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ActualizarBtn.Visible = False
@@ -18,7 +19,7 @@ Public Class Cliente
             'PROPIEDADES GRIDVIEW-----------------------------------------------------------------
             DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
             DataGridView1.AutoSize = False
-            DataGridView1.MaximumSize = New Size(1192, 570)
+            DataGridView1.MaximumSize = New Size(1202, 262)
             DataGridView1.AutoResizeColumns()
             DataGridView1.ReadOnly = True
 
@@ -31,6 +32,28 @@ Public Class Cliente
             conexion.Close()
 
         End Try
+
+
+        ' Configura la columna de observación como de varias líneas
+        Dim cellStyle As DataGridViewCellStyle = New DataGridViewCellStyle()
+        cellStyle.WrapMode = DataGridViewTriState.True
+
+        'DataGridView1.Columns("ObservacioN").DefaultCellStyle = cellStyle
+        DataGridView1.Columns("Libro").DefaultCellStyle = cellStyle
+
+        ' Ajusta la altura de la fila automáticamente para mostrar todas las líneas de texto
+        DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+
+        DataGridView1.Columns("Id").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        DataGridView1.Columns("FechaDevolucion").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        DataGridView1.Columns("FechaPrestamo").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+
+        DataGridView1.Columns("FechaPrestamo").HeaderText = "F.Préstamo"
+        DataGridView1.Columns("FechaDevolucion").HeaderText = "F.Devolución"
+        DataGridView1.Columns("Cliente").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+
     End Sub
     Public Function MostrarClientes() As DataTable
         Dim query As String = "SELECT Prestamos.Id, Cliente.Nombre AS Cliente, Books.Title AS Libro, Prestamos.Costo, Prestamos.Estado, Prestamos.Observacion, Prestamos.FechaPrestamo, Prestamos.FechaDevolucion
@@ -50,11 +73,19 @@ Public Class Cliente
     Private Sub BtnIngresar_Click(sender As Object, e As EventArgs) Handles BtnIngresar.Click
         Try
             Dim IdCliente As Integer = Integer.Parse(IdClienteTb.Text)
+
             If ComprobacionId(IdCliente) = True Then
-                If Date.Now <= ObtenerFechaDevolucion(IdCliente) Then
-                    'FechaDevLb.Text = "Fecha devolucion: " & ObtenerFechaDevolucion(IdCliente)
+
+                If Date.Now <= ObtenerFechaDevolucion(IdCliente) Or (estadoActual <> "Devuelto") Then
+
+                    FechaDevLb.Visible = True
+                    FechaDevLb.Text = "Fecha devolucion: " & ObtenerFechaDevolucion(IdCliente)
                     FechaDevLb.ForeColor = Color.White
+                    FechaDevLb.BackColor = Color.FromArgb(82, 235, 163)
+
                     actualizarDatosClientes(IdCliente)
+                    ActualizarBtn.Visible = True
+
                 Else
                     FechaDevLb.Visible = True
                     FechaDevLb.Text = "Ha sobrepasado la fecha de entrega " & ObtenerFechaDevolucion(IdCliente) & ", Se agregará un impuesto"
@@ -66,13 +97,15 @@ Public Class Cliente
 
             Else
                 IdClienteTb.Text = ""
+
+                MsgBox("EL CLIENTE NO EXISTE")
             End If
         Catch ex As Exception
             IdClienteTb.Text = ""
         End Try
 
     End Sub
-    sub actualizarDatosClientes(ByVal IdCliente As Integer)
+    Sub actualizarDatosClientes(ByVal IdCliente As Integer)
         libroLb.Text = "Libro: " & obtenerLibroCliente(IdCliente)
         ActualizarBtn.Enabled = True
         ModificarClientesPanel.Enabled = True
@@ -108,7 +141,7 @@ WHERE Prestamos.Id =" & IdCliente
 
         End Using
 
-    End sub
+    End Sub
     Private Sub MostrarCosto(ByVal IdCliente As Integer)
 
         Using con As New SqlConnection(connectionString)
@@ -133,6 +166,7 @@ WHERE Prestamos.Id =" & IdCliente
             Dim dato As Object = command.ExecuteScalar()
 
             If dato IsNot Nothing Then
+                estadoActual = dato.ToString()
                 EstadoCb.SelectedItem = dato.ToString()
             Else
                 EstadoCb.SelectedIndex = -1
@@ -240,6 +274,9 @@ WHERE Prestamos.Id =" & IdCliente
                 ObservacionTb.Clear()
                 libroLb.Text = ""
                 IdClienteTb.Text = ""
+
+                ActualizarBtn.Visible = False
+
             End If
         Catch ex As Exception
             IdClienteTb.Text = ""
@@ -252,45 +289,53 @@ WHERE Prestamos.Id =" & IdCliente
 
     Public Function ActualizarCosto(ByVal IdCliente As Integer) As Boolean
         Dim success As Boolean = False
+
         Try
-            ' Obtener el valor del cuadro de texto para el nuevo Costo
-            Dim Costo As Decimal = Decimal.Parse(CostoTb.Text)
-            If CalcularDiasPasados(IdCliente) = 0 Then
-                Costo = Costo
-            ElseIf CalcularDiasPasados(IdCliente) >= 1 And CalcularDiasPasados(IdCliente) <= 5 Then
-                Costo = Costo + Costo * 0.03
-            ElseIf CalcularDiasPasados(IdCliente) >= 6 And CalcularDiasPasados(IdCliente) <= 10 Then
-                Costo = Costo + Costo * 0.06
-            ElseIf CalcularDiasPasados(IdCliente) >= 11 And CalcularDiasPasados(IdCliente) <= 15 Then
-                Costo = Costo + Costo * 0.09
-            ElseIf CalcularDiasPasados(IdCliente) >= 16 And CalcularDiasPasados(IdCliente) <= 20 Then
-                Costo = Costo + Costo * 0.12
-            ElseIf CalcularDiasPasados(IdCliente) >= 21 And CalcularDiasPasados(IdCliente) <= 25 Then
-                Costo = Costo + Costo * 0.15
-            ElseIf CalcularDiasPasados(IdCliente) > 26 Then
-                Costo = Costo + Costo * 0.2
-            End If
-            ' Consulta SQL para actualizar la columna Costo
-            Dim sqlQuery As String = "UPDATE Prestamos SET Costo = @Costo WHERE Id = " & IdCliente
+            If (estadoActual <> "Devuelto") Then
 
-            ' Crear una SqlConnection y SqlCommand
-            Using connection As New SqlConnection(connectionString)
-                Using command As New SqlCommand(sqlQuery, connection)
-                    ' Agregar parámetros para Costo y ClienteId
-                    command.Parameters.AddWithValue("@Costo", Costo)
 
-                    ' Abrir la conexión
-                    connection.Open()
+                ' Obtener el valor del cuadro de texto para el nuevo Costo
+                Dim Costo As Decimal = Decimal.Parse(CostoTb.Text)
+                If CalcularDiasPasados(IdCliente) = 0 Then
+                    Costo = Costo
+                ElseIf CalcularDiasPasados(IdCliente) >= 1 And CalcularDiasPasados(IdCliente) <= 5 Then
+                    Costo = Costo + Costo * 0.03
+                ElseIf CalcularDiasPasados(IdCliente) >= 6 And CalcularDiasPasados(IdCliente) <= 10 Then
+                    Costo = Costo + Costo * 0.06
+                ElseIf CalcularDiasPasados(IdCliente) >= 11 And CalcularDiasPasados(IdCliente) <= 15 Then
+                    Costo = Costo + Costo * 0.09
+                ElseIf CalcularDiasPasados(IdCliente) >= 16 And CalcularDiasPasados(IdCliente) <= 20 Then
+                    Costo = Costo + Costo * 0.12
+                ElseIf CalcularDiasPasados(IdCliente) >= 21 And CalcularDiasPasados(IdCliente) <= 25 Then
+                    Costo = Costo + Costo * 0.15
+                ElseIf CalcularDiasPasados(IdCliente) > 26 Then
+                    Costo = Costo + Costo * 0.2
+                End If
+                ' Consulta SQL para actualizar la columna Costo
+                Dim sqlQuery As String = "UPDATE Prestamos SET Costo = @Costo WHERE Id = " & IdCliente
 
-                    ' Ejecutar la consulta
-                    command.ExecuteNonQuery()
+                ' Crear una SqlConnection y SqlCommand
+                Using connection As New SqlConnection(connectionString)
+                    Using command As New SqlCommand(sqlQuery, connection)
+                        ' Agregar parámetros para Costo y ClienteId
+                        command.Parameters.AddWithValue("@Costo", Costo)
+
+                        ' Abrir la conexión
+                        connection.Open()
+
+                        ' Ejecutar la consulta
+                        command.ExecuteNonQuery()
+                    End Using
                 End Using
-            End Using
+
+            End If
+
             success = True
         Catch ex As Exception
             CostoTb.Text = ""
         End Try
         Return success
+
     End Function
 
     'ACTUALIZAR ESTADO---------------------------------------------------------------------------------------------------
@@ -345,14 +390,34 @@ WHERE Prestamos.Id =" & IdCliente
         End Using
         Return success
     End Function
-    'FUNCION COMPROBACION SI EXISTE EL ID
-    Public Function ComprobacionId(IdCliente As Integer) As Boolean
-        Dim query As String = "SELECT COUNT(*) FROM Cliente WHERE Id = " & IdCliente
+
+
+    ''FUNCION COMPROBACION SI EXISTE EL ID
+    'Public Function ComprobacionId(IdCliente As Integer) As Boolean
+    '    Dim query As String = "SELECT COUNT(*) FROM Cliente WHERE Id = " & IdCliente
+    '    Dim existeId As Boolean = False
+
+    '    Using connection As New SqlConnection(connectionString)
+    '        Using command As New SqlCommand(query, connection)
+    '            command.Parameters.AddWithValue("@IdUsuario", IdCliente)
+    '            connection.Open()
+    '            Dim count As Integer = CInt(command.ExecuteScalar())
+    '            If count > 0 Then
+    '                existeId = True
+    '            End If
+    '        End Using
+    '    End Using
+
+    '    Return existeId
+    'End Function
+
+    Public Function ComprobacionId(IdPrestamo As Integer) As Boolean
+        Dim query As String = "SELECT COUNT(*) FROM Prestamos WHERE Id = @IdPrestamo"
         Dim existeId As Boolean = False
 
         Using connection As New SqlConnection(connectionString)
             Using command As New SqlCommand(query, connection)
-                command.Parameters.AddWithValue("@IdUsuario", IdCliente)
+                command.Parameters.AddWithValue("@IdPrestamo", IdPrestamo)
                 connection.Open()
                 Dim count As Integer = CInt(command.ExecuteScalar())
                 If count > 0 Then
@@ -364,6 +429,9 @@ WHERE Prestamos.Id =" & IdCliente
         Return existeId
     End Function
 
+
+
+
     Private Sub continuarBtn_Click(sender As Object, e As EventArgs) Handles continuarBtn.Click
         Dim IdCliente As Integer = Integer.Parse(IdClienteTb.Text)
         actualizarDatosClientes(IdCliente)
@@ -373,4 +441,37 @@ WHERE Prestamos.Id =" & IdCliente
     Private Sub FechaDevLb_Click(sender As Object, e As EventArgs) Handles FechaDevLb.Click
 
     End Sub
+
+    'Private Sub DataGridView1_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles DataGridView1.CellFormatting
+    '    If e.RowIndex Mod 2 = 0 Then
+    '        ' Fila par: establecer el color de fondo
+    '        e.CellStyle.BackColor = DataGridView1.DefaultCellStyle.BackColor
+    '    Else
+    '        ' Fila impar: restablecer el color de fondo al predeterminado
+
+    '        e.CellStyle.BackColor = Color.FromArgb(252, 250, 250)
+    '    End If
+    'End Sub
+
+    'Private Sub DataGridView1_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles DataGridView1.CellPainting
+    '    If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+
+    '        Dim borderColor As Color = Color.FromArgb(232, 232, 232)
+    '        Dim borderWidth As Integer = 1
+
+    '        ' Dibujar el contenido de la celda
+    '        e.Paint(e.CellBounds, DataGridViewPaintParts.All)
+
+    '        ' Dibujar el borde de la celda
+    '        Using pen As New Pen(borderColor, borderWidth)
+    '            Dim rect As Rectangle = e.CellBounds
+    '            rect.Width -= 1
+    '            rect.Height -= 1
+    '            e.Graphics.DrawRectangle(pen, rect)
+    '        End Using
+
+    '        e.Handled = True
+    '    End If
+    'End Sub
 End Class
+

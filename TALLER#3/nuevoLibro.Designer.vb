@@ -198,18 +198,18 @@ Partial Class nuevoLibro
         ' 
         ' BtnIngresar
         ' 
-        BtnIngresar.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
+        BtnIngresar.BackColor = Color.FromArgb(CByte(82), CByte(235), CByte(163))
         BtnIngresar.Cursor = Cursors.Hand
         BtnIngresar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         BtnIngresar.FlatAppearance.BorderSize = 0
         BtnIngresar.FlatStyle = FlatStyle.Flat
         BtnIngresar.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        BtnIngresar.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        BtnIngresar.ForeColor = Color.White
         BtnIngresar.Location = New Point(1, 117)
         BtnIngresar.Name = "BtnIngresar"
         BtnIngresar.Size = New Size(439, 51)
         BtnIngresar.TabIndex = 36
-        BtnIngresar.Text = "Ingresar"
+        BtnIngresar.Text = "Ingresar Nuevo Libro"
         BtnIngresar.UseVisualStyleBackColor = False
         ' 
         ' PanelPanelIngresar
@@ -251,7 +251,7 @@ Partial Class nuevoLibro
         ' 
         ' BtnNuevo
         ' 
-        BtnNuevo.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
+        BtnNuevo.BackColor = Color.FromArgb(CByte(250), CByte(248), CByte(127))
         BtnNuevo.Cursor = Cursors.Hand
         BtnNuevo.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         BtnNuevo.FlatAppearance.BorderSize = 0
@@ -335,7 +335,7 @@ Partial Class nuevoLibro
         ' 
         ' btnIngresarAutor
         ' 
-        btnIngresarAutor.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
+        btnIngresarAutor.BackColor = Color.FromArgb(CByte(130), CByte(255), CByte(182))
         btnIngresarAutor.Cursor = Cursors.Hand
         btnIngresarAutor.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         btnIngresarAutor.FlatAppearance.BorderSize = 0
